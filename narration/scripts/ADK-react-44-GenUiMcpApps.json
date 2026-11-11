@@ -1,0 +1,39 @@
+{
+ "clip": "ADK-react-44-GenUiMcpApps",
+ "finding": "google-adk-react 34-GenUiMcpApps",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the MCP apps page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So I asked the agent to draw something in Excalidraw."
+  },
+  {
+   "at": "+",
+   "text": "The agent says the Excalidraw tool isn't available, umm, nothing is drawn."
+  },
+  {
+   "at": "evidence#1",
+   "text": "This is the MCP server URL from the page."
+  },
+  {
+   "at": "notepad",
+   "text": "So basically, mcp dot excalidraw dot com redirects to slash mcp, so the tool discovery fails."
+  },
+  {
+   "at": "+",
+   "text": "That's why the agent never gets the Excalidraw tool."
+  },
+  {
+   "at": "+",
+   "text": "So uh, this one's broken, please have a look."
+  }
+ ]
+}

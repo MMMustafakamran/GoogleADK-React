@@ -1,0 +1,39 @@
+{
+ "clip": "ADK-react-09-HeadlessUi",
+ "finding": "google-adk-react HeadlessUi",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the headless UI page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So the headless chat page should load."
+  },
+  {
+   "at": "+",
+   "text": "But the whole page is just a Next error, blocking route, uh, unstable value random UUID."
+  },
+  {
+   "at": "evidence#1",
+   "text": "This is the CopilotKit provider snippet the page uses."
+  },
+  {
+   "at": "notepad",
+   "text": "Basically, the quickstart's create next app turns on cache components, and then the CopilotKit provider calls random UUID during render, so Next blocks the whole route."
+  },
+  {
+   "at": "+",
+   "text": "So umm, the headless chat never shows up at all."
+  },
+  {
+   "at": "+",
+   "text": "So yeah, this is the issue, kindly fix it."
+  }
+ ]
+}

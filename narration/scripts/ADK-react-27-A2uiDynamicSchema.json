@@ -1,0 +1,35 @@
+{
+ "clip": "ADK-react-27-A2uiDynamicSchema",
+ "finding": "google-adk-react A2uiDynamicSchema",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the A2UI dynamic schema page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So the page should compile."
+  },
+  {
+   "at": "+",
+   "text": "It fails with module not found, can't resolve dot slash chat."
+  },
+  {
+   "at": "evidence#1",
+   "text": "This is the import of the chat component, it's never shown."
+  },
+  {
+   "at": "notepad",
+   "text": "So basically, the chat file and the API route are never shown on the page, so it doesn't compile."
+  },
+  {
+   "at": "+",
+   "text": "So yeah, kindly check this and fix it."
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+{
+ "text": "So basically, there's no Google ADK backend code for this page, so the agent has nothing to fill the surface with.",
+ "model": "s2.1-pro-free",
+ "refSha256": "2c9d0ecf4608feacc07c88e869cd4dec601481306a939b7be92fc1bff521a727",
+ "duration": 8.591,
+ "file": "7646c05d2f6ac135eb0ad1f772742735.mp3",
+ "clip": "ADK-react-11-GenUiSurfaces",
+ "at": "notepad"
+}

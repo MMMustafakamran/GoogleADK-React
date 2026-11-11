@@ -1,0 +1,35 @@
+{
+ "clip": "ADK-react-15-GenUiTheming",
+ "finding": "google-adk-react GenUiTheming",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the theming page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So I asked for a themed card."
+  },
+  {
+   "at": "+",
+   "text": "It gave a markdown card with a blocked button, uh, no themed component."
+  },
+  {
+   "at": "evidence#1",
+   "text": "This is the theming code from the page."
+  },
+  {
+   "at": "notepad",
+   "text": "So basically, there's no Google ADK backend here, so the themed components never render."
+  },
+  {
+   "at": "+",
+   "text": "That's what's breaking here, kindly have it fixed."
+  }
+ ]
+}

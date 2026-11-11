@@ -1,0 +1,35 @@
+{
+ "clip": "ADK-react-12-GenUiCatalogs",
+ "finding": "google-adk-react GenUiCatalogs",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the catalogs page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So I asked for a card from the catalog."
+  },
+  {
+   "at": "+",
+   "text": "The agent just returns a raw HTML code block, umm, not the catalog components."
+  },
+  {
+   "at": "evidence#1",
+   "text": "This is the catalog code from the page."
+  },
+  {
+   "at": "notepad",
+   "text": "So basically, the page has no Google ADK backend, so the agent never uses the catalog."
+  },
+  {
+   "at": "+",
+   "text": "So this needs a fix, kindly check it."
+  }
+ ]
+}

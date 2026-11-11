@@ -1,0 +1,39 @@
+{
+ "clip": "ADK-react-10-GenUiComponents",
+ "finding": "google-adk-react GenUiComponents",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the components and surfaces page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So I asked the agent to show some components."
+  },
+  {
+   "at": "+",
+   "text": "It just answers in plain markdown, ahh, no components render at all."
+  },
+  {
+   "at": "evidence#1",
+   "text": "This is the install line, it's only TanStack AI and OpenAI."
+  },
+  {
+   "at": "notepad",
+   "text": "So basically, this whole section has no Google ADK agent code, only a TanStack backend."
+  },
+  {
+   "at": "+",
+   "text": "And without maplibre the generative UI import doesn't even compile, even though the doc says it's optional."
+  },
+  {
+   "at": "+",
+   "text": "So kindly look into it."
+  }
+ ]
+}

@@ -1,0 +1,39 @@
+{
+ "clip": "ADK-react-26-A2ui",
+ "finding": "google-adk-react A2ui",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the A2UI page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So the A2UI page should load."
+  },
+  {
+   "at": "+",
+   "text": "It fails with my catalog is not defined, uh, the page doesn't render."
+  },
+  {
+   "at": "evidence#1",
+   "text": "This is the provider line, my catalog is never defined anywhere."
+  },
+  {
+   "at": "notepad",
+   "text": "So basically, the page is only fragments, my catalog and my agent are never defined."
+  },
+  {
+   "at": "+",
+   "text": "And there's no Google ADK agent code on the page at all."
+  },
+  {
+   "at": "+",
+   "text": "Alright, that's the issue, kindly sort it out."
+  }
+ ]
+}

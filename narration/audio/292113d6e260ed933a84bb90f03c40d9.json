@@ -1,0 +1,9 @@
+{
+ "text": "Basically, the quickstart's create next app turns on cache components, and then the CopilotKit provider calls random UUID during render, so Next blocks the whole route.",
+ "model": "s2.1-pro-free",
+ "refSha256": "2c9d0ecf4608feacc07c88e869cd4dec601481306a939b7be92fc1bff521a727",
+ "duration": 12.121,
+ "file": "292113d6e260ed933a84bb90f03c40d9.mp3",
+ "clip": "ADK-react-09-HeadlessUi",
+ "at": "notepad"
+}

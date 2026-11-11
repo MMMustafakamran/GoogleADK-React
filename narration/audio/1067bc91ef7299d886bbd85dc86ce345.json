@@ -1,0 +1,9 @@
+{
+ "text": "Moving on to the demo. So I asked about a flight between two airports.",
+ "model": "s2.1-pro-free",
+ "refSha256": "2c9d0ecf4608feacc07c88e869cd4dec601481306a939b7be92fc1bff521a727",
+ "duration": 5.016,
+ "file": "1067bc91ef7299d886bbd85dc86ce345.mp3",
+ "clip": "ADK-react-18-GenUiFromA2ui",
+ "at": "demo"
+}

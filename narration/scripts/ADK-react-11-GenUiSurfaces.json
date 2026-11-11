@@ -1,0 +1,35 @@
+{
+ "clip": "ADK-react-11-GenUiSurfaces",
+ "finding": "google-adk-react GenUiSurfaces",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the surfaces page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So I asked for some products on the surface."
+  },
+  {
+   "at": "+",
+   "text": "The agent can't see any products, and uh, no surface renders."
+  },
+  {
+   "at": "evidence#1",
+   "text": "This is the surface code from the page."
+  },
+  {
+   "at": "notepad",
+   "text": "So basically, there's no Google ADK backend code for this page, so the agent has nothing to fill the surface with."
+  },
+  {
+   "at": "+",
+   "text": "That's the problem here, please have a look."
+  }
+ ]
+}

@@ -1,0 +1,39 @@
+{
+ "clip": "ADK-react-33-Hitl",
+ "finding": "google-adk-react Hitl",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the human in the loop page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So the page should compile."
+  },
+  {
+   "at": "+",
+   "text": "It fails with expected a closing brace, got end of file, uh, the code is cut off."
+  },
+  {
+   "at": "evidence#1",
+   "text": "This is where the doc code just stops."
+  },
+  {
+   "at": "notepad",
+   "text": "So basically, the chat component is cut off, and agents dot shared chat on the backend is never published."
+  },
+  {
+   "at": "+",
+   "text": "The time picker card is never shown either."
+  },
+  {
+   "at": "+",
+   "text": "Ok so, kindly have a look and fix this one."
+  }
+ ]
+}

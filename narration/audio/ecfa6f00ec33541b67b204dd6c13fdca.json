@@ -1,0 +1,9 @@
+{
+ "text": "The agent can't see any products, and uh, no surface renders.",
+ "model": "s2.1-pro-free",
+ "refSha256": "2c9d0ecf4608feacc07c88e869cd4dec601481306a939b7be92fc1bff521a727",
+ "duration": 5.48,
+ "file": "ecfa6f00ec33541b67b204dd6c13fdca.mp3",
+ "clip": "ADK-react-11-GenUiSurfaces",
+ "at": "+"
+}

@@ -1,0 +1,39 @@
+{
+ "clip": "ADK-react-43-GenUiHashbrown",
+ "finding": "google-adk-react 33-GenUiHashbrown",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the hashbrown page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So I asked the agent for some hashbrown UI."
+  },
+  {
+   "at": "+",
+   "text": "Nothing renders, ahh, just no UI at all."
+  },
+  {
+   "at": "evidence#1",
+   "text": "This is the page code, there's no Google ADK agent or runtime route here."
+  },
+  {
+   "at": "notepad",
+   "text": "So basically, the page never shows an ADK agent or the runtime route."
+  },
+  {
+   "at": "+",
+   "text": "Even with the showcase agent wired in, uh, nothing renders."
+  },
+  {
+   "at": "+",
+   "text": "So yeah, kindly look into this and fix it."
+  }
+ ]
+}

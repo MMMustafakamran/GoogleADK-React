@@ -1,0 +1,35 @@
+{
+ "clip": "ADK-react-18-GenUiFromA2ui",
+ "finding": "google-adk-react GenUiFromA2ui",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the coming from A2UI page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So I asked about a flight between two airports."
+  },
+  {
+   "at": "+",
+   "text": "The reply is only text, umm, no airport or arrow components."
+  },
+  {
+   "at": "evidence#1",
+   "text": "This is the code from the page, the airport and arrow renderers are never shown."
+  },
+  {
+   "at": "notepad",
+   "text": "So basically, there's no Google ADK backend, and the airport and arrow renderers are missing from the page."
+  },
+  {
+   "at": "+",
+   "text": "So umm, this one needs fixing, please look into it."
+  }
+ ]
+}

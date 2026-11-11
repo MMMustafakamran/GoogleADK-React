@@ -1,0 +1,35 @@
+{
+ "clip": "ADK-react-13-GenUiStandardCatalog",
+ "finding": "google-adk-react GenUiStandardCatalog",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the standard catalog page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So I asked for a card from the standard catalog."
+  },
+  {
+   "at": "+",
+   "text": "The reply is plain markdown, uh, no catalog card shows up."
+  },
+  {
+   "at": "evidence#1",
+   "text": "This is the standard catalog code from the page."
+  },
+  {
+   "at": "notepad",
+   "text": "So basically, there's no Google ADK backend for this page, so nothing from the catalog renders."
+  },
+  {
+   "at": "+",
+   "text": "That's it for this one, kindly look into this issue."
+  }
+ ]
+}

@@ -187,7 +187,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-01-Quickstart",
+     "clip": "ADK-react-01-Quickstart",
      "loom": null,
      "narration": null
     }
@@ -217,7 +217,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-02-CopilotChat",
+     "clip": "ADK-react-02-CopilotChat",
      "loom": null,
      "narration": null
     }
@@ -247,7 +247,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-03-CopilotSidebar",
+     "clip": "ADK-react-03-CopilotSidebar",
      "loom": null,
      "narration": null
     }
@@ -277,7 +277,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-04-CopilotPopup",
+     "clip": "ADK-react-04-CopilotPopup",
      "loom": null,
      "narration": null
     }
@@ -307,7 +307,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-05-ChatControls",
+     "clip": "ADK-react-05-ChatControls",
      "loom": null,
      "narration": null
     }
@@ -333,7 +333,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-06-CssCustomization",
+     "clip": "ADK-react-06-CssCustomization",
      "loom": null,
      "narration": null
     }
@@ -359,7 +359,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-07-Slots",
+     "clip": "ADK-react-07-Slots",
      "loom": null,
      "narration": null
     }
@@ -385,7 +385,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-08-MarkdownRendering",
+     "clip": "ADK-react-08-MarkdownRendering",
      "loom": null,
      "narration": null
     }
@@ -416,7 +416,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-09-HeadlessUi",
+     "clip": "ADK-react-09-HeadlessUi",
      "loom": null,
      "narration": null
     }
@@ -463,7 +463,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-11-MultimodalAttachments",
+     "clip": "ADK-react-20-MultimodalAttachments",
      "loom": null,
      "narration": null
     }
@@ -531,7 +531,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-14-ThreadsDrawer",
+     "clip": "ADK-react-23-ThreadsDrawer",
      "loom": null,
      "narration": null
     }
@@ -561,7 +561,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-15-HeadlessThreads",
+     "clip": "ADK-react-24-HeadlessThreads",
      "loom": null,
      "narration": null
     }
@@ -587,7 +587,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-16-FrontendTools",
+     "clip": "ADK-react-25-FrontendTools",
      "loom": null,
      "narration": null
     }
@@ -613,7 +613,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-17-GenUiToolBased",
+     "clip": "ADK-react-39-GenUiToolBased",
      "loom": null,
      "narration": null
     }
@@ -639,7 +639,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-18-GenUiToolRendering",
+     "clip": "ADK-react-40-GenUiToolRendering",
      "loom": null,
      "narration": null
     }
@@ -669,7 +669,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-19-GenUiStateRendering",
+     "clip": "ADK-react-41-GenUiStateRendering",
      "loom": null,
      "narration": null
     }
@@ -700,7 +700,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-20-GenUiComponents",
+     "clip": "ADK-react-10-GenUiComponents",
      "loom": null,
      "narration": null
     }
@@ -731,7 +731,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-21-GenUiSurfaces",
+     "clip": "ADK-react-11-GenUiSurfaces",
      "loom": null,
      "narration": null
     }
@@ -762,7 +762,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-22-GenUiCatalogs",
+     "clip": "ADK-react-12-GenUiCatalogs",
      "loom": null,
      "narration": null
     }
@@ -794,7 +794,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-23-GenUiStandardCatalog",
+     "clip": "ADK-react-13-GenUiStandardCatalog",
      "loom": null,
      "narration": null
     }
@@ -825,7 +825,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-24-GenUiStateActions",
+     "clip": "ADK-react-14-GenUiStateActions",
      "loom": null,
      "narration": null
     }
@@ -856,7 +856,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-25-GenUiTheming",
+     "clip": "ADK-react-15-GenUiTheming",
      "loom": null,
      "narration": null
     }
@@ -887,7 +887,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-26-GenUiTransports",
+     "clip": "ADK-react-16-GenUiTransports",
      "loom": null,
      "narration": null
     }
@@ -918,7 +918,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-27-GenUiMarkdownMode",
+     "clip": "ADK-react-17-GenUiMarkdownMode",
      "loom": null,
      "narration": null
     }
@@ -949,7 +949,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-28-GenUiFromA2ui",
+     "clip": "ADK-react-18-GenUiFromA2ui",
      "loom": null,
      "narration": null
     }
@@ -979,7 +979,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-29-A2ui",
+     "clip": "ADK-react-26-A2ui",
      "loom": null,
      "narration": null
     }
@@ -1009,7 +1009,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-30-A2uiDynamicSchema",
+     "clip": "ADK-react-27-A2uiDynamicSchema",
      "loom": null,
      "narration": null
     }
@@ -1040,7 +1040,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-31-A2uiFixedSchema",
+     "clip": "ADK-react-28-A2uiFixedSchema",
      "loom": null,
      "narration": null
     }
@@ -1066,7 +1066,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-32-GenUiJsonRender",
+     "clip": "ADK-react-42-GenUiJsonRender",
      "loom": null,
      "narration": null
     }
@@ -1096,7 +1096,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-33-GenUiHashbrown",
+     "clip": "ADK-react-43-GenUiHashbrown",
      "loom": null,
      "narration": null
     }
@@ -1126,7 +1126,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-34-GenUiMcpApps",
+     "clip": "ADK-react-44-GenUiMcpApps",
      "loom": null,
      "narration": null
     }
@@ -1152,7 +1152,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-35-GenUiOpenGenUi",
+     "clip": "ADK-react-45-GenUiOpenGenUi",
      "loom": null,
      "narration": null
     }
@@ -1183,7 +1183,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-36-SharedState",
+     "clip": "ADK-react-29-SharedState",
      "loom": null,
      "narration": null
     }
@@ -1213,7 +1213,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-37-SharedStateRenderingInApp",
+     "clip": "ADK-react-30-SharedStateRenderingInApp",
      "loom": null,
      "narration": null
     }
@@ -1243,7 +1243,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-38-SharedStateStreaming",
+     "clip": "ADK-react-31-SharedStateStreaming",
      "loom": null,
      "narration": null
     }
@@ -1273,7 +1273,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-39-SharedStateAgentReadonly",
+     "clip": "ADK-react-32-SharedStateAgentReadonly",
      "loom": null,
      "narration": null
     }
@@ -1304,7 +1304,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-40-Hitl",
+     "clip": "ADK-react-33-Hitl",
      "loom": null,
      "narration": null
     }
@@ -1380,7 +1380,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-42-GovernedActions",
+     "clip": "ADK-react-35-GovernedActions",
      "loom": null,
      "narration": null
     }
@@ -1433,7 +1433,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-44-AgentAppContext",
+     "clip": "ADK-react-37-AgentAppContext",
      "loom": null,
      "narration": null
     }
@@ -1465,7 +1465,7 @@
    "links": [
     {
      "text": null,
-     "clip": "GOOGLEADK-react-45-Subagents",
+     "clip": "ADK-react-38-Subagents",
      "loom": null,
      "narration": null
     }

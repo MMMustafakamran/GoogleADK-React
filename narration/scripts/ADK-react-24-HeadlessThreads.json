@@ -1,0 +1,39 @@
+{
+ "clip": "ADK-react-24-HeadlessThreads",
+ "finding": "google-adk-react 15-HeadlessThreads",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the headless threads page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So I chatted a bit and then looked for the thread list."
+  },
+  {
+   "at": "+",
+   "text": "The list stays empty, umm, and no thread can be opened."
+  },
+  {
+   "at": "evidence#1",
+   "text": "This is the use threads call with my agent, while the chat runs on default."
+  },
+  {
+   "at": "notepad",
+   "text": "So basically, use threads looks at a different agent than the chat, so the list never fills."
+  },
+  {
+   "at": "+",
+   "text": "And the thread sidebar never calls on select thread, so uh, clicking a row does nothing."
+  },
+  {
+   "at": "+",
+   "text": "Ok, that's the bug here, kindly have it fixed."
+  }
+ ]
+}

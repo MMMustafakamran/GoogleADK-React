@@ -1,0 +1,35 @@
+{
+ "clip": "ADK-react-28-A2uiFixedSchema",
+ "finding": "google-adk-react A2uiFixedSchema",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the A2UI fixed schema page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So I asked for a flight card."
+  },
+  {
+   "at": "+",
+   "text": "It says unable to display card, invalid component value."
+  },
+  {
+   "at": "evidence#1",
+   "text": "This is the agent import, agents shared chat is never published."
+  },
+  {
+   "at": "notepad",
+   "text": "So basically, agents dot shared chat doesn't exist, and the tool, the agent and the schema file are never shown."
+  },
+  {
+   "at": "+",
+   "text": "So uh, please look into this one."
+  }
+ ]
+}
