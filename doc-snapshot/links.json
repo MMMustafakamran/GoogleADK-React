@@ -1,0 +1,374 @@
+{
+ "root": "google-adk",
+ "savedAt": "2026-11-11",
+ "pages": {
+  "/google-adk/build-with-agents": [],
+  "/google-adk/prebuilt-components/sidebar": [
+   "/google-adk/custom-look-and-feel/slots",
+   "/google-adk/migrate/v2",
+   "/google-adk/prebuilt-components/chat",
+   "/google-adk/prebuilt-components/copilot-threads-drawer",
+   "/google-adk/prebuilt-components/popup"
+  ],
+  "/google-adk/quickstart": [
+   "/google-adk/inspector",
+   "/google-adk/intelligence/quickstart"
+  ],
+  "/google-adk/prebuilt-components/popup": [
+   "/google-adk/custom-look-and-feel/slots",
+   "/google-adk/migrate/v2",
+   "/google-adk/prebuilt-components/chat",
+   "/google-adk/prebuilt-components/sidebar"
+  ],
+  "/google-adk/prebuilt-components/chat": [
+   "/google-adk/custom-look-and-feel/css",
+   "/google-adk/custom-look-and-feel/headless-ui",
+   "/google-adk/custom-look-and-feel/slots",
+   "/google-adk/headless-threads",
+   "/google-adk/migrate/v2",
+   "/google-adk/prebuilt-components/copilot-threads-drawer",
+   "/google-adk/prebuilt-components/popup",
+   "/google-adk/prebuilt-components/sidebar"
+  ],
+  "/google-adk": [
+   "/google-adk/inspector",
+   "/google-adk/intelligence/overview",
+   "/google-adk/intelligence/quickstart",
+   "/google-adk/threads-import"
+  ],
+  "/google-adk/prebuilt-components/chat-controls": [
+   "/google-adk/custom-look-and-feel/slots",
+   "/google-adk/intelligence/capture-interactions",
+   "/google-adk/prebuilt-components/popup",
+   "/google-adk/prebuilt-components/sidebar",
+   "/google-adk/programmatic-control"
+  ],
+  "/google-adk/custom-look-and-feel/css": [
+   "/google-adk/custom-look-and-feel/headless-ui",
+   "/google-adk/custom-look-and-feel/slots"
+  ],
+  "/google-adk/custom-look-and-feel/slots": [
+   "/google-adk/custom-look-and-feel/markdown",
+   "/google-adk/generative-ui/tool-rendering"
+  ],
+  "/google-adk/custom-look-and-feel/headless-ui": [
+   "/google-adk/custom-look-and-feel/css",
+   "/google-adk/custom-look-and-feel/slots"
+  ],
+  "/google-adk/custom-look-and-feel/markdown": [
+   "/google-adk/custom-look-and-feel/slots",
+   "/google-adk/generative-ui/tool-rendering"
+  ],
+  "/google-adk/custom-look-and-feel/reasoning-messages": [],
+  "/google-adk/multimodal-attachments": [],
+  "/google-adk/generative-ui/reasoning": [],
+  "/google-adk/prebuilt-components/copilot-threads-drawer": [
+   "/google-adk/AG-UI-Streams",
+   "/google-adk/headless-threads",
+   "/google-adk/migrate/v2",
+   "/google-adk/prebuilt-components/chat",
+   "/google-adk/threads-lifecycle"
+  ],
+  "/google-adk/voice": [
+   "/google-adk/multimodal-attachments"
+  ],
+  "/google-adk/headless-threads": [
+   "/google-adk/intelligence/quickstart",
+   "/google-adk/intelligence/self-hosting",
+   "/google-adk/intelligence/threads-explained",
+   "/google-adk/prebuilt-components/copilot-threads-drawer",
+   "/google-adk/threads-import",
+   "/google-adk/threads-lifecycle"
+  ],
+  "/google-adk/frontend-tools": [
+   "/google-adk/inspector"
+  ],
+  "/google-adk/generative-ui/tool-rendering": [],
+  "/google-adk/generative-ui/tool-based": [
+   "/google-adk/custom-look-and-feel/headless-ui",
+   "/google-adk/generative-ui/tool-rendering",
+   "/google-adk/human-in-the-loop"
+  ],
+  "/google-adk/generative-ui/state-rendering": [],
+  "/google-adk/generative-ui/components/surfaces": [
+   "/google-adk/generative-ui/components",
+   "/google-adk/generative-ui/components/catalogs"
+  ],
+  "/google-adk/generative-ui/components": [
+   "/google-adk/generative-ui/components/catalogs",
+   "/google-adk/generative-ui/components/from-a2ui",
+   "/google-adk/generative-ui/components/markdown-mode",
+   "/google-adk/generative-ui/components/state-and-actions",
+   "/google-adk/generative-ui/components/surfaces",
+   "/google-adk/generative-ui/components/theming",
+   "/google-adk/generative-ui/components/transports",
+   "/google-adk/inspector"
+  ],
+  "/google-adk/generative-ui/components/catalogs": [
+   "/google-adk/generative-ui/components/state-and-actions"
+  ],
+  "/google-adk/generative-ui/components/standard-catalog": [
+   "/google-adk/generative-ui/components/catalogs",
+   "/google-adk/generative-ui/components/theming"
+  ],
+  "/google-adk/generative-ui/components/from-a2ui": [
+   "/google-adk/generative-ui/components/catalogs",
+   "/google-adk/generative-ui/components/markdown-mode",
+   "/google-adk/generative-ui/components/state-and-actions",
+   "/google-adk/generative-ui/components/surfaces"
+  ],
+  "/google-adk/generative-ui/components/transports": [
+   "/google-adk/generative-ui/components/markdown-mode"
+  ],
+  "/google-adk/generative-ui/components/markdown-mode": [
+   "/google-adk/generative-ui/components/state-and-actions",
+   "/google-adk/generative-ui/components/surfaces"
+  ],
+  "/google-adk/generative-ui/a2ui": [
+   "/google-adk/generative-ui/a2ui/dynamic-schema",
+   "/google-adk/generative-ui/a2ui/fixed-schema",
+   "/google-adk/generative-ui/components"
+  ],
+  "/google-adk/generative-ui/a2ui/dynamic-schema": [
+   "/google-adk/generative-ui/a2ui/fixed-schema"
+  ],
+  "/google-adk/generative-ui/hashbrown": [
+   "/google-adk/generative-ui/json-render"
+  ],
+  "/google-adk/generative-ui/components/state-and-actions": [],
+  "/google-adk/generative-ui/components/theming": [],
+  "/google-adk/generative-ui/a2ui/fixed-schema": [
+   "/google-adk/generative-ui/a2ui/dynamic-schema"
+  ],
+  "/google-adk/generative-ui/open-generative-ui": [
+   "/google-adk/frontend-tools"
+  ],
+  "/google-adk/shared-state/rendering-in-app": [
+   "/google-adk/shared-state",
+   "/google-adk/shared-state/agent-readonly",
+   "/google-adk/shared-state/streaming"
+  ],
+  "/google-adk/shared-state": [
+   "/google-adk/inspector",
+   "/google-adk/shared-state/agent-readonly",
+   "/google-adk/shared-state/rendering-in-app",
+   "/google-adk/shared-state/streaming"
+  ],
+  "/google-adk/generative-ui/json-render": [
+   "/google-adk/generative-ui/hashbrown"
+  ],
+  "/google-adk/generative-ui/mcp-apps": [
+   "/google-adk/intelligence/quickstart"
+  ],
+  "/google-adk/shared-state/streaming": [
+   "/google-adk/shared-state",
+   "/google-adk/shared-state/agent-readonly"
+  ],
+  "/google-adk/shared-state/agent-readonly": [
+   "/google-adk/inspector",
+   "/google-adk/shared-state",
+   "/google-adk/shared-state/streaming"
+  ],
+  "/google-adk/human-in-the-loop": [
+   "/google-adk/human-in-the-loop/headless",
+   "/google-adk/human-in-the-loop/useInterrupt",
+   "/google-adk/inspector"
+  ],
+  "/google-adk/human-in-the-loop/useInterrupt": [
+   "/google-adk/human-in-the-loop",
+   "/google-adk/human-in-the-loop/headless"
+  ],
+  "/google-adk/human-in-the-loop/headless": [
+   "/google-adk/human-in-the-loop",
+   "/google-adk/human-in-the-loop/useInterrupt"
+  ],
+  "/google-adk/human-in-the-loop/governed-actions": [
+   "/google-adk/frontend-tools",
+   "/google-adk/human-in-the-loop",
+   "/google-adk/human-in-the-loop/useInterrupt"
+  ],
+  "/google-adk/webmcp": [
+   "/google-adk/frontend-tools"
+  ],
+  "/google-adk/agent-app-context": [],
+  "/google-adk/multi-agent/subagents": [
+   "/google-adk/shared-state",
+   "/google-adk/shared-state/streaming"
+  ],
+  "/google-adk/AG-UI-Streams": [
+   "/google-adk/headless-threads",
+   "/google-adk/inspector",
+   "/google-adk/intelligence/bring-your-own-thread-system",
+   "/google-adk/intelligence/managed-intelligence-platform",
+   "/google-adk/intelligence/quickstart",
+   "/google-adk/intelligence/self-hosting",
+   "/google-adk/intelligence/threads-explained",
+   "/google-adk/prebuilt-components/copilot-threads-drawer",
+   "/google-adk/threads-import",
+   "/google-adk/threads-lifecycle"
+  ],
+  "/google-adk/threads-import": [
+   "/google-adk/headless-threads",
+   "/google-adk/intelligence/quickstart",
+   "/google-adk/intelligence/threads-explained",
+   "/google-adk/prebuilt-components/copilot-threads-drawer"
+  ],
+  "/google-adk/threads-lifecycle": [
+   "/google-adk/auth",
+   "/google-adk/headless-threads",
+   "/google-adk/intelligence/bring-your-own-thread-system",
+   "/google-adk/intelligence/quickstart",
+   "/google-adk/intelligence/threads-explained",
+   "/google-adk/threads-import"
+  ],
+  "/google-adk/runtime-server-adapter": [
+   "/google-adk/backend/runtime-endpoints",
+   "/google-adk/intelligence/quickstart"
+  ],
+  "/google-adk/learning": [
+   "/google-adk/AG-UI-Streams",
+   "/google-adk/cli",
+   "/google-adk/inspector",
+   "/google-adk/intelligence/capture-interactions",
+   "/google-adk/intelligence/learned-skills",
+   "/google-adk/intelligence/memories",
+   "/google-adk/intelligence/overview",
+   "/google-adk/intelligence/quickstart",
+   "/google-adk/intelligence/threads-explained"
+  ],
+  "/google-adk/auth": [
+   "/google-adk/backend/runtime-endpoints",
+   "/google-adk/human-in-the-loop",
+   "/google-adk/inspector",
+   "/google-adk/intelligence/quickstart",
+   "/google-adk/threads-lifecycle"
+  ],
+  "/google-adk/vs-code-extension": [
+   "/google-adk/troubleshooting/event-inspector",
+   "/google-adk/troubleshooting/hook-explorer"
+  ],
+  "/google-adk/inspector": [
+   "/google-adk/AG-UI-Streams",
+   "/google-adk/agent-config",
+   "/google-adk/agentic-protocols/ag-ui",
+   "/google-adk/backend/copilot-runtime",
+   "/google-adk/backend/runtime-endpoints",
+   "/google-adk/frontend-tools",
+   "/google-adk/generative-ui/components",
+   "/google-adk/headless-threads",
+   "/google-adk/intelligence/overview",
+   "/google-adk/intelligence/quickstart",
+   "/google-adk/learning",
+   "/google-adk/quickstart",
+   "/google-adk/react-native",
+   "/google-adk/shared-state",
+   "/google-adk/shared-state/agent-readonly",
+   "/google-adk/troubleshooting/debug-mode",
+   "/google-adk/troubleshooting/error-debugging",
+   "/google-adk/vs-code-extension"
+  ],
+  "/google-adk/concepts/architecture": [
+   "/google-adk/agentic-protocols/ag-ui",
+   "/google-adk/intelligence/overview",
+   "/google-adk/quickstart"
+  ],
+  "/google-adk/concepts/generative-ui-overview": [
+   "/google-adk/generative-ui/a2ui",
+   "/google-adk/generative-ui/a2ui/dynamic-schema",
+   "/google-adk/generative-ui/a2ui/fixed-schema",
+   "/google-adk/generative-ui/mcp-apps",
+   "/google-adk/generative-ui/reasoning",
+   "/google-adk/generative-ui/state-rendering",
+   "/google-adk/generative-ui/tool-based",
+   "/google-adk/generative-ui/tool-rendering"
+  ],
+  "/google-adk/concepts/which-hook": [
+   "/google-adk/frontend-tools",
+   "/google-adk/generative-ui/tool-rendering",
+   "/google-adk/human-in-the-loop"
+  ],
+  "/google-adk/concepts/oss-vs-enterprise": [
+   "/google-adk/AG-UI-Streams",
+   "/google-adk/backend/copilot-runtime",
+   "/google-adk/inspector",
+   "/google-adk/intelligence/analytics",
+   "/google-adk/intelligence/channels",
+   "/google-adk/intelligence/intelligence-platform",
+   "/google-adk/intelligence/learned-skills",
+   "/google-adk/intelligence/managed-intelligence-platform",
+   "/google-adk/intelligence/memories",
+   "/google-adk/intelligence/overview",
+   "/google-adk/intelligence/self-hosting",
+   "/google-adk/intelligence/self-hosting-ecs",
+   "/google-adk/learning",
+   "/google-adk/quickstart"
+  ],
+  "/google-adk/agentic-protocols": [
+   "/google-adk/agentic-protocols/a2a",
+   "/google-adk/agentic-protocols/ag-ui",
+   "/google-adk/agentic-protocols/mcp",
+   "/google-adk/generative-ui/a2ui",
+   "/google-adk/generative-ui/mcp-apps"
+  ],
+  "/google-adk/agentic-protocols/ag-ui": [],
+  "/google-adk/agentic-protocols/ag-ui-middleware": [
+   "/google-adk/agentic-protocols/ag-ui",
+   "/google-adk/backend/ag-ui",
+   "/google-adk/backend/copilot-runtime"
+  ],
+  "/google-adk/agentic-protocols/mcp": [
+   "/google-adk/agentic-protocols",
+   "/google-adk/backend/copilot-runtime",
+   "/google-adk/generative-ui/mcp-apps",
+   "/google-adk/generative-ui/tool-rendering",
+   "/google-adk/human-in-the-loop"
+  ],
+  "/google-adk/agentic-protocols/a2a": [
+   "/google-adk/agentic-protocols"
+  ],
+  "/google-adk/contributing/code-contributions": [
+   "/google-adk/contributing/code-contributions/package-linking"
+  ],
+  "/google-adk/contributing/docs-contributions": [],
+  "/google-adk/troubleshooting/error-reference": [
+   "/google-adk/backend/runtime-endpoints",
+   "/google-adk/backend/self-managed-agents",
+   "/google-adk/troubleshooting/common-issues",
+   "/google-adk/troubleshooting/error-debugging"
+  ],
+  "/google-adk/troubleshooting/common-issues": [
+   "/google-adk/backend/agent-runner",
+   "/google-adk/backend/runtime-endpoints",
+   "/google-adk/deploy/agentcore",
+   "/google-adk/inspector",
+   "/google-adk/intelligence/self-hosting",
+   "/google-adk/model-selection",
+   "/google-adk/quickstart",
+   "/google-adk/troubleshooting/error-debugging",
+   "/google-adk/troubleshooting/error-reference"
+  ],
+  "/google-adk/troubleshooting/error-debugging": [
+   "/google-adk/inspector"
+  ],
+  "/google-adk/troubleshooting/inspector-dev-console": [
+   "/google-adk/inspector",
+   "/google-adk/migrate/v2",
+   "/google-adk/troubleshooting/error-debugging"
+  ],
+  "/google-adk/troubleshooting/event-inspector": [
+   "/google-adk/inspector",
+   "/google-adk/troubleshooting/error-debugging",
+   "/google-adk/troubleshooting/hook-explorer",
+   "/google-adk/vs-code-extension"
+  ],
+  "/google-adk/troubleshooting/debug-mode": [
+   "/google-adk/troubleshooting/error-debugging"
+  ],
+  "/google-adk/troubleshooting/hook-explorer": [
+   "/google-adk/troubleshooting/event-inspector",
+   "/google-adk/vs-code-extension"
+  ],
+  "/google-adk/telemetry": [],
+  "/google-adk/community-frameworks": []
+ }
+}
