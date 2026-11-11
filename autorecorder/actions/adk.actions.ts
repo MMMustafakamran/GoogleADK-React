@@ -1,4 +1,6 @@
 import { type Page } from 'playwright';
+import { fileURLToPath } from 'url';
+import { waitForPageReady } from './page-ready';
 import { type PageActionHandler, type PageRecordConfig, type ActionContext } from '../core/types';
 import { sendPrompt, waitForAgentResponseCompletion } from '../core/actions';
 import { sleep } from '../core/overlays/cursor';
@@ -617,3 +619,123 @@ function renderedWithFinding(selector: string, what: string): PageActionHandler 
 export const runHashbrownWithFinding = renderedWithFinding(`${SELECTORS.assistantMessage} svg, ${SELECTORS.assistantMessage} canvas`, 'hashbrown chart in the reply');
 /** gen-ui-mcp-apps (#27): the MCP app iframe must render. */
 export const runMcpAppsWithFinding = renderedWithFinding('iframe', 'MCP app iframe');
+
+// ---------------------------------------------------------------------------------------------
+// ✅ pages whose effect is not a plain chat reply (CI 2026-11-11 recorded them badly).
+// ---------------------------------------------------------------------------------------------
+
+/** gen-ui-state-rendering: the agent writes into the Document pane (agent state), no chat reply. */
+export const runDocumentStateAction: PageActionHandler = async (page, config, _root, ctx) => {
+  await sendPrompt(page, config.prompt, { timeoutMs: 15000 });
+  const content = page.locator('[data-testid="document-content"]');
+  const filled = await page
+    .waitForFunction(() => (document.querySelector('[data-testid="document-content"]')?.textContent ?? '').trim().length > 0, null, { timeout: 120000, polling: 500 })
+    .then(() => true)
+    .catch(() => false);
+  if (!filled) {
+    mark('error');
+    ctx.fail('The Document pane stayed empty: no text streamed into agent state.');
+    return;
+  }
+  mark('action', 'document streaming from agent state');
+  await glideTo(page, content, 1500);
+  // The LIVE badge (isStreaming) goes away when the run ends.
+  const finished = await page
+    .locator('[data-testid="document-live-badge"]')
+    .waitFor({ state: 'detached', timeout: 180000 })
+    .then(() => true)
+    .catch(() => false);
+  if (!finished) ctx.warn('Document still LIVE after 3 minutes.');
+  void checkpoint('document', 'the Document pane holds the written text', () => probeText(content));
+  await glideTo(page, page.locator('[data-testid="document-char-count"]'), 2500);
+};
+
+const ATTACH_FIXTURE = fileURLToPath(new URL('../fixtures/red-circle.png', import.meta.url)); // HARNESS test asset
+
+/** multimodal-attachments: attach a small image with the chat's "+" control, then ask about it. */
+export const runAttachmentsAction: PageActionHandler = async (page, config, root, ctx) => {
+  const add = page.locator('[data-testid="copilot-add-menu-button"]').first();
+  let attached = false;
+  if (await add.isVisible({ timeout: 15000 }).catch(() => false)) {
+    mark('click', 'Add attachments');
+    await glideClick(page, add);
+    await sleep(800);
+    const item = page.getByRole('menuitem').filter({ hasText: /attach|upload|file|photo|image/i }).first();
+    const chooser = page.waitForEvent('filechooser', { timeout: 8000 }).catch(() => null);
+    if (await item.isVisible({ timeout: 3000 }).catch(() => false)) await glideClick(page, item);
+    const fc = await chooser;
+    if (fc) {
+      await fc.setFiles(ATTACH_FIXTURE);
+      attached = true;
+    }
+  }
+  if (!attached) {
+    // No chooser opened (menu shape changed): put the file on the chat's own file input.
+    await page.keyboard.press('Escape').catch(() => {});
+    const input = page.locator('input[type="file"]').first();
+    attached = await input.setInputFiles(ATTACH_FIXTURE).then(() => true).catch(() => false);
+  }
+  const queued = page.locator('[data-testid="copilot-attachment-queue"]').first();
+  const shown = attached && (await queued.waitFor({ state: 'visible', timeout: 15000 }).then(() => true).catch(() => false));
+  void checkpoint('attach', 'the image shows in the attachment queue', async () => shown);
+  if (!shown) {
+    mark('error');
+    ctx.fail('The attach control did not queue the image.');
+    return;
+  }
+  mark('action', 'image attached');
+  await glideTo(page, queued, 1500);
+  await runStandardAction(page, config, root, ctx);
+  const sent = page.locator('img[src^="data:"], img[src^="blob:"], img[alt*="red-circle"]').first();
+  void checkpoint('sent', 'the sent message carries the image', async () => (await sent.count()) > 0);
+};
+
+const JSON_RENDER_OUTPUT = '[data-testid="metric-card"], [data-testid="bar-chart"], [data-testid="pie-chart"]';
+
+/**
+ * Wait for the json-render output, or for a text-only reply that has stopped changing.
+ * The page swaps in its own assistant message slot and the agent can take over 30 s, so the
+ * standard reply wait (which threw in CI and locally on the raw-JSON reply) is not used.
+ */
+async function waitJsonRender(page: Page, timeoutMs: number): Promise<'rendered' | 'text' | 'timeout'> {
+  const deadline = Date.now() + timeoutMs;
+  let last = '';
+  let stableSince = Date.now();
+  while (Date.now() < deadline) {
+    if (await page.locator(JSON_RENDER_OUTPUT).first().isVisible().catch(() => false)) return 'rendered';
+    const text = await page.locator(SELECTORS.assistantMessage).last().innerText({ timeout: 1000 }).catch(() => '');
+    if (text !== last) {
+      last = text;
+      stableSince = Date.now();
+    } else if (text.trim().length > 0 && Date.now() - stableSince > 10000) {
+      return 'text';
+    }
+    await sleep(1000);
+  }
+  return 'timeout';
+}
+
+/** gen-ui-json-render: the reply must render a metric card or chart; one retry in a new thread. */
+export const runJsonRenderAction: PageActionHandler = async (page, config, _root, ctx) => {
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    await sendPrompt(page, config.prompt, { timeoutMs: 15000 });
+    const outcome = await waitJsonRender(page, 150000);
+    const out = page.locator(JSON_RENDER_OUTPUT);
+    void checkpoint('render', `json-render dashboard (try ${attempt})`, async () => (outcome === 'rendered' ? probeText(out.first()) : outcome));
+    if (outcome === 'rendered') {
+      await sleep(3000); // the rest of the spec streams in
+      mark('action', 'dashboard rendered');
+      await glideTo(page, out.first(), 2500);
+      if ((await out.count()) > 1) await glideTo(page, out.last(), 2500);
+      return;
+    }
+    if (attempt === 1) {
+      ctx.warn(`No metric card or chart rendered (${outcome}); retrying once in a new thread.`);
+      await sleep(2000);
+      await page.reload({ waitUntil: 'domcontentloaded' });
+      await waitForPageReady(page, { label: config.id });
+    }
+  }
+  mark('error');
+  ctx.fail('No metric card or chart rendered after two tries: the reply stayed raw JSON / text.');
+};

@@ -25,6 +25,9 @@ import {
   runHeadlessThreadsWithFinding,
   runHashbrownWithFinding,
   runMcpAppsWithFinding,
+  runDocumentStateAction,
+  runAttachmentsAction,
+  runJsonRenderAction,
 } from './adk.actions';
 
 /** Keys are page ids from `config/pages.config.ts`. Doctor flags any orphans. */
@@ -54,6 +57,10 @@ export const ACTION_MAP: Record<string, PageActionHandler> = {
   'gen-ui-mcp-apps': runMcpAppsWithFinding,
   // Plain ✅ clip: open the chat with the first "Ask the assistant" button before typing.
   'chat-controls': runChatControlsAction,
+  // ✅ pages whose effect is not a plain chat reply.
+  'gen-ui-state-rendering': runDocumentStateAction,
+  'multimodal-attachments': runAttachmentsAction,
+  'gen-ui-json-render': runJsonRenderAction,
 };
 
 export async function executePageAction(
