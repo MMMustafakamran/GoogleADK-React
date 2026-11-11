@@ -9,9 +9,11 @@ is logged so a clip can be checked.
 Keys never live in the repo:
   GEMINI_POOL_KEYS      comma-separated keys (CI: from secrets), or
   GEMINI_POOL_KEYFILES  comma-separated paths to files holding one key each (local).
+  GEMINI_POOL_OPENAI_KEY / GEMINI_POOL_OPENAI_KEYFILE   last-resort OpenAI fallback (tools/openai_bridge.py,
+                        model GEMINI_POOL_OPENAI_MODEL, default gpt-6-luna) once every Gemini key/model is cooling.
 Run: uv run python ../tools/gemini_pool.py   (from backend/, port 8029; PORT overrides)
 """
-import asyncio, itertools, os, re, sys, time
+import asyncio, itertools, json, os, re, sys, time
 
 import httpx
 import uvicorn
@@ -38,7 +40,12 @@ def load_keys():
     return list(dict.fromkeys(keys))
 
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import openai_bridge  # noqa: E402  (HARNESS: OpenAI fallback, tools/openai_bridge.py)
+
 KEYS = load_keys()
+OPENAI_KEY = openai_bridge.openai_key()
+oa_client = httpx.AsyncClient(timeout=httpx.Timeout(120.0, connect=10.0))
 rr = itertools.count()
 # per attempt: give up on a hung upstream fast and try the next key/model (read covers time to first byte)
 client = httpx.AsyncClient(timeout=httpx.Timeout(float(os.getenv("GEMINI_POOL_TIMEOUT", "45")), connect=10.0))
@@ -102,7 +109,9 @@ async def proxy(request: Request):
                     finally:
                         await resp.aclose()
                 return StreamingResponse(gen(), status_code=r.status_code, headers=out_h)
-        # everything is cooling: wait for the first pair to free up, within MAX_WAIT
+        # every Gemini key/model is cooling: answer through OpenAI if a key is set, else wait
+        if OPENAI_KEY and (":generateContent" in path or ":streamGenerateContent" in path):
+            return await via_openai(body, asked, stream=":streamGenerateContent" in path)
         soonest = min([cool.get((k, m), 0) for k in range(len(KEYS)) for m in models])
         if soonest > deadline:
             break
@@ -113,10 +122,33 @@ async def proxy(request: Request):
                     media_type="application/json")
 
 
+async def via_openai(body: bytes, asked, stream: bool):
+    try:
+        g = json.loads(body or b"{}")
+    except json.JSONDecodeError:
+        return Response(b'{"error":"bad request body"}', status_code=400, media_type="application/json")
+    req, notes = openai_bridge.to_openai(g)
+    try:
+        r = await oa_client.post(openai_bridge.OPENAI_URL, json=req,
+                                 headers={"Authorization": f"Bearer {OPENAI_KEY}"})
+    except httpx.HTTPError as e:
+        log(f"OPENAI {type(e).__name__}")
+        return Response(b'{"error":"openai unreachable"}', status_code=503, media_type="application/json")
+    if r.status_code != 200:
+        log(f"OPENAI {r.status_code} {r.text[:200]}")
+        return Response(r.content, status_code=r.status_code, media_type="application/json")
+    out = openai_bridge.to_gemini(r.json())
+    log(f"FALLBACK served {asked} with OPENAI {openai_bridge.OPENAI_MODEL}"
+        f"{' (stream)' if stream else ''}{' notes=' + ';'.join(notes) if notes else ''}")
+    if stream:
+        return Response(("data: " + json.dumps(out) + "\r\n\r\n").encode(), media_type="text/event-stream")
+    return Response(json.dumps(out).encode(), media_type="application/json")
+
+
 app = Starlette(routes=[Route("/{path:path}", proxy, methods=["GET", "POST"])])
 
 if __name__ == "__main__":
-    if not KEYS:
-        sys.exit("[pool] no keys: set GEMINI_POOL_KEYS or GEMINI_POOL_KEYFILES")
-    log(f"{len(KEYS)} keys, fallback {FALLBACK}")
+    if not KEYS and not OPENAI_KEY:
+        sys.exit("[pool] no keys: set GEMINI_POOL_KEYS / GEMINI_POOL_KEYFILES (and/or GEMINI_POOL_OPENAI_KEY[FILE])")
+    log(f"{len(KEYS)} gemini keys, fallback {FALLBACK}, openai {openai_bridge.OPENAI_MODEL if OPENAI_KEY else 'off'}")
     uvicorn.run(app, host="127.0.0.1", port=int(os.getenv("PORT", "8029")), log_level="warning")
