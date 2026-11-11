@@ -1,0 +1,9 @@
+{
+ "text": "It just answers in plain text, ahh, no components render at all.",
+ "model": "s2.1-pro-free",
+ "refSha256": "2c9d0ecf4608feacc07c88e869cd4dec601481306a939b7be92fc1bff521a727",
+ "duration": 4.551,
+ "file": "8a8bc14b6044690561353adc16442203.mp3",
+ "clip": "ADK-react-10-GenUiComponents",
+ "at": "+"
+}

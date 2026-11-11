@@ -17,7 +17,7 @@
   },
   {
    "at": "+",
-   "text": "The agent just replies with a plain markdown table, uh, no generative UI renders."
+   "text": "The agent just replies in text, uh, no generative UI is streamed or rendered."
   },
   {
    "at": "evidence#1",

@@ -72,9 +72,10 @@ function agentsFor(pagePath: string): string[] {
     }
   };
   if (pagePath && pagePath !== "/") walk(dir);
-  // useAgent() / providers without an id resolve "default"; the quickstart provider uses my_agent
-  if (!found.size) { found.add("my_agent"); found.add("default"); }
-  return [...found].sort();
+  // useAgent() / providers without an id resolve "default"; shared files (app/providers.tsx) use my_agent,
+  // which the folder walk can't see, so both are always included. Capped near 3 agents (socket timeout above).
+  const extra = [...found].filter((id) => id !== "my_agent" && id !== "default").sort().slice(0, 2);
+  return ["default", "my_agent", ...extra].sort();
 }
 function handlerFor(request: Request) {
   let page = "/";

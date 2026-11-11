@@ -17,7 +17,7 @@
   },
   {
    "at": "+",
-   "text": "The agent just returns a raw HTML code block, umm, not the catalog components."
+   "text": "The agent answers on its own, umm, but the catalog's product card never renders."
   },
   {
    "at": "evidence#1",

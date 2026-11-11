@@ -1,0 +1,9 @@
+{
+ "text": "The agent answers in text, ahh, no catalog component, no state and no actions.",
+ "model": "s2.1-pro-free",
+ "refSha256": "2c9d0ecf4608feacc07c88e869cd4dec601481306a939b7be92fc1bff521a727",
+ "duration": 6.455,
+ "file": "5b60e61fd60f6ae8186f344eb8d98589.mp3",
+ "clip": "ADK-react-14-GenUiStateActions",
+ "at": "+"
+}

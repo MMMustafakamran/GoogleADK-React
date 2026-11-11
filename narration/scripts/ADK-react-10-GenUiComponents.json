@@ -17,7 +17,7 @@
   },
   {
    "at": "+",
-   "text": "It just answers in plain markdown, ahh, no components render at all."
+   "text": "It just answers in plain text, ahh, no components render at all."
   },
   {
    "at": "evidence#1",
@@ -26,10 +26,6 @@
   {
    "at": "notepad",
    "text": "So basically, this whole section has no Google ADK agent code, only a TanStack backend."
-  },
-  {
-   "at": "+",
-   "text": "And without maplibre the generative UI import doesn't even compile, even though the doc says it's optional."
   },
   {
    "at": "+",

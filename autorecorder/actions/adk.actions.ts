@@ -20,13 +20,13 @@ export const FINDING_NOTES: Record<string, string> = {
     "for a langgraph python agent add CopilotKitMiddleware, nothing for google adk",
     "no adk agent code in the whole section",
     "asked to compare starter team and enterprise plans in a table",
-    "agent gives a plain markdown table, no generative ui streamed or rendered",
+    "agent answers in plain text, no generative ui streamed or rendered",
   ].join('\n'),
   "gen-ui-markdown-mode": [
     "markdown mode page says any other agent needs one thing, put the context entries in its system prompt",
     "but never shows how for google adk, only built-in agent and langgraph python",
     "asked for the starter team enterprise plans in a table",
-    "just a plain markdown table, no generative ui rendered at all",
+    "agent just answers in text, no generative ui rendered at all",
   ].join('\n'),
   "headless-threads": [
     "page builds the thread list with useThreads agentId my-agent",
@@ -40,7 +40,7 @@ export const FINDING_NOTES: Record<string, string> = {
     "says where available the code tab also has the runtime route and agent source",
     "for google adk theres no agent or route code at all",
     "asked for a q4 sales dashboard with a metric and pie chart",
-    "agent just replies in text, nothing renders",
+    "the run finishes but nothing renders",
   ].join('\n'),
   "gen-ui-mcp-apps": [
     "route uses url process.env.MCP_SERVER_URL or mcp.excalidraw.com",
@@ -76,8 +76,7 @@ export const FINDING_NOTES: Record<string, string> = {
     "page is for google adk but the only backend is a tanstack ai openai BuiltInAgent",
     "no adk agent code in the whole components section",
     "it says already have copilotkit running, do step 3 only, so i did that on the adk quickstart agent",
-    "asked for a plans table, agent just answers in markdown, no component renders",
-    "also standardUI wont compile without npm install maplibre-gl, the install line doesnt have it",
+    "asked for a plans table, agent answers in plain text, no component renders",
   ].join('\n'),
   "gen-ui-surfaces": [
     "surfaces page has the frontend only, no adk backend anywhere",
@@ -90,7 +89,7 @@ export const FINDING_NOTES: Record<string, string> = {
     "catalogs page registers shopUI with generativeUI ui shopUI",
     "no adk backend shown, so ran it on the adk quickstart agent",
     "asked for two shoes as product cards",
-    "agent sends back a raw html code block, no catalog components render",
+    "agent answers on its own, the catalogs ProductCard never renders",
   ].join('\n'),
   "gen-ui-standard-catalog": [
     "standard catalog page, generativeUI ui standardUI",
@@ -100,9 +99,9 @@ export const FINDING_NOTES: Record<string, string> = {
   ].join('\n'),
   "gen-ui-state-actions": [
     "state and actions page, shopUI with state cart cartSchema",
-    "snippets define shopUI 3 different ways and Cart CheckoutForm are never shown",
+    "snippets define shopUI 3 different ways",
     "no adk backend either",
-    "asked for a product card, got a markdown card, no state no actions",
+    "asked for a product card, agent answers in text, no catalog component no state no actions",
   ].join('\n'),
   "gen-ui-theming": [
     "theming page sets --a2ui-color-accent and friends",
@@ -170,7 +169,7 @@ export const FINDING_EVIDENCE: Record<string, DocEvidence[]> = {
     { text: "url: process.env.MCP_SERVER_URL || \"https://mcp.excalidraw.com\",", caption: "Agent says the Excalidraw tool is not available" },
   ],
   "headless-ui": [
-    { text: "<CopilotKit runtimeUrl=\"/api/copilotkit-mcp-apps\" agent={AGENT_ID}>", caption: "Provider crashes: Blocking Route randomUUID() with cacheComponents from create-next-app@latest" },
+    { text: "const { agent } = useAgent({ agentId: \"headless-simple\" });", caption: "Page code (visible on the rendered page); route crashes: Blocking Route randomUUID() with cacheComponents" },
   ],
   "shared-state": [
     { text: "agentId: \"shared-state-read-write\",", caption: "No provider snippet on this page; route dies with Blocking Route randomUUID()" },
@@ -179,7 +178,6 @@ export const FINDING_EVIDENCE: Record<string, DocEvidence[]> = {
   ],
   "subagents": [
     { text: "from agents.shared_chat import get_model, stop_on_terminal_text", caption: "agents.shared_chat never published: ModuleNotFoundError" },
-    { text: "<CopilotKit runtimeUrl=\"/api/copilotkit\" agent=\"subagents\">", caption: "Provider: Blocking Route randomUUID()" },
   ],
   "gen-ui-components": [
     { text: "npm install @copilotkit/react-core @copilotkit/runtime @tanstack/ai @tanstack/ai-openai", caption: "TanStack AI backend only, no ADK; no maplibre-gl" },
@@ -221,6 +219,7 @@ export const FINDING_EVIDENCE: Record<string, DocEvidence[]> = {
     { text: "import { ACTIVITIES, DemoLayout } from \"./demo-layout\";", caption: "./demo-layout never shown: Module not found" },
   ],
   "hitl": [
+    { text: "onSubmit={(result) => respond?.(result)}", caption: "Last lines of the cut-off Chat() snippet: no return / closing brace" },
     { text: "from agents.shared_chat import get_model, stop_on_terminal_text", caption: "agents.shared_chat never published" },
     { text: "import { TimePickerCard, TimeSlot } from \"./time-picker-card\";", caption: "./time-picker-card never shown" },
   ],
