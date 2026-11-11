@@ -86,7 +86,9 @@ def to_openai(g: dict) -> tuple[dict, list[str]]:
                 d = p.get("inlineData") or p.get("inline_data")
                 mime = d.get("mimeType") or d.get("mime_type") or ""
                 if mime.startswith("image/"):
-                    images.append({"type": "image_url", "image_url": {"url": f"data:{mime};base64,{d.get('data', '')}"}})
+                    b64 = (d.get("data") or "").replace("-", "+").replace("_", "/")  # google-genai sends URL-safe base64
+                    b64 += "=" * (-len(b64) % 4)
+                    images.append({"type": "image_url", "image_url": {"url": f"data:{mime};base64,{b64}"}})
                 else:
                     notes.append(f"dropped inline {mime}")
             else:
