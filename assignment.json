@@ -875,13 +875,13 @@
    "child": true,
    "docPath": "generative-ui/components/transports",
    "reachable": "sidebar",
-   "status": "✅",
+   "status": "❌",
    "findings": [
-    4,
+    3,
     19
    ],
    "notes": [
-    "Note: agent-side instructions are only for the built-in agent / LangGraph, nothing for ADK"
+    "Issue: no Google ADK agent code in this section; the agent answers with a plain markdown table and no generative UI is emitted or rendered."
    ],
    "block": null,
    "links": [
@@ -906,13 +906,13 @@
    "child": true,
    "docPath": "generative-ui/components/markdown-mode",
    "reachable": "sidebar",
-   "status": "✅",
+   "status": "❌",
    "findings": [
-    4,
+    3,
     19
    ],
    "notes": [
-    "Note: no ADK agent instructions, only built-in agent / LangGraph"
+    "Issue: no Google ADK agent code in this section; the agent answers with a plain markdown table and no generative UI is emitted or rendered."
    ],
    "block": null,
    "links": [
