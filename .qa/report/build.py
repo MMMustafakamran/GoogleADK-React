@@ -67,7 +67,8 @@ def status_cell(a, p):
     if links and links[0].get('clip') is None and not links[0].get('loom'):
         warnings.append(f"{a['repo']}: {p['id']}: clip not recorded yet")
         links = []
-    first = [f'<a href="{href(l)}">{esc(l.get("text") or head)}</a>' for l in links] or [esc(head)]
+    # status style: the link text is always the status label (emoji + word), never a per-clip text
+    first = [f'<a href="{href(l)}">{esc(head)}</a>' for l in links] or [esc(head)]
     notes = [f'<span style="font-size:9pt">{esc(n)}</span>' for n in p.get('notes', [])]
     return '<br>'.join(first + notes)
 
