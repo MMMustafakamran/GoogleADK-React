@@ -4,7 +4,7 @@ ADK agents (doc code unchanged) keep working when every free Gemini key/model is
 
 Covers what ADK agents send: system instruction, text, functionCall / functionResponse turns,
 function declarations (Gemini Schema or JSON schema). Streaming requests get the whole answer as a
-single SSE chunk. Images and other inline data are dropped (logged).
+single SSE chunk. Inline images are passed on as image_url parts; other inline data is dropped (logged).
 """
 import json, os, uuid
 
@@ -62,7 +62,7 @@ def to_openai(g: dict) -> tuple[dict, list[str]]:
     pending = {}  # function name -> queue of call ids awaiting a functionResponse
     for c in g.get("contents", []):
         role = c.get("role", "user")
-        texts, calls, results = [], [], []
+        texts, calls, results, images = [], [], [], []
         for p in c.get("parts", []):
             if p.get("thought"):
                 continue
@@ -82,6 +82,13 @@ def to_openai(g: dict) -> tuple[dict, list[str]]:
                     q.remove(fr["id"])
                 results.append({"role": "tool", "tool_call_id": cid,
                                 "content": json.dumps(fr.get("response"), default=str)})
+            elif ("inlineData" in p or "inline_data" in p) and role != "model":
+                d = p.get("inlineData") or p.get("inline_data")
+                mime = d.get("mimeType") or d.get("mime_type") or ""
+                if mime.startswith("image/"):
+                    images.append({"type": "image_url", "image_url": {"url": f"data:{mime};base64,{d.get('data', '')}"}})
+                else:
+                    notes.append(f"dropped inline {mime}")
             else:
                 notes.append(f"dropped part {list(p)[:1]}")
         if role == "model":
@@ -92,7 +99,9 @@ def to_openai(g: dict) -> tuple[dict, list[str]]:
                 msgs.append(m)
         else:
             msgs.extend(results)
-            if texts:
+            if images:
+                msgs.append({"role": "user", "content": ([{"type": "text", "text": "\n".join(texts)}] if texts else []) + images})
+            elif texts:
                 msgs.append({"role": "user", "content": "\n".join(texts)})
     tools = []
     for t in g.get("tools", []) or []:
