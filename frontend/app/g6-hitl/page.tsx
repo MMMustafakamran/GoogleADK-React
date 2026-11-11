@@ -1,4 +1,6 @@
-// src/app/demos/hitl-in-chat/page.tsx
+"use client";
+// Doc: google-adk/human-in-the-loop, Code tab page.tsx (verbatim)
+
 import React from "react";
 import {
   CopilotKit,
@@ -67,3 +69,6 @@ function Chat() {
       />
     ),
   });
+
+  return <CopilotChat agentId="hitl-in-chat" className="h-full rounded-2xl" />;
+}

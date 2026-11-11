@@ -1,3 +1,24 @@
+// Doc: google-adk/generative-ui/a2ui/fixed-schema, Code tab a2ui/definitions.ts (verbatim)
+/**
+ * A2UI catalog DEFINITIONS — platform-agnostic.
+ *
+ * Each entry declares a component name + its Zod props schema. The basic
+ * catalog (Card, Column, Row, Text, Button, …) ships with CopilotKit and
+ * is mixed in via `createCatalog(..., { includeBasicCatalog: true })`, so
+ * we only declare the project-specific additions and the visual overrides
+ * here. (Custom entries with the same name as a basic component override
+ * the basic one — Catalog dedupes by `comp.name`, last-write-wins.)
+ *
+ * IMPORTANT — path bindings: fields that can be bound to a data-model path
+ * (e.g. `{ path: "/origin" }` in the fixed schema JSON) must declare their
+ * Zod type as a union of `z.string()` and `z.object({ path: z.string() })`.
+ * The A2UI `GenericBinder` uses this union to detect the field as dynamic
+ * and resolve the path against the current data model at render time. Using
+ * plain `z.string()` causes the raw `{ path }` object to reach the
+ * renderer, which React then throws on (error #31 "object with keys {path}").
+ * This matches the canonical catalog's `DynString` helper:
+ *   examples/integrations/langgraph-python/src/app/declarative-generative-ui/definitions.ts
+ */
 import { z } from "zod";
 import type { CatalogDefinitions } from "@copilotkit/a2ui-renderer";
 
@@ -81,3 +102,5 @@ export const definitions = {
     }),
   },
 } satisfies CatalogDefinitions;
+
+export type Definitions = typeof definitions;

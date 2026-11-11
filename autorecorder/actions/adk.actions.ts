@@ -36,11 +36,11 @@ export const FINDING_NOTES: Record<string, string> = {
     "so u cant open or switch any thread like the page shows",
   ].join('\n'),
   "gen-ui-hashbrown": [
-    "hashbrown page shows only the renderer and the chat part",
-    "says where available the code tab also has the runtime route and agent source",
-    "for google adk theres no agent or route code at all",
+    "code tab has the agent and route but says its mounted in registry.py, never shown",
+    "page also imports ./chat ./types and ./chart-config, not shown either",
+    "filled those in from the showcase and mounted the agent",
     "asked for a q4 sales dashboard with a metric and pie chart",
-    "the run finishes but nothing renders",
+    "backend answers fine but nothing renders, no dashboard",
   ].join('\n'),
   "gen-ui-mcp-apps": [
     "route uses url process.env.MCP_SERVER_URL or mcp.excalidraw.com",
@@ -66,11 +66,11 @@ export const FINDING_NOTES: Record<string, string> = {
     "so u cant run the shared state demo as written",
   ].join('\n'),
   "subagents": [
-    "subagents_agent.py starts with from agents.shared_chat import get_model, stop_on_terminal_text",
-    "agents.shared_chat is never shown anywhere so the backend fails, ModuleNotFoundError no module named agents.shared_chat",
-    "the file also never builds an ADKAgent or app",
-    "frontend crashes too, blocking route unstable value randomUUID() from the quickstart setup with cacheComponents",
-    "delegation-log uses SUB_AGENT_STYLE SubAgentName DelegationLogProps, never defined",
+    "took page.tsx straight from the code tab",
+    "it imports ./subagent-activity-card ./demo-layout ./active-subagent and ./suggestions",
+    "none of those 4 files are shown anywhere on the page",
+    "so next fails, module not found cant resolve ./subagent-activity-card",
+    "backend also does from agents.shared_chat import get_model, never shown",
   ].join('\n'),
   "gen-ui-components": [
     "page is for google adk but the only backend is a tanstack ai openai BuiltInAgent",
@@ -123,34 +123,35 @@ export const FINDING_NOTES: Record<string, string> = {
     "no google adk agent code at all",
   ].join('\n'),
   "a2ui-dynamic-schema": [
-    "page.tsx imports Chat from ./chat",
-    "./chat is never shown so next fails, module not found cant resolve ./chat",
-    "the /api/copilotkit-declarative-gen-ui route is never shown either",
-    "and the opt out tool is langgraph python, from ag_ui_langgraph import get_a2ui_tools, nothing for adk",
+    "code tab page.tsx imports Chat from ./chat",
+    "and renderers.tsx imports badge and button from ../_components",
+    "none of those files are on the page,no tab shows them",
+    "so next fails right away, module not found cant resolve ./chat",
+    "also the opt out tool snippet is langgraph python, from ag_ui_langgraph import get_a2ui_tools",
   ].join('\n'),
   "a2ui-fixed-schema": [
-    "agent file starts with from agents.shared_chat import get_model, stop_on_terminal_text",
-    "agents.shared_chat is never shown, ModuleNotFoundError no module named agents.shared_chat",
-    "display_flight tool, LlmAgent and flight_schema.json never shown either",
-    "filled the rest in to reach the page, card still says unable to display card, invalid component value",
-    "so no flight card",
+    "used every file from the code tab as is",
+    "page.tsx imports ./chat and renderers.tsx imports card badge button separator from ../_components, none shown",
+    "agent imports agents.shared_chat, also never shown, so had to stub all that",
+    "then the agent calls display_flight and the card shows up",
+    "but airports airline and price are all empty,card has no flight on it",
   ].join('\n'),
   "shared-state-agent-readonly": [
     "page.tsx imports ACTIVITIES and DemoLayout from ./demo-layout",
-    "./demo-layout is never shown, same for ./suggestions",
+    "and the suggestions hook from ./suggestions",
+    "neither file is on the page, not even in the code tab",
     "next fails, module not found cant resolve ./demo-layout",
-    "DemoContent is cut off before its return too, backend part is fine",
   ].join('\n'),
-  "hitl": [
-    "frontend snippet is cut off, Chat() ends after useHumanInTheLoop with no return or closing brace",
-    "next fails to parse it, expected } got eof",
-    "imports TimePickerCard from ./time-picker-card which is never shown",
-    "backend does from agents.shared_chat import get_model, stop_on_terminal_text, never shown, ModuleNotFoundError",
-    "agent hitl-in-chat never registered",
+  "governed-actions": [
+    "governed actions page only has frontend code,useInterrupt card and an approval tool",
+    "no agent or backend step at all, so used the quickstart agent",
+    "asked it to send an email to bob",
+    "no approval card ever shows, agent just replies in text",
+    "executeSideEffect is never defined either",
   ].join('\n'),
 };
 
-/** Every `text` checked against the rendered doc page HTML (2026-11-11). */
+/** Every `text` checked visible on the rendered doc page (Playwright, 2026-11-11). */
 export const FINDING_EVIDENCE: Record<string, DocEvidence[]> = {
   "gen-ui-transports": [
     { text: "For a LangGraph Python agent, add CopilotKitMiddleware", caption: "Agent-side step only for built-in agent / LangGraph Python" },
@@ -163,7 +164,7 @@ export const FINDING_EVIDENCE: Record<string, DocEvidence[]> = {
     { text: "<CopilotChat threadId={activeThreadId} />", caption: "No thread can be opened" },
   ],
   "gen-ui-hashbrown": [
-    { text: "Where available, the Code tab also includes the imported metric-card.tsx, chart components, types.ts, suggestion setup, runtime route, and agent source.", caption: "No ADK agent / runtime route shown" },
+    { text: "Where available, the Code tab also includes the imported metric-card.tsx, chart components, types.ts, suggestion setup, runtime route, and agent source.", caption: "registry.py, ./chat, ./types, ./chart-config never shown; no dashboard renders" },
   ],
   "gen-ui-mcp-apps": [
     { text: "url: process.env.MCP_SERVER_URL || \"https://mcp.excalidraw.com\",", caption: "Agent says the Excalidraw tool is not available" },
@@ -177,7 +178,7 @@ export const FINDING_EVIDENCE: Record<string, DocEvidence[]> = {
     { text: "before_model_callback=_inject_preferences,", caption: "_inject_preferences never shown" },
   ],
   "subagents": [
-    { text: "from agents.shared_chat import get_model, stop_on_terminal_text", caption: "agents.shared_chat never published: ModuleNotFoundError" },
+    { text: "from agents.shared_chat import get_model, stop_on_terminal_text", caption: "agents.shared_chat never shown; page.tsx imports four unshown files (Code tab)" },
   ],
   "gen-ui-components": [
     { text: "npm install @copilotkit/react-core @copilotkit/runtime @tanstack/ai @tanstack/ai-openai", caption: "TanStack AI backend only, no ADK; no maplibre-gl" },
@@ -208,20 +209,19 @@ export const FINDING_EVIDENCE: Record<string, DocEvidence[]> = {
   ],
   "a2ui-dynamic-schema": [
     { text: "import { Chat } from \"./chat\";", caption: "./chat never shown: Module not found" },
-    { text: "runtimeUrl=\"/api/copilotkit-declarative-gen-ui\"", caption: "Route never shown" },
     { text: "from ag_ui_langgraph import get_a2ui_tools", caption: "LangGraph code on the ADK page" },
   ],
   "a2ui-fixed-schema": [
-    { text: "from agents.shared_chat import get_model, stop_on_terminal_text", caption: "agents.shared_chat never published" },
-    { text: "FLIGHT_SCHEMA = _load_schema(\"flight_schema.json\")", caption: "flight_schema.json never shown" },
+    { text: "from agents.shared_chat import get_model, stop_on_terminal_text", caption: "agents.shared_chat never shown" },
+    { text: "FLIGHT_SCHEMA = _load_schema(\"flight_schema.json\")", caption: "Card renders but the data-bound fields stay empty" },
   ],
   "shared-state-agent-readonly": [
     { text: "import { ACTIVITIES, DemoLayout } from \"./demo-layout\";", caption: "./demo-layout never shown: Module not found" },
+    { text: "import { useReadonlyStateAgentContextSuggestions } from \"./suggestions\";", caption: "./suggestions never shown" },
   ],
-  "hitl": [
-    { text: "onSubmit={(result) => respond?.(result)}", caption: "Last lines of the cut-off Chat() snippet: no return / closing brace" },
-    { text: "from agents.shared_chat import get_model, stop_on_terminal_text", caption: "agents.shared_chat never published" },
-    { text: "import { TimePickerCard, TimeSlot } from \"./time-picker-card\";", caption: "./time-picker-card never shown" },
+  "governed-actions": [
+    { text: "Inline approval with useInterrupt", caption: "Frontend only, no agent; no approval card on the quickstart agent" },
+    { text: "return executeSideEffect(action.tool, action.arguments);", caption: "executeSideEffect never defined" },
   ],
 };
 
@@ -292,6 +292,40 @@ export const runSurfaceWithFinding: PageActionHandler = async (page, config, roo
     } else if (!rendered) {
       ctx.fail('No generative UI surface rendered; the reply is plain text/markdown.');
     }
+  } finally {
+    await writeFinding(page, config.id, config);
+  }
+};
+
+/**
+ * Fixed Schema A2UI (FINDINGS.md #8): the flight card must show the flight. The card renders, but
+ * the data-bound fields (airports, airline, price) stay empty, so the take fails on the card's text.
+ */
+export const runFixedSchemaWithFinding: PageActionHandler = async (page, config, root, ctx) => {
+  try {
+    await runStandardAction(page, config, root, ctx);
+    const card = page.locator('[data-testid="a2ui-fixed-card"]').last();
+    const shown = (await card.count()) > 0;
+    const text = shown ? ((await card.innerText().catch(() => '')) || '') : '';
+    const hasFlight = /SFO/.test(text) && /JFK/.test(text);
+    void checkpoint('render', 'flight card shows SFO and JFK', () => (hasFlight ? text.replace(/\s+/g, ' ').slice(0, 120) : null));
+    if (shown) await glideTo(page, card, 3000);
+    if (!shown) ctx.fail('No flight card rendered.');
+    else if (!hasFlight) ctx.fail('Flight card rendered with empty airports, airline and price (data-bound fields blank).');
+  } finally {
+    await writeFinding(page, config.id, config);
+  }
+};
+
+/** Governed actions (FINDINGS.md #21): an approval card must appear before the action runs. */
+export const runGovernedWithFinding: PageActionHandler = async (page, config, root, ctx) => {
+  try {
+    await runStandardAction(page, config, root, ctx);
+    const card = page.getByText('User approval required', { exact: false }).first();
+    const shown = await card.isVisible().catch(() => false);
+    void checkpoint('render', 'approval card shown', () => (shown ? 'User approval required' : null));
+    if (shown) await glideTo(page, card, 2500);
+    else ctx.fail('No approval card appeared; the agent replied in text.');
   } finally {
     await writeFinding(page, config.id, config);
   }

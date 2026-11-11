@@ -1,0 +1,9 @@
+{
+ "text": "Ok so, this is the agent read only context page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project.",
+ "model": "s2.1-pro-free",
+ "refSha256": "2c9d0ecf4608feacc07c88e869cd4dec601481306a939b7be92fc1bff521a727",
+ "duration": 11.285,
+ "file": "eabfa350ba0f2f7d08c9d6c3deed6b1e.mp3",
+ "clip": "ADK-react-32-SharedStateAgentReadonly",
+ "at": "doc"
+}

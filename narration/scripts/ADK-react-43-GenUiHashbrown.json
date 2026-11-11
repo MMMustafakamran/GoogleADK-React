@@ -1,35 +1,35 @@
 {
  "clip": "ADK-react-43-GenUiHashbrown",
- "finding": "google-adk-react 33-GenUiHashbrown",
+ "finding": "google-adk-react GenUiHashbrown",
  "level": 1,
  "segments": [
   {
    "at": "doc",
-   "text": "Ok so, this is the hashbrown page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+   "text": "Ok so, this is the Hashbrown page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
   },
   {
    "at": "ide",
-   "text": "This is my project, this is the exact code from the doc."
+   "text": "This is my project, this is the exact code from the doc, from the Code tab."
   },
   {
    "at": "demo",
-   "text": "Moving on to the demo. So I asked the agent for some hashbrown UI."
+   "text": "Moving on to the demo. So I asked for a sales dashboard with a metric and a pie chart."
   },
   {
    "at": "+",
-   "text": "Nothing renders, ahh, just no UI at all."
+   "text": "The backend answers, but umm, nothing renders, no dashboard at all."
   },
   {
    "at": "evidence#1",
-   "text": "This is the page code, there's no Google ADK agent or runtime route here."
+   "text": "This line says the Code tab has everything, but some files are missing."
   },
   {
    "at": "notepad",
-   "text": "So basically, the page never shows an ADK agent or the runtime route."
+   "text": "So basically, the agent says it's mounted in a registry file that's never shown, and the page imports chat, types and chart config, also not shown."
   },
   {
    "at": "+",
-   "text": "Even with the showcase agent wired in, uh, nothing renders."
+   "text": "I filled those in, and still no dashboard shows up."
   },
   {
    "at": "+",

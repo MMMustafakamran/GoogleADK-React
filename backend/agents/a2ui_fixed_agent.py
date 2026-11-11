@@ -1,4 +1,5 @@
-# Doc: google-adk/generative-ui/a2ui/fixed-schema (verbatim: the second, longer python block)
+# Doc: google-adk/generative-ui/a2ui/fixed-schema, Code tab src/agents/a2ui_fixed_agent.py (verbatim).
+# HARNESS: only agents.shared_chat is not on the page (FINDINGS.md #5); stand-in in agents/shared_chat.py.
 from __future__ import annotations
 
 import json
@@ -78,9 +79,6 @@ def _build_flight_operations(
     }
 
 
-# HARNESS: everything below is NOT on the doc page. The page never shows the display_flight tool,
-# the agent, or flight_schema.json/booked_schema.json (a2ui_schemas/). Copied from the CopilotKit showcase
-# (showcase/integrations/google-adk/src/agents/a2ui_fixed_agent.py) only to reach the frontend.
 def display_flight(
     tool_context: ToolContext,
     origin: str,

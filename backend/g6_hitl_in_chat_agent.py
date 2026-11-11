@@ -1,3 +1,5 @@
+# Doc: google-adk/human-in-the-loop, step-section agent snippet (verbatim). Not used: the Code tab has the full agent,
+# backend/agents/hitl_in_chat_book_call_agent.py, which the harness runs. Kept as evidence for FINDINGS.md #11 (generate_task_steps vs book_call).
 from google.adk.agents import LlmAgent
 from ag_ui_adk import AGUIToolset
 

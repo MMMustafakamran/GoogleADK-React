@@ -1,3 +1,4 @@
+// HARNESS: ./charts/chart-config.ts is imported by the Code tab's charts/bar-chart.tsx and pie-chart.tsx but not shown on the page (FINDINGS.md #26); copied from the CopilotKit showcase.
 /**
  * CopilotKit brand chart palette -- Plus Jakarta Sans / brand color system.
  *

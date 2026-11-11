@@ -1,5 +1,6 @@
-"use client"; // HARNESS: client boundary
-// Doc: agent-readonly (verbatim: second snippet = file head, first snippet = hooks; DemoContent is cut off in the doc)
+"use client";
+// Doc: google-adk/shared-state/agent-readonly, Code tab page.tsx (verbatim)
+
 import React, { useState } from "react";
 import {
   CopilotKit,
@@ -33,6 +34,7 @@ function DemoContent() {
     ACTIVITIES[0],
     ACTIVITIES[2],
   ]);
+
   useAgentContext({
     description: "The currently logged-in user's display name",
     value: userName,
@@ -45,5 +47,25 @@ function DemoContent() {
     description: "The user's recent activity in the app, newest first",
     value: recentActivity,
   });
-  return null; // HARNESS: the doc never shows DemoContent's return
+
+  useReadonlyStateAgentContextSuggestions();
+
+  const toggleActivity = (activity: string) => {
+    setRecentActivity((prev) =>
+      prev.includes(activity)
+        ? prev.filter((a) => a !== activity)
+        : [...prev, activity],
+    );
+  };
+
+  return (
+    <DemoLayout
+      userName={userName}
+      userTimezone={userTimezone}
+      recentActivity={recentActivity}
+      onUserNameChange={setUserName}
+      onUserTimezoneChange={setUserTimezone}
+      onToggleActivity={toggleActivity}
+    />
+  );
 }

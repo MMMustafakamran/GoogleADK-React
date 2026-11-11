@@ -5,7 +5,7 @@
  "segments": [
   {
    "at": "doc",
-   "text": "Ok so, this is the agent read only state page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+   "text": "Ok so, this is the agent read only context page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
   },
   {
    "at": "ide",
@@ -13,19 +13,27 @@
   },
   {
    "at": "demo",
-   "text": "Moving on to the demo. So the page should compile."
+   "text": "Moving on to the demo. So the page doesn't load at all."
   },
   {
    "at": "+",
-   "text": "It fails with module not found, can't resolve dot slash demo layout."
+   "text": "Next shows module not found, it can't resolve demo layout."
   },
   {
    "at": "evidence#1",
    "text": "This is the demo layout import, that file is never shown."
   },
   {
+   "at": "evidence#2",
+   "text": "Same for this suggestions import."
+  },
+  {
    "at": "notepad",
-   "text": "So basically, demo layout and suggestions are never on the page, so it can't compile."
+   "text": "So basically, the page imports demo layout and suggestions, and umm, neither file is on the page, not even in the Code tab."
+  },
+  {
+   "at": "+",
+   "text": "So Next just fails with module not found."
   },
   {
    "at": "+",

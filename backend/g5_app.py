@@ -24,3 +24,10 @@ add_adk_fastapi_endpoint(app, _wrap(shared_state_read_write_agent), path="/share
 add_adk_fastapi_endpoint(app, _wrap(shared_state_streaming_agent, predict_state=SHARED_STATE_STREAMING_PREDICT_STATE), path="/streaming")
 add_adk_fastapi_endpoint(app, _wrap(readonly_agent), path="/readonly")
 add_adk_fastapi_endpoint(app, _wrap(a2ui_fixed_agent), path="/a2ui-fixed")
+# HARNESS: the Code tab's route.ts for fixed-schema calls `${AGENT_URL}/a2ui_fixed_schema`; same agent at that path.
+add_adk_fastapi_endpoint(app, _wrap(a2ui_fixed_agent), path="/a2ui_fixed_schema")
+
+# HARNESS: HITL Overview Code-tab agent (hitl_in_chat_book_call_agent.py). The Code tab's route.ts maps
+# "hitl-in-chat" to `${AGENT_URL}/hitl-in-chat`; the page never shows the backend app (registry.py), so it is mounted here.
+from agents.hitl_in_chat_book_call_agent import hitl_in_chat_book_call_agent
+add_adk_fastapi_endpoint(app, _wrap(hitl_in_chat_book_call_agent), path="/hitl-in-chat")

@@ -9,27 +9,27 @@
   },
   {
    "at": "ide",
-   "text": "This is my project, this is the exact code from the doc."
+   "text": "This is my project, this is the exact code from the doc, from the Code tab."
   },
   {
    "at": "demo",
-   "text": "Moving on to the demo. So the sub agents page should load."
+   "text": "Moving on to the demo. So the page doesn't load."
   },
   {
    "at": "+",
-   "text": "But the whole page is a Next error, blocking route, ahh, unstable value random UUID."
+   "text": "Next shows module not found for the files the page imports."
   },
   {
    "at": "evidence#1",
-   "text": "And this import, agents dot shared chat, is never published."
+   "text": "And this import, agents dot shared chat, is never shown either."
   },
   {
    "at": "notepad",
-   "text": "Basically, the quickstart's create next app turns on cache components, and then the CopilotKit provider calls random UUID during render, so Next blocks the whole route."
+   "text": "So basically, the Code tab's page imports four files, the activity card, demo layout, active sub agent and suggestions, and uh, none of them are on the page."
   },
   {
    "at": "+",
-   "text": "And on the backend, agents dot shared chat doesn't exist, so the agent crashes with module not found."
+   "text": "And on the backend, shared chat with get model is never shown."
   },
   {
    "at": "+",

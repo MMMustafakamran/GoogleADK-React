@@ -32,3 +32,6 @@ add_adk_fastapi_endpoint(app, _wrap(byoc_hashbrown_agent), path="/byoc_hashbrown
 add_adk_fastapi_endpoint(app, _wrap(mcp_apps_agent), path="/mcp-apps")
 add_adk_fastapi_endpoint(app, _wrap(open_gen_ui_agent), path="/open_gen_ui")
 add_adk_fastapi_endpoint(app, _wrap(open_gen_ui_advanced_agent), path="/open_gen_ui_advanced")
+# HARNESS: the Hashbrown Code tab's route.ts calls `${AGENT_URL}/declarative-hashbrown`; byoc_agents.py says the
+# mounting lives in registry.py, which the page never shows (FINDINGS.md #26). Same agent mounted at that path.
+add_adk_fastapi_endpoint(app, _wrap(byoc_hashbrown_agent), path="/declarative-hashbrown")

@@ -1,5 +1,48 @@
 "use client";
-// src/app/demos/subagents/delegation-log.tsx
+// Doc: google-adk/multi-agent/subagents, Code tab delegation-log.tsx (verbatim)
+
+import React from "react";
+
+export type SubAgentName =
+  | "research_agent"
+  | "writing_agent"
+  | "critique_agent";
+
+export interface Delegation {
+  id: string;
+  sub_agent: SubAgentName;
+  task: string;
+  status: "completed";
+  result: string;
+}
+
+export interface DelegationLogProps {
+  delegations: Delegation[];
+  /** True while the supervisor is actively running. */
+  isRunning: boolean;
+}
+
+const SUB_AGENT_STYLE: Record<
+  SubAgentName,
+  { label: string; color: string; emoji: string }
+> = {
+  research_agent: {
+    label: "Research",
+    color: "bg-[#BEC2FF1A] text-[#010507] border-[#BEC2FF]",
+    emoji: "🔎",
+  },
+  writing_agent: {
+    label: "Writing",
+    color: "bg-[#85ECCE]/15 text-[#189370] border-[#85ECCE4D]",
+    emoji: "✍️",
+  },
+  critique_agent: {
+    label: "Critique",
+    color: "bg-[#FFAC4D]/12 text-[#010507] border-[#FFAC4D33]",
+    emoji: "🧐",
+  },
+};
+
 /**
  * Live delegation log — renders the `delegations` slot of agent state.
  *

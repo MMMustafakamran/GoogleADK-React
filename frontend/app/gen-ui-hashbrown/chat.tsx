@@ -1,4 +1,5 @@
 "use client";
+// HARNESS: ./chat.tsx is imported by the Code tab's page.tsx but not shown on the page (FINDINGS.md #26); copied from the CopilotKit showcase.
 
 import {
   CopilotChat,

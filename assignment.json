@@ -211,7 +211,7 @@
     14
    ],
    "notes": [
-    "Note: the snippet calls useAgenticChatSuggestions() and uses agent agentic_chat, neither is shown"
+    "Note: useAgenticChatSuggestions() comes from ./suggestions, a file the page never shows"
    ],
    "block": null,
    "links": [
@@ -267,12 +267,8 @@
    "docPath": "prebuilt-components/popup",
    "reachable": "sidebar",
    "status": "✅",
-   "findings": [
-    15
-   ],
-   "notes": [
-    "Note: MainContent and Suggestions are used but never shown"
-   ],
+   "findings": [],
+   "notes": [],
    "block": null,
    "links": [
     {
@@ -784,8 +780,7 @@
    "status": "❌",
    "findings": [
     3,
-    4,
-    24
+    4
    ],
    "notes": [
     "Issue: no Google ADK backend; the agent answers in text and no catalog component renders."
@@ -1003,7 +998,7 @@
     7
    ],
    "notes": [
-    "Issue: page.tsx imports ./chat and uses /api/copilotkit-declarative-gen-ui, neither is shown; it fails with Module not found: Can't resolve './chat'"
+    "Issue: the Code tab's page.tsx imports ./chat and renderers.tsx imports ../_components/badge and button, none of them shown; it fails with Module not found: Can't resolve './chat'"
    ],
    "block": null,
    "links": [
@@ -1034,7 +1029,7 @@
     8
    ],
    "notes": [
-    "Issue: the agent imports agents.shared_chat (never shown) and the page never shows the display_flight tool, agent or flight_schema.json; the card shows \"Unable to display Card: invalid component value\""
+    "Issue: the Code tab imports ./chat and ../_components/card, badge, button, separator (never shown), and the agent imports agents.shared_chat (never shown). With those filled in, the flight card renders but the airports, airline and price stay empty."
    ],
    "block": null,
    "links": [
@@ -1090,7 +1085,7 @@
     26
    ],
    "notes": [
-    "Issue: the page shows no ADK agent or runtime route; with the showcase agent wired in, the run finishes but nothing renders."
+    "Issue: the Code tab's agent is mounted in registry.py and the page imports ./chat, ./types and ./chart-config, none shown; with those filled in, no dashboard renders."
    ],
    "block": null,
    "links": [
@@ -1237,7 +1232,7 @@
     5
    ],
    "notes": [
-    "Note: the agent imports get_model / stop_on_terminal_text from agents.shared_chat, which is never shown"
+    "Note: the agent imports agents.shared_chat; the page links the showcase file, which needs an unpublished agents._header_forwarding import removed"
    ],
    "block": null,
    "links": [
@@ -1267,7 +1262,7 @@
     10
    ],
    "notes": [
-    "Issue: page.tsx imports ./demo-layout (and ./suggestions), never shown; it fails with Module not found: Can't resolve './demo-layout'"
+    "Issue: page.tsx imports ./demo-layout and ./suggestions, never shown; it fails with Module not found: Can't resolve './demo-layout'"
    ],
    "block": null,
    "links": [
@@ -1292,13 +1287,13 @@
    "child": true,
    "docPath": "human-in-the-loop",
    "reachable": "sidebar",
-   "status": "❌",
+   "status": "✅",
    "findings": [
     5,
     11
    ],
    "notes": [
-    "Issue: the frontend snippet is cut off (Expected '}', got '<eof>') and the backend imports agents.shared_chat, which is never shown"
+    "Note: works with the Code tab files. The step snippet of page.tsx is cut off, the step agent calls generate_task_steps instead of book_call, and the linked shared_chat.py needs its _header_forwarding import removed"
    ],
    "block": null,
    "links": [
@@ -1369,12 +1364,12 @@
    "child": true,
    "docPath": "human-in-the-loop/governed-actions",
    "reachable": "sidebar",
-   "status": "✅",
+   "status": "❌",
    "findings": [
     21
    ],
    "notes": [
-    "Note: the page shows no agent; it only works on an agent with AGUIToolset (shown on Frontend Tools), and executeSideEffect is never defined."
+    "Issue: the page shows no agent; on the quickstart agent no approval card appears, the agent just replies in text. executeSideEffect is also never defined."
    ],
    "block": null,
    "links": [
@@ -1454,12 +1449,11 @@
    "reachable": "sidebar",
    "status": "❌",
    "findings": [
-    1,
     5,
     12
    ],
    "notes": [
-    "Issue: the page dies with the quickstart's \"Blocking Route\" randomUUID() error; the backend imports agents.shared_chat (ModuleNotFoundError) and delegation-log types are never defined"
+    "Issue: the Code tab's page.tsx imports ./subagent-activity-card, ./demo-layout, ./active-subagent and ./suggestions, none shown; it fails with Module not found. The agent also imports agents.shared_chat, never shown."
    ],
    "block": null,
    "links": [

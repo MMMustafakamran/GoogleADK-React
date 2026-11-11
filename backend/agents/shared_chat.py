@@ -1,7 +1,8 @@
-# HARNESS: `agents.shared_chat` is imported by the shared-state, streaming and fixed-schema pages but never
-# published on them. The streaming page links the showcase file, which itself needs an unpublished
-# `agents._header_forwarding`. Minimal stand-in: get_model() returns the showcase DEFAULT_MODEL string,
-# stop_on_terminal_text is the one printed on the agent-readonly page.
+# HARNESS: `agents.shared_chat` is imported by the fixed-schema, shared-state, streaming, HITL and sub-agents
+# agent files. The streaming and HITL pages link the showcase shared_chat.py (it has get_model and
+# stop_on_terminal_text), but that file itself imports the unpublished `agents._header_forwarding`.
+# Minimal stand-in: get_model() returns the showcase DEFAULT_MODEL string, stop_on_terminal_text is the one
+# printed on the agent-readonly page. See FINDINGS.md #5.
 from google.adk.agents.callback_context import CallbackContext
 from google.adk.models.llm_response import LlmResponse
 

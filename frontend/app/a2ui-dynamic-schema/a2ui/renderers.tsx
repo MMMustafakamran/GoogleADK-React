@@ -1,3 +1,107 @@
+"use client";
+// Doc: google-adk/generative-ui/a2ui/dynamic-schema, Code tab a2ui/renderers.tsx (verbatim)
+
+/**
+ * A2UI catalog RENDERERS.
+ *
+ * React implementations for each definition in `./definitions.ts`. Visuals
+ * mirror beautiful-chat's sales dashboard renderers
+ * (../../beautiful-chat/declarative-generative-ui/renderers.tsx) so the two
+ * demos read as the same product family — same card chrome, metric
+ * typography, recharts donut/bar styling, and palette. The assembled catalog
+ * (definitions × renderers via `createCatalog`) lives in `./catalog.ts`.
+ *
+ * Reference:
+ *   https://docs.copilotkit.ai/integrations/langgraph/generative-ui/a2ui
+ */
+import React from "react";
+import {
+  PieChart as RechartsPieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  BarChart as RechartsBarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+} from "recharts";
+import type { CatalogRenderers } from "@copilotkit/a2ui-renderer";
+import { TriangleAlert, CircleAlert, CircleCheck, Info } from "lucide-react";
+
+import type { MyDefinitions } from "./definitions";
+import { Badge } from "../_components/badge";
+import { Button } from "../_components/button";
+
+// ─── Theme tokens + palette (mirrors beautiful-chat) ────────────────────────
+const c = {
+  card: "var(--card)",
+  cardFg: "var(--card-foreground)",
+  border: "var(--border)",
+  muted: "var(--muted-foreground)",
+  divider: "color-mix(in srgb, var(--border) 50%, var(--card))",
+  shadow: "0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04)",
+};
+
+const CHART_COLORS = [
+  "#3b82f6", // blue-500
+  "#8b5cf6", // violet-500
+  "#ec4899", // pink-500
+  "#f59e0b", // amber-500
+  "#10b981", // emerald-500
+  "#6366f1", // indigo-500
+] as const;
+
+/** DashboardCard-style chrome shared by Card and the chart wrappers. */
+function CardShell({
+  title,
+  subtitle,
+  testid,
+  cardId,
+  children,
+}: {
+  title: string;
+  subtitle?: string;
+  testid?: string;
+  cardId?: string;
+  children?: React.ReactNode;
+}) {
+  return (
+    <div
+      data-testid={testid}
+      data-card-id={cardId}
+      style={{
+        background: c.card,
+        borderRadius: "12px",
+        border: `1px solid ${c.border}`,
+        padding: "20px",
+        boxShadow: c.shadow,
+        display: "flex",
+        flexDirection: "column",
+        gap: "12px",
+        width: "100%",
+        minWidth: 0,
+        overflow: "hidden",
+      }}
+    >
+      <div>
+        <div style={{ fontWeight: 600, fontSize: "0.9rem", color: c.cardFg }}>
+          {title}
+        </div>
+        {subtitle && (
+          <div
+            style={{ fontSize: "0.75rem", color: c.muted, marginTop: "2px" }}
+          >
+            {subtitle}
+          </div>
+        )}
+      </div>
+      {children}
+    </div>
+  );
+}
+
 export const myRenderers: CatalogRenderers<MyDefinitions> = {
   Row: ({ props, children }) => {
     const justifyMap: Record<string, string> = {

@@ -1,0 +1,43 @@
+{
+ "clip": "ADK-react-35-GovernedActions",
+ "finding": "google-adk-react GovernedActions",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the governed action approval page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So I asked it to send an email to Bob."
+  },
+  {
+   "at": "+",
+   "text": "No approval card shows up, the agent just replies in text."
+  },
+  {
+   "at": "evidence#1",
+   "text": "This section is the approval card, umm, it's frontend only."
+  },
+  {
+   "at": "evidence#2",
+   "text": "And execute side effect is never defined."
+  },
+  {
+   "at": "notepad",
+   "text": "So basically, the page shows no agent or backend step, so with the quickstart agent the approval tool never reaches the model."
+  },
+  {
+   "at": "+",
+   "text": "So the approval card never appears."
+  },
+  {
+   "at": "+",
+   "text": "Ok so, kindly have a look and fix this one."
+  }
+ ]
+}

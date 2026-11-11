@@ -1,0 +1,9 @@
+{
+ "text": "So basically, I used every file from the Code tab, but the page imports a chat file and four UI components that are never shown, and the agent needs shared chat too.",
+ "model": "s2.1-pro-free",
+ "refSha256": "2c9d0ecf4608feacc07c88e869cd4dec601481306a939b7be92fc1bff521a727",
+ "duration": 10.913,
+ "file": "96172eaaf14f81b6dc93be7e672e81dd.mp3",
+ "clip": "ADK-react-28-A2uiFixedSchema",
+ "at": "notepad"
+}

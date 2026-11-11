@@ -1,3 +1,4 @@
+// HARNESS: ./suggestions.ts is imported by the Code tab's chat.tsx (itself not shown) but not shown on the page (FINDINGS.md #26); copied from the CopilotKit showcase.
 import { useConfigureSuggestions } from "@copilotkit/react-core/v2";
 
 export interface Suggestion {

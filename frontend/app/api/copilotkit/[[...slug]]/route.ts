@@ -17,17 +17,20 @@ const ALL_AGENTS = {
     frontend_tools: new HttpAgent({ url: "http://localhost:8022/frontend_tools" }), // HARNESS (G2): frontend-tools agent on 8022; doc never shows registration
     "reasoning-default": new HttpAgent({ url: "http://localhost:8022/reasoning" }), // HARNESS (G2): reasoning-messages; doc shows no agent/registration
     "reasoning-custom": new HttpAgent({ url: "http://localhost:8022/reasoning" }), // HARNESS (G2): generative-ui/reasoning; doc shows no agent/registration
-    // HARNESS (G1): chat/sidebar/popup/headless-ui use agent ids never shown registered or backed; quickstart agent on :8020.
+    // HARNESS (G1): chat/sidebar/popup/headless-ui agent ids (the chat Code tab registers agentic_chat at ${AGENT_URL}/agentic_chat, a backend the page never shows); quickstart agent on :8020.
     agentic_chat: new HttpAgent({ url: "http://localhost:8020/" }),
     "prebuilt-sidebar": new HttpAgent({ url: "http://localhost:8020/" }),
     "prebuilt-popup": new HttpAgent({ url: "http://localhost:8020/" }),
     "headless-simple": new HttpAgent({ url: "http://localhost:8020/" }),
-    // HARNESS (G6): HITL/subagents doc agents can't start (agents.shared_chat missing), ids never registered by doc; point at quickstart :8020.
-    "hitl-in-chat": new HttpAgent({ url: "http://localhost:8020/" }),
+    // HARNESS (G6): HITL Overview's Code-tab route.ts registers "hitl-in-chat" at ${AGENT_URL}/hitl-in-chat; the harness keeps
+    // one shared runtime, so the id points at the Code-tab agent on 8025 (agents.shared_chat stand-in, FINDINGS.md #5).
+    "hitl-in-chat": new HttpAgent({ url: "http://localhost:8025/hitl-in-chat" }),
+    // HARNESS (G6): sub-agents doc agent can't start (agents.shared_chat missing); point at quickstart :8020.
     subagents: new HttpAgent({ url: "http://localhost:8020/" }),
     // HARNESS (G6): agent-app-context agent (doc agent.py + endpoint lines) on 8026.
     app_context: new HttpAgent({ url: "http://localhost:8026/" }),
-    // HARNESS (G5): shared-state / a2ui page agent ids are never registered by the docs; G5 app on 8025 (g5_app.py).
+    // HARNESS (G5): shared-state page agent ids are never registered by those pages; G5 app on 8025 (g5_app.py).
+    // (a2ui-fixed-schema now uses its own Code-tab route /api/copilotkit-a2ui-fixed-schema; entry kept unused.)
     "shared-state-read-write": new HttpAgent({ url: "http://localhost:8025/shared-state" }),
     "shared-state-streaming": new HttpAgent({ url: "http://localhost:8025/streaming" }),
     "readonly-state-agent-context": new HttpAgent({ url: "http://localhost:8025/readonly" }),
@@ -36,7 +39,6 @@ const ALL_AGENTS = {
     default: new HttpAgent({ url: "http://localhost:8020/" }),
     // HARNESS (A): headless-threads useThreads({ agentId: "my-agent" }) id never registered by the doc; quickstart agent on 8020.
     "my-agent": new HttpAgent({ url: "http://localhost:8020/" }),
-    "declarative-gen-ui": new HttpAgent({ url: "http://localhost:8020/" }),
 };
 
 const makeRuntime = (agents: Record<string, HttpAgent>) => new CopilotRuntime({

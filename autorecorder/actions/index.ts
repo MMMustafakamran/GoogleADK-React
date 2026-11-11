@@ -24,6 +24,8 @@ import {
   runSurfaceWithFinding,
   runHeadlessThreadsWithFinding,
   runHashbrownWithFinding,
+  runFixedSchemaWithFinding,
+  runGovernedWithFinding,
   runMcpAppsWithFinding,
   runDocumentStateAction,
   runAttachmentsAction,
@@ -39,7 +41,6 @@ export const ACTION_MAP: Record<string, PageActionHandler> = {
   a2ui: runRouteErrorWithFinding,
   'a2ui-dynamic-schema': runRouteErrorWithFinding,
   'shared-state-agent-readonly': runRouteErrorWithFinding,
-  hitl: runRouteErrorWithFinding,
   // Level-1 generative UI pages: the reply must render a surface.
   'gen-ui-components': runSurfaceWithFinding,
   'gen-ui-surfaces': runSurfaceWithFinding,
@@ -48,13 +49,16 @@ export const ACTION_MAP: Record<string, PageActionHandler> = {
   'gen-ui-state-actions': runSurfaceWithFinding,
   'gen-ui-theming': runSurfaceWithFinding,
   'gen-ui-from-a2ui': runSurfaceWithFinding,
-  'a2ui-fixed-schema': runSurfaceWithFinding,
+  'a2ui-fixed-schema': runFixedSchemaWithFinding,
   'gen-ui-transports': runSurfaceWithFinding,
   'gen-ui-markdown-mode': runSurfaceWithFinding,
   // Track A follow-up (FINDINGS.md #25-#27).
   'headless-threads': runHeadlessThreadsWithFinding,
   'gen-ui-hashbrown': runHashbrownWithFinding,
   'gen-ui-mcp-apps': runMcpAppsWithFinding,
+  'governed-actions': runGovernedWithFinding,
+  // ✅ HITL Overview (Code-tab files): pick a slot in the time picker.
+  hitl: runHitlAction,
   // Plain ✅ clip: open the chat with the first "Ask the assistant" button before typing.
   'chat-controls': runChatControlsAction,
   // ✅ pages whose effect is not a plain chat reply.

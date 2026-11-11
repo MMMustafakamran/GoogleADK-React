@@ -1,3 +1,4 @@
+// Doc: google-adk/generative-ui/hashbrown, Code tab src/app/api/copilotkit-declarative-hashbrown/route.ts (verbatim)
 // Dedicated runtime for the declarative-hashbrown demo. Mirrors
 // langgraph-python's /api/copilotkit-declarative-hashbrown route, but uses
 // the HttpAgent + AGENT_URL pattern that talks to the Python ADK backend
@@ -20,7 +21,7 @@ export const POST = async (req: NextRequest) => {
     // agent_server. See `src/lib/header-forwarding.ts`.
     const headers = extractForwardedHeaders(req);
     const declarativeHashbrownAgent = new HttpAgent({
-      url: `${AGENT_URL}/byoc_hashbrown`, // HARNESS (A): backend mounts the doc's byoc_hashbrown_agent at /byoc_hashbrown (G3); showcase route used /declarative-hashbrown -> 404
+      url: `${AGENT_URL}/declarative-hashbrown`,
       headers,
     });
 

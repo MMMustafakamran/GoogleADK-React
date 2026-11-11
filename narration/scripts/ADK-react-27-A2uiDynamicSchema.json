@@ -9,23 +9,31 @@
   },
   {
    "at": "ide",
-   "text": "This is my project, this is the exact code from the doc."
+   "text": "This is my project, this is the exact code from the doc, from the Code tab."
   },
   {
    "at": "demo",
-   "text": "Moving on to the demo. So the page should compile."
+   "text": "Moving on to the demo. So the page doesn't even load."
   },
   {
    "at": "+",
-   "text": "It fails with module not found, can't resolve dot slash chat."
+   "text": "Next shows module not found, it can't resolve the chat file."
   },
   {
    "at": "evidence#1",
-   "text": "This is the import of the chat component, it's never shown."
+   "text": "This is the import, umm, the chat file is never shown on the page."
+  },
+  {
+   "at": "evidence#2",
+   "text": "And this opt out snippet is LangGraph Python, not ADK."
   },
   {
    "at": "notepad",
-   "text": "So basically, the chat file and the API route are never shown on the page, so it doesn't compile."
+   "text": "So basically, the Code tab's page imports a chat file, and the renderers import badge and button components, and none of those files are on the page."
+  },
+  {
+   "at": "+",
+   "text": "So Next fails right away with module not found."
   },
   {
    "at": "+",

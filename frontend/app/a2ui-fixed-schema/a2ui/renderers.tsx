@@ -1,3 +1,30 @@
+"use client";
+// Doc: google-adk/generative-ui/a2ui/fixed-schema, Code tab a2ui/renderers.tsx (verbatim)
+
+/**
+ * A2UI catalog RENDERERS — React implementations for the custom components
+ * declared in `./definitions`. TypeScript enforces that the renderer map's
+ * keys and prop shapes match the definitions exactly.
+ *
+ * Visual style: ShadCN aesthetic (neutral palette, rounded-xl, subtle
+ * borders, clean typography). Tailwind utility classes only — no `cn()` /
+ * `cva` helpers, no shadcn CLI install. Inline-cloned primitives live in
+ * `../_components/`.
+ */
+import React from "react";
+import type { CatalogRenderers } from "@copilotkit/a2ui-renderer";
+
+import type { Definitions } from "./definitions";
+import { Card } from "../_components/card";
+import { Badge } from "../_components/badge";
+import { Button as UIButton } from "../_components/button";
+import { Separator } from "../_components/separator";
+
+// `DynString` props are typed as `string | { path }` (see definitions.ts), but
+// the A2UI binder resolves path bindings before render — renderers only ever
+// see resolved strings. One shared helper keeps that narrowing in one place.
+const s = (v: unknown): string => (typeof v === "string" ? v : "");
+
 export const renderers: CatalogRenderers<Definitions> = {
   /**
    * Card override: ShadCN-style outer container. The basic catalog's Card
