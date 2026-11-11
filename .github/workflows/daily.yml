@@ -97,7 +97,7 @@ jobs:
           IGNORE_DRIFT: ${{ inputs.ignore_drift || false }}
         run: |
           set -euo pipefail
-          (cd autorecorder && npx tsx -e "import('./config/pages.config.ts').then(m=>{const s=m.SKIP_RECORDING||{};console.log(JSON.stringify(m.PAGES.filter(p=>!s[p.id]).map(p=>({id:p.id,docPath:p.docPath??null}))))})" | tail -1) > recorder-pages.json
+          (cd autorecorder && npx tsx -e "import('./config/pages.config.ts').then(m=>{const s=m.SKIP_RECORDING||{};console.log(JSON.stringify(m.PAGES.filter(p=>!s[p.id]).map(p=>({id:p.id,docPath:p.docPath??null,demoMayError:!!p.demoMayError}))))})" | tail -1) > recorder-pages.json
           if [ -z "${PAGES// /}" ]; then
             # Scope (QA-RULES section 9): only pages a reader reaches by clicking through the docs.
             # Recorder pages are joined to assignment.json by docPath: reachable sidebar / in-content
@@ -185,11 +185,24 @@ jobs:
           fi
           if [ -f plan-out/drift/held.md ]; then cat plan-out/drift/held.md >> "$GITHUB_STEP_SUMMARY"; fi
           echo "pages after drift: $PAGES"
+          # Evidence check: a finding clip whose FINDING_EVIDENCE text is not on the live doc page would
+          # film a skipped drag-select. Those pages are held like drift. A tool fault never blocks the run.
+          rm -f plan-out/evidence-keep.txt
+          node .qa/tools/evidence_check.mjs --pages="$PAGES" --out=plan-out --summary="$GITHUB_STEP_SUMMARY" > plan-out-evidence.log 2>&1 || true
+          cat plan-out-evidence.log
+          if [ -f plan-out/evidence-keep.txt ]; then PAGES=$(cat plan-out/evidence-keep.txt)
+          else echo "::warning::evidence check wrote no result: recording without it"; fi
+          echo "pages after evidence check: $PAGES"
           python3 - "$PAGES" "$SHARDS" "$ISOLATE_PAGES" >> "$GITHUB_OUTPUT" <<'PY'
           import json, sys, datetime
           pages = [p.strip() for p in sys.argv[1].split(",") if p.strip()]
           n = max(1, min(20, int(float(sys.argv[2] or 1))))
           iso = {p.strip() for p in sys.argv[3].split(",") if p.strip()}
+          # Pages whose demo route errors as published (demoMayError) always get their own shard.
+          try:
+              iso |= {r["id"] for r in json.load(open("recorder-pages.json")) if r.get("demoMayError")}
+          except Exception as e:
+              print(f"::warning::could not read demoMayError from recorder-pages.json ({e})", file=sys.stderr)
           normal = [p for p in pages if p not in iso]
           n = min(n, max(1, len(normal)))
           # Balance by measured recording time (page-durations.json from the last run, if cached):
@@ -357,6 +370,42 @@ jobs:
             npm run record -- "--pages=$PAGES" 2>&1 | tee ../logs/record.log
           echo "exit=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
           # A failed take is usually the doc defect itself: never fail the job here.
+          exit 0
+
+      - name: Checkpoint gate + one retake (finding clips need evidence ok, notepad, notepad-closed)
+        if: always()
+        env:
+          PAGES: ${{ matrix.pages }}
+        run: |
+          set +e
+          python3 .qa/tools/gate.py --pages="$PAGES" --meta=gate-meta.json --fail-out=gate-failed.txt
+          FAILED=$(cat gate-failed.txt 2>/dev/null)
+          if [ -n "$FAILED" ]; then
+            echo "gate failed: $FAILED; retaking once"
+            # The recorder rewrites RECORD_RESULTS.json per run: keep the first run's and merge the retake in.
+            cp autorecorder/videos/RECORD_RESULTS.json results-first.json 2>/dev/null
+            (cd autorecorder && xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24"               npm run record -- "--pages=$FAILED" 2>&1 | tee ../logs/record-retake.log)
+            python3 - <<'PY'
+          import json
+          from pathlib import Path
+          new_p = Path("autorecorder/videos/RECORD_RESULTS.json")
+          try:
+              first = json.loads(Path("results-first.json").read_text(encoding="utf-8"))
+              new = json.loads(new_p.read_text(encoding="utf-8"))
+          except Exception as e:
+              print(f"RECORD_RESULTS merge skipped ({type(e).__name__})"); raise SystemExit(0)
+          ids = {r.get("id") for r in new.get("results", [])}
+          first["results"] = [r for r in first.get("results", []) if r.get("id") not in ids] + new.get("results", [])
+          ok = lambda r: r.get("success", r.get("passed", r.get("ok")))
+          if all(ok(r) is not None for r in first["results"]):
+              first["passed"] = sum(1 for r in first["results"] if ok(r)); first["failed"] = len(first["results"]) - first["passed"]
+          new_p.write_text(json.dumps(first, indent=2, ensure_ascii=False), encoding="utf-8")
+          print(f"merged retake into RECORD_RESULTS.json ({len(ids)} page(s))")
+          PY
+            python3 .qa/tools/gate.py --pages="$FAILED" --meta=gate-meta.json --fail-out=gate-failed.txt               --summary="$GITHUB_STEP_SUMMARY" --title="Clips that failed the gate after one retake (shard ${{ matrix.shard }})"
+            STILL=$(cat gate-failed.txt 2>/dev/null)
+            [ -n "$STILL" ] && echo "::warning::clips failed the checkpoint gate after one retake: $STILL"
+          fi
           exit 0
 
       - uses: actions/setup-python@v5
