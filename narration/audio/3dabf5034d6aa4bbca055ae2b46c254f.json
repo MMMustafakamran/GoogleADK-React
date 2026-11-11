@@ -1,0 +1,9 @@
+{
+ "text": "This is the agent side step, there's nothing for Google ADK here.",
+ "model": "s2.1-pro-free",
+ "refSha256": "2c9d0ecf4608feacc07c88e869cd4dec601481306a939b7be92fc1bff521a727",
+ "duration": 4.226,
+ "file": "3dabf5034d6aa4bbca055ae2b46c254f.mp3",
+ "clip": "ADK-react-17-GenUiMarkdownMode",
+ "at": "evidence#1"
+}

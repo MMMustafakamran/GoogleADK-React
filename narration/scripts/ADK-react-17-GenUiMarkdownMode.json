@@ -1,0 +1,39 @@
+{
+ "clip": "ADK-react-17-GenUiMarkdownMode",
+ "finding": "google-adk-react #3 #19",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the markdown mode page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So I asked it to compare the starter, team and enterprise plans in a table."
+  },
+  {
+   "at": "+",
+   "text": "The agent just replies with a plain markdown table, uh, no generative UI renders."
+  },
+  {
+   "at": "evidence#1",
+   "text": "This is the agent side step, there's nothing for Google ADK here."
+  },
+  {
+   "at": "notepad",
+   "text": "So basically, this whole section has no Google ADK agent code, only the built-in agent and LangGraph."
+  },
+  {
+   "at": "+",
+   "text": "So the ADK agent never streams any generative UI."
+  },
+  {
+   "at": "+",
+   "text": "So umm, kindly check this page and get it fixed."
+  }
+ ]
+}

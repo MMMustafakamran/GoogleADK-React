@@ -1,0 +1,9 @@
+{
+ "text": "This is the agent side part, it only covers the built-in agent and LangGraph.",
+ "model": "s2.1-pro-free",
+ "refSha256": "2c9d0ecf4608feacc07c88e869cd4dec601481306a939b7be92fc1bff521a727",
+ "duration": 5.108,
+ "file": "0e558126cf7684374eaf7df71bbbdb17.mp3",
+ "clip": "ADK-react-16-GenUiTransports",
+ "at": "evidence#1"
+}

@@ -1,0 +1,39 @@
+{
+ "clip": "ADK-react-16-GenUiTransports",
+ "finding": "google-adk-react #3 #19",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the transports page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So I asked it to compare the starter, team and enterprise plans in a table."
+  },
+  {
+   "at": "+",
+   "text": "The agent just replies with a plain markdown table, uh, no generative UI renders."
+  },
+  {
+   "at": "evidence#1",
+   "text": "This is the agent side part, it only covers the built-in agent and LangGraph."
+  },
+  {
+   "at": "notepad",
+   "text": "So basically, this whole section has no Google ADK agent code, only the built-in agent and LangGraph."
+  },
+  {
+   "at": "+",
+   "text": "So the ADK agent never streams any generative UI."
+  },
+  {
+   "at": "+",
+   "text": "Yeah, so this one's not working, kindly have a look."
+  }
+ ]
+}
