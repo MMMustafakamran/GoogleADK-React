@@ -6,18 +6,203 @@ import { glideClick, glideTo } from './glide-click';
 import { runStandardAction } from '../core/actions';
 import { type DocEvidence, showFinding } from './doc-evidence';
 import { checkpoint, mark, probeText } from '../core/timeline';
+import { SELECTORS } from '../config/selectors.config';
 
 /**
  * Finding clips: back to the doc, drag-select each cited text like a person, then the finding
- * typed into Notepad in casual words (REPOS.md Rule 6). No boxes or labels drawn on the page.
+ * pasted into Notepad in hurried casual words (AUTORECORDER.md section 2). Nothing drawn on the page.
  */
 export const FINDING_NOTES: Record<string, string> = {
-  // '<page-id>': ['plain casual lines', '...'].join('
-'),
+  "headless-threads": [
+    "page builds the thread list with useThreads agentId my-agent",
+    "and opens one with CopilotChat threadId activeThreadId",
+    "chat itself replies fine",
+    "but the thread list stays empty, nothing to click",
+    "so u cant open or switch any thread like the page shows",
+  ].join('\n'),
+  "gen-ui-hashbrown": [
+    "hashbrown page shows only the renderer and the chat part",
+    "says where available the code tab also has the runtime route and agent source",
+    "for google adk theres no agent or route code at all",
+    "asked for a q4 sales dashboard with a metric and pie chart",
+    "agent just replies in text, nothing renders",
+  ].join('\n'),
+  "gen-ui-mcp-apps": [
+    "route uses url process.env.MCP_SERVER_URL or mcp.excalidraw.com",
+    "wired it exactly like that",
+    "asked it to draw a simple flowchart",
+    "agent says the excalidraw tool is not available",
+    "so no mcp app ever shows up in the chat",
+  ].join('\n'),
+  "headless-ui": [
+    "followed the quickstart, npx create-next-app@latest then the copilotkit steps",
+    "todays create-next-app turns on cacheComponents in next.config",
+    "with that the CopilotKit provider on this page crashes the whole route",
+    "next says blocking route, unstable value randomUUID() in a Client Component",
+    "so the headless chat never even shows up, page is just the error",
+    "quickstart never says to turn cacheComponents off",
+  ].join('\n'),
+  "shared-state": [
+    "page uses the CopilotKit provider from the quickstart setup",
+    "create-next-app@latest now has cacheComponents on so the route dies with",
+    "blocking route, unstable value randomUUID() in a Client Component",
+    "notes card also crashes, Card is not defined, ui kit never shown",
+    "backend shows only the LlmAgent, get_model set_notes _inject_preferences and _INSTRUCTION are never shown",
+    "so u cant run the shared state demo as written",
+  ].join('\n'),
+  "subagents": [
+    "subagents_agent.py starts with from agents.shared_chat import get_model, stop_on_terminal_text",
+    "agents.shared_chat is never shown anywhere so the backend fails, ModuleNotFoundError no module named agents.shared_chat",
+    "the file also never builds an ADKAgent or app",
+    "frontend crashes too, blocking route unstable value randomUUID() from the quickstart setup with cacheComponents",
+    "delegation-log uses SUB_AGENT_STYLE SubAgentName DelegationLogProps, never defined",
+  ].join('\n'),
+  "gen-ui-components": [
+    "page is for google adk but the only backend is a tanstack ai openai BuiltInAgent",
+    "no adk agent code in the whole components section",
+    "it says already have copilotkit running, do step 3 only, so i did that on the adk quickstart agent",
+    "asked for a plans table, agent just answers in markdown, no component renders",
+    "also standardUI wont compile without npm install maplibre-gl, the install line doesnt have it",
+  ].join('\n'),
+  "gen-ui-surfaces": [
+    "surfaces page has the frontend only, no adk backend anywhere",
+    "wired the ProductRow fallback like the page shows on the adk quickstart agent",
+    "asked for running shoes in the featured row",
+    "agent cant see any products and no surface renders, just text",
+    "Product and ProductRow are never defined either",
+  ].join('\n'),
+  "gen-ui-catalogs": [
+    "catalogs page registers shopUI with generativeUI ui shopUI",
+    "no adk backend shown, so ran it on the adk quickstart agent",
+    "asked for two shoes as product cards",
+    "agent sends back a raw html code block, no catalog components render",
+  ].join('\n'),
+  "gen-ui-standard-catalog": [
+    "standard catalog page, generativeUI ui standardUI",
+    "no adk agent code on the page or the section",
+    "asked for a card with a welcome text",
+    "reply is plain markdown, no catalog card renders",
+  ].join('\n'),
+  "gen-ui-state-actions": [
+    "state and actions page, shopUI with state cart cartSchema",
+    "snippets define shopUI 3 different ways and Cart CheckoutForm are never shown",
+    "no adk backend either",
+    "asked for a product card, got a markdown card, no state no actions",
+  ].join('\n'),
+  "gen-ui-theming": [
+    "theming page sets --a2ui-color-accent and friends",
+    "but theres no adk backend so nothing ever renders to theme",
+    "asked for a card with a button",
+    "got a markdown card with a blocked button, no themed component",
+  ].join('\n'),
+  "gen-ui-from-a2ui": [
+    "from a2ui page registers appUI with Airport and Arrow renderers",
+    "no adk agent code shown",
+    "asked for sfo to jfk with airports and an arrow",
+    "reply is just text, no airport or arrow components",
+  ].join('\n'),
+  "a2ui": [
+    "a2ui page has only fragments",
+    "CopilotKit a2ui catalog myCatalog, myCatalog is never defined, same for myAgent",
+    "so the page crashes, myCatalog is not defined",
+    "backend says from copilotkit import a2ui but no adk install step adds the copilotkit python package",
+    "no google adk agent code at all",
+  ].join('\n'),
+  "a2ui-dynamic-schema": [
+    "page.tsx imports Chat from ./chat",
+    "./chat is never shown so next fails, module not found cant resolve ./chat",
+    "the /api/copilotkit-declarative-gen-ui route is never shown either",
+    "and the opt out tool is langgraph python, from ag_ui_langgraph import get_a2ui_tools, nothing for adk",
+  ].join('\n'),
+  "a2ui-fixed-schema": [
+    "agent file starts with from agents.shared_chat import get_model, stop_on_terminal_text",
+    "agents.shared_chat is never shown, ModuleNotFoundError no module named agents.shared_chat",
+    "display_flight tool, LlmAgent and flight_schema.json never shown either",
+    "filled the rest in to reach the page, card still says unable to display card, invalid component value",
+    "so no flight card",
+  ].join('\n'),
+  "shared-state-agent-readonly": [
+    "page.tsx imports ACTIVITIES and DemoLayout from ./demo-layout",
+    "./demo-layout is never shown, same for ./suggestions",
+    "next fails, module not found cant resolve ./demo-layout",
+    "DemoContent is cut off before its return too, backend part is fine",
+  ].join('\n'),
+  "hitl": [
+    "frontend snippet is cut off, Chat() ends after useHumanInTheLoop with no return or closing brace",
+    "next fails to parse it, expected } got eof",
+    "imports TimePickerCard from ./time-picker-card which is never shown",
+    "backend does from agents.shared_chat import get_model, stop_on_terminal_text, never shown, ModuleNotFoundError",
+    "agent hitl-in-chat never registered",
+  ].join('\n'),
 };
 
+/** Every `text` checked against the rendered doc page HTML (2026-11-11). */
 export const FINDING_EVIDENCE: Record<string, DocEvidence[]> = {
-  // '<page-id>': [{ text: 'exact text on the rendered doc', caption: 'log-only caption' }],
+  "headless-threads": [
+    { text: "useThreads({ agentId: \"my-agent\" })", caption: "Thread list stays empty" },
+    { text: "<CopilotChat threadId={activeThreadId} />", caption: "No thread can be opened" },
+  ],
+  "gen-ui-hashbrown": [
+    { text: "Where available, the Code tab also includes the imported metric-card.tsx, chart components, types.ts, suggestion setup, runtime route, and agent source.", caption: "No ADK agent / runtime route shown" },
+  ],
+  "gen-ui-mcp-apps": [
+    { text: "url: process.env.MCP_SERVER_URL || \"https://mcp.excalidraw.com\",", caption: "Agent says the Excalidraw tool is not available" },
+  ],
+  "headless-ui": [
+    { text: "<CopilotKit runtimeUrl=\"/api/copilotkit-mcp-apps\" agent={AGENT_ID}>", caption: "Provider crashes: Blocking Route randomUUID() with cacheComponents from create-next-app@latest" },
+  ],
+  "shared-state": [
+    { text: "agentId: \"shared-state-read-write\",", caption: "No provider snippet on this page; route dies with Blocking Route randomUUID()" },
+    { text: "tools=[set_notes, AGUIToolset()],", caption: "set_notes never shown" },
+    { text: "before_model_callback=_inject_preferences,", caption: "_inject_preferences never shown" },
+  ],
+  "subagents": [
+    { text: "from agents.shared_chat import get_model, stop_on_terminal_text", caption: "agents.shared_chat never published: ModuleNotFoundError" },
+    { text: "<CopilotKit runtimeUrl=\"/api/copilotkit\" agent=\"subagents\">", caption: "Provider: Blocking Route randomUUID()" },
+  ],
+  "gen-ui-components": [
+    { text: "npm install @copilotkit/react-core @copilotkit/runtime @tanstack/ai @tanstack/ai-openai", caption: "TanStack AI backend only, no ADK; no maplibre-gl" },
+    { text: "Already have CopilotKit running? Do step 3 only.", caption: "Step 3 alone renders no component on ADK" },
+    { text: "For a LangGraph Python agent, add CopilotKitMiddleware", caption: "Agent-side step only for LangGraph" },
+  ],
+  "gen-ui-surfaces": [
+    { text: "fallback={<ProductRow products={products} />}", caption: "No ADK backend; no surface renders" },
+  ],
+  "gen-ui-catalogs": [
+    { text: "generativeUI={{ ui: shopUI }}", caption: "No ADK backend; raw HTML reply" },
+  ],
+  "gen-ui-standard-catalog": [
+    { text: "generativeUI={{ ui: standardUI }}", caption: "No ADK backend; markdown reply" },
+  ],
+  "gen-ui-state-actions": [
+    { text: "state: { cart: cartSchema },", caption: "No ADK backend; no state/actions" },
+  ],
+  "gen-ui-theming": [
+    { text: "\"--a2ui-color-accent\": \"#d97706\",", caption: "No ADK backend; nothing themed renders" },
+  ],
+  "gen-ui-from-a2ui": [
+    { text: "generativeUI={{ ui: appUI }}", caption: "No ADK backend; no Airport/Arrow" },
+  ],
+  "a2ui": [
+    { text: "a2ui={{ catalog: myCatalog }}", caption: "myCatalog never defined" },
+    { text: "from copilotkit import a2ui", caption: "No install step for the copilotkit Python package" },
+  ],
+  "a2ui-dynamic-schema": [
+    { text: "import { Chat } from \"./chat\";", caption: "./chat never shown: Module not found" },
+    { text: "runtimeUrl=\"/api/copilotkit-declarative-gen-ui\"", caption: "Route never shown" },
+    { text: "from ag_ui_langgraph import get_a2ui_tools", caption: "LangGraph code on the ADK page" },
+  ],
+  "a2ui-fixed-schema": [
+    { text: "from agents.shared_chat import get_model, stop_on_terminal_text", caption: "agents.shared_chat never published" },
+    { text: "FLIGHT_SCHEMA = _load_schema(\"flight_schema.json\")", caption: "flight_schema.json never shown" },
+  ],
+  "shared-state-agent-readonly": [
+    { text: "import { ACTIVITIES, DemoLayout } from \"./demo-layout\";", caption: "./demo-layout never shown: Module not found" },
+  ],
+  "hitl": [
+    { text: "from agents.shared_chat import get_model, stop_on_terminal_text", caption: "agents.shared_chat never published" },
+    { text: "import { TimePickerCard, TimeSlot } from \"./time-picker-card\";", caption: "./time-picker-card never shown" },
+  ],
 };
 
 /** Level-2 pages (already reported by the team): clip ends after the demo. */
@@ -35,6 +220,59 @@ export const runStandardWithFinding: PageActionHandler = async (page, config, ro
     await runStandardAction(page, config, root, ctx);
   } finally {
     // A failed take still gets its explanation.
+    await writeFinding(page, config.id, config);
+  }
+};
+
+const NEXT_ERROR_DIALOG = 'nextjs-portal [data-nextjs-dialog], nextjs-portal [role=dialog]';
+
+/**
+ * Pages whose route never renders a chat (compile error, Blocking Route, runtime crash): don't wait
+ * 60 s for an input that never comes. Show the Next error overlay, fail the take, then the finding.
+ * If the chat does render (route fixed upstream), fall back to the standard take.
+ */
+export const runRouteErrorWithFinding: PageActionHandler = async (page, config, root, ctx) => {
+  try {
+    const input = page.locator(SELECTORS.chatInput).first();
+    const dialog = page.locator(NEXT_ERROR_DIALOG).first();
+    const which = await Promise.race([
+      input.waitFor({ state: 'visible', timeout: 12000 }).then(() => 'chat' as const),
+      dialog.waitFor({ state: 'visible', timeout: 12000 }).then(() => 'error' as const),
+    ]).catch(() => 'none' as const);
+    if (which === 'chat') {
+      await runStandardAction(page, config, root, ctx);
+      return;
+    }
+    const shown = (await dialog.isVisible().catch(() => false)) ? dialog : page.locator('body');
+    const text = ((await shown.innerText().catch(() => '')) || '').replace(/\s+/g, ' ').trim().slice(0, 200);
+    mark('error', text || 'route rendered no chat');
+    void checkpoint('chat', 'chat input rendered', () => null);
+    await glideTo(page, shown, 6000);
+    ctx.fail(`Route never rendered a chat: ${text || 'no chat input, no error overlay'}`);
+  } finally {
+    await writeFinding(page, config.id, config);
+  }
+};
+
+/**
+ * Generative UI pages: the reply must render a surface (`data-generative-ui-surface`) and no
+ * "Unable to display" error card. Otherwise the take fails, then the finding.
+ */
+export const runSurfaceWithFinding: PageActionHandler = async (page, config, root, ctx) => {
+  try {
+    await runStandardAction(page, config, root, ctx);
+    const surface = page.locator('[data-generative-ui-surface]');
+    const errorCard = page.getByText('Unable to display', { exact: false }).first();
+    const rendered = (await surface.count()) > 0;
+    const broken = await errorCard.isVisible().catch(() => false);
+    void checkpoint('render', 'generative UI surface rendered', () => (rendered && !broken ? probeText(surface.last()) : null));
+    if (broken) {
+      await glideTo(page, errorCard, 2500);
+      ctx.fail(`Surface error: ${(await errorCard.innerText().catch(() => '')).slice(0, 160)}`);
+    } else if (!rendered) {
+      ctx.fail('No generative UI surface rendered; the reply is plain text/markdown.');
+    }
+  } finally {
     await writeFinding(page, config.id, config);
   }
 };
@@ -332,3 +570,31 @@ export const runHeadlessThreadsAction: PageActionHandler = async (page, config, 
   if (!replayed) ctx.fail('Selecting the thread in the sidebar did not replay its conversation.');
   await sleep(4000);
 };
+
+/** headless-threads (FINDINGS.md #25): the take, then the finding. */
+export const runHeadlessThreadsWithFinding: PageActionHandler = async (page, config, root, ctx) => {
+  try {
+    await runHeadlessThreadsAction(page, config, root, ctx);
+  } finally {
+    await writeFinding(page, config.id, config);
+  }
+};
+
+/** Pages whose reply must render something in the chat (selector); otherwise the take fails, then the finding. */
+function renderedWithFinding(selector: string, what: string): PageActionHandler {
+  return async (page, config, root, ctx) => {
+    try {
+      await runStandardAction(page, config, root, ctx);
+      const el = page.locator(selector);
+      const ok = (await el.count()) > 0;
+      void checkpoint('render', what, () => (ok ? probeText(el.last()) : null));
+      if (!ok) ctx.fail(`Nothing rendered: ${what} missing; the reply is text only.`);
+    } finally {
+      await writeFinding(page, config.id, config);
+    }
+  };
+}
+/** gen-ui-hashbrown (#26): a chart/metric must render in the reply. */
+export const runHashbrownWithFinding = renderedWithFinding(`${SELECTORS.assistantMessage} svg, ${SELECTORS.assistantMessage} canvas`, 'hashbrown chart in the reply');
+/** gen-ui-mcp-apps (#27): the MCP app iframe must render. */
+export const runMcpAppsWithFinding = renderedWithFinding('iframe', 'MCP app iframe');

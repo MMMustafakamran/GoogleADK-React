@@ -234,6 +234,10 @@ jobs:
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       CPK_INTELLIGENCE_API_KEY: ${{ secrets.CPK_INTELLIGENCE_API_KEY }}
+      # HARNESS: Gemini key/model pool (tools/gemini_pool.py on :8029). GEMINI_POOL_KEYS = comma-separated
+      # Gemini keys (secret, may be empty while the free quota is gone); OpenAI is the last-resort fallback.
+      GEMINI_POOL_KEYS: ${{ secrets.GEMINI_POOL_KEYS }}
+      GEMINI_POOL_OPENAI_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps:
       - uses: actions/checkout@v4
       - name: Today's lockfiles from the plan job
@@ -307,9 +311,10 @@ jobs:
       - name: Write env files (secret from repo settings, never logged)
         run: |
           set -eu
-          [ -n "${GEMINI_API_KEY:-}" ] || echo "::warning::secret GEMINI_API_KEY is not set; the doc agents will fail"
-          # The doc names the key GOOGLE_API_KEY (export); the secret is the Gemini key.
-          printf 'GOOGLE_API_KEY=%s\n' "$GEMINI_API_KEY" > backend/.env
+          [ -n "${GEMINI_POOL_KEYS:-}${GEMINI_POOL_OPENAI_KEY:-}" ] || echo "::warning::no GEMINI_POOL_KEYS / OPENAI_API_KEY secret; the doc agents will fail"
+          # The doc names the key GOOGLE_API_KEY (export). HARNESS: the real keys live in the pool on :8029
+          # (tools/gemini_pool.py); google-genai is pointed at it with GOOGLE_GEMINI_BASE_URL (doc agent code unchanged).
+          printf 'GOOGLE_API_KEY=pool\nGOOGLE_GEMINI_BASE_URL=http://localhost:8029\n' > backend/.env
           # The quickstart runtime reads CPK_INTELLIGENCE_API_KEY from frontend/.env (doc).
           : > frontend/.env
           if [ -n "${CPK_INTELLIGENCE_API_KEY:-}" ]; then printf 'CPK_INTELLIGENCE_API_KEY=%s\n' "$CPK_INTELLIGENCE_API_KEY" >> frontend/.env; else echo "::warning::secret CPK_INTELLIGENCE_API_KEY is not set"; fi
@@ -320,7 +325,7 @@ jobs:
           mkdir -p logs
           nohup bash start-all.sh > logs/start-all.log 2>&1 &
           # "localhost", not 127.0.0.1: the LangGraph JS server binds IPv6 ::1 only.
-          for hp in 8020/docs 3020/; do   # page agents: append 8021/ ... here
+          for hp in 8020/docs 8022/docs 8023/docs 8025/docs 8026/docs 3020/; do   # page agents: append 8021/ ... here
             port=${hp%%/*}; path=/${hp#*/}
             ok=
             tries=120; case "$port" in 8???) tries=48 ;; esac   # a dead backend costs 4 min, not 10

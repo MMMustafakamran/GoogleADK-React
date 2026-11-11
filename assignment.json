@@ -14,11 +14,12 @@
   "ag-ui-adk": "0.12.0",
   "google-genai": "2.34.0",
   "fastapi": "0.162.4",
-  "uvicorn": "0.54.0"
+  "uvicorn": "0.54.0",
+  "maplibre-gl": "5.24.0"
  },
  "testedContext": {
   "os": "Microsoft Windows 11 Pro",
-  "packageManager": "npm 11 (Node 26.7.0)"
+  "packageManager": "npm 12 (Node 26.7.0)"
  },
  "report": {
   "style": "team",
@@ -27,32 +28,1446 @@
   "clipsToUpload": false,
   "columns": [
    "Page/Section",
-   "ADK.python"
+   "Google ADK"
   ],
-  "resultColumn": 1
+  "resultColumn": 1,
+  "guidesHeading": "React Guides",
+  "quickstartHeading": "Quickstarts",
+  "quickstartHeader": [
+   "Page/Section",
+   "Google ADK"
+  ]
  },
- "sections": [],
+ "sections": [
+  {
+   "label": "Basics",
+   "cells": [
+    "Section"
+   ]
+  },
+  {
+   "label": "Chat",
+   "cells": [
+    "Sub section"
+   ]
+  },
+  {
+   "label": "Prebuilt Components",
+   "cells": [
+    "Sub section"
+   ]
+  },
+  {
+   "label": "Custom Look and Feel",
+   "cells": [
+    "Sub section"
+   ]
+  },
+  {
+   "label": "Chat​",
+   "cells": [
+    "Sub section"
+   ]
+  },
+  {
+   "label": "Threads",
+   "cells": [
+    "Sub section"
+   ]
+  },
+  {
+   "label": "Basics​",
+   "cells": [
+    "Section"
+   ]
+  },
+  {
+   "label": "Generative UI",
+   "cells": [
+    "Section"
+   ]
+  },
+  {
+   "label": "Controlled",
+   "cells": [
+    "Sub section"
+   ]
+  },
+  {
+   "label": "Declarative",
+   "cells": [
+    "Sub section"
+   ]
+  },
+  {
+   "label": "Components and surfaces",
+   "cells": [
+    "Sub section"
+   ]
+  },
+  {
+   "label": "A2UI",
+   "cells": [
+    "Sub section"
+   ]
+  },
+  {
+   "label": "Declarative​",
+   "cells": [
+    "Sub section"
+   ]
+  },
+  {
+   "label": "Open-ended",
+   "cells": [
+    "Sub section"
+   ]
+  },
+  {
+   "label": "Interactivity",
+   "cells": [
+    "Section"
+   ]
+  },
+  {
+   "label": "Shared state",
+   "cells": [
+    "Sub section"
+   ]
+  },
+  {
+   "label": "Human-in-the-loop",
+   "cells": [
+    "Sub section"
+   ]
+  },
+  {
+   "label": "Interactivity​",
+   "cells": [
+    "Section"
+   ]
+  },
+  {
+   "label": "Agent capabilities",
+   "cells": [
+    "Section"
+   ]
+  },
+  {
+   "label": "Google ADK",
+   "cells": [
+    "Sub section"
+   ]
+  },
+  {
+   "label": "Agent capabilities​",
+   "cells": [
+    "Section"
+   ]
+  }
+ ],
  "pages": [
   {
    "id": "quickstart",
-   "label": "Quickstart (use an existing agent)",
+   "label": "Quickstart",
    "kind": "quickstart",
    "group": null,
    "child": false,
    "docPath": "quickstart",
    "reachable": "sidebar",
-   "status": "N/A",
+   "status": "✅",
    "findings": [
     1,
     2
    ],
    "notes": [
-    "Note: agent reply untested, the Gemini key is out of credit (402)"
+    "Note: create-next-app@latest turns on cacheComponents, so the CopilotKit provider logs an \"unstable value randomUUID()\" error on every page (and blocks some pages fully)"
    ],
    "block": null,
    "links": [
     {
-     "clip": "ADK-react-01-Quickstart"
+     "text": null,
+     "clip": "GOOGLEADK-react-01-Quickstart",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "copilot-chat",
+   "label": "CopilotChat",
+   "kind": "guide",
+   "group": "Prebuilt Components",
+   "child": true,
+   "docPath": "prebuilt-components/chat",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [
+    14
+   ],
+   "notes": [
+    "Note: the snippet calls useAgenticChatSuggestions() and uses agent agentic_chat, neither is shown"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-02-CopilotChat",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "copilot-sidebar",
+   "label": "CopilotSidebar",
+   "kind": "guide",
+   "group": "Prebuilt Components",
+   "child": true,
+   "docPath": "prebuilt-components/sidebar",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [
+    15
+   ],
+   "notes": [
+    "Note: MainContent and Suggestions are used but never shown"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-03-CopilotSidebar",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "copilot-popup",
+   "label": "CopilotPopup",
+   "kind": "guide",
+   "group": "Prebuilt Components",
+   "child": true,
+   "docPath": "prebuilt-components/popup",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [
+    15
+   ],
+   "notes": [
+    "Note: MainContent and Suggestions are used but never shown"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-04-CopilotPopup",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "chat-controls",
+   "label": "Open, close, and feedback",
+   "kind": "guide",
+   "group": "Prebuilt Components",
+   "child": true,
+   "docPath": "prebuilt-components/chat-controls",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [
+    16
+   ],
+   "notes": [
+    "Note: the feedback snippet calls `analytics`, which is never defined."
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-05-ChatControls",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "css-customization",
+   "label": "CSS Customization",
+   "kind": "guide",
+   "group": "Custom Look and Feel",
+   "child": true,
+   "docPath": "custom-look-and-feel/css",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [],
+   "notes": [],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-06-CssCustomization",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "slots",
+   "label": "Slots (Subcomponents)",
+   "kind": "guide",
+   "group": "Custom Look and Feel",
+   "child": true,
+   "docPath": "custom-look-and-feel/slots",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [],
+   "notes": [],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-07-Slots",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "markdown-rendering",
+   "label": "Markdown Rendering",
+   "kind": "guide",
+   "group": "Custom Look and Feel",
+   "child": true,
+   "docPath": "custom-look-and-feel/markdown",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [],
+   "notes": [],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-08-MarkdownRendering",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "headless-ui",
+   "label": "Headless UI",
+   "kind": "guide",
+   "group": "Custom Look and Feel",
+   "child": true,
+   "docPath": "custom-look-and-feel/headless-ui",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    1,
+    17
+   ],
+   "notes": [
+    "Issue: following the quickstart setup, the page dies with a full-page \"Blocking Route\" error (unstable value randomUUID() in a Client Component)"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-09-HeadlessUi",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "reasoning-messages",
+   "label": "Reasoning Messages",
+   "kind": "guide",
+   "group": "Custom Look and Feel",
+   "child": true,
+   "docPath": "custom-look-and-feel/reasoning-messages",
+   "reachable": "sidebar",
+   "status": "N/A",
+   "findings": [],
+   "notes": [
+    "Note: needs a model that emits reasoning; not tested while the Gemini quota is exhausted"
+   ],
+   "block": null,
+   "links": [],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "multimodal-attachments",
+   "label": "Multimodal Attachments",
+   "kind": "guide",
+   "group": "Chat​",
+   "child": true,
+   "docPath": "multimodal-attachments",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [],
+   "notes": [],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-11-MultimodalAttachments",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "voice",
+   "label": "Voice",
+   "kind": "guide",
+   "group": "Chat​",
+   "child": true,
+   "docPath": "voice",
+   "reachable": "sidebar",
+   "status": "N/A",
+   "findings": [],
+   "notes": [
+    "Note: needs Gemini plus a transcription key; not tested yet"
+   ],
+   "block": null,
+   "links": [],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "reasoning",
+   "label": "Reasoning",
+   "kind": "guide",
+   "group": "Chat​",
+   "child": true,
+   "docPath": "generative-ui/reasoning",
+   "reachable": "sidebar",
+   "status": "N/A",
+   "findings": [],
+   "notes": [
+    "Note: needs a model that emits reasoning; not tested while the Gemini quota is exhausted"
+   ],
+   "block": null,
+   "links": [],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "threads-drawer",
+   "label": "Threads Drawer",
+   "kind": "guide",
+   "group": "Threads",
+   "child": true,
+   "docPath": "prebuilt-components/copilot-threads-drawer",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [],
+   "notes": [],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-14-ThreadsDrawer",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "headless-threads",
+   "label": "Headless Threads",
+   "kind": "guide",
+   "group": "Threads",
+   "child": true,
+   "docPath": "headless-threads",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    25
+   ],
+   "notes": [
+    "Issue: useThreads uses agent \"my-agent\" but CopilotChat runs on \"default\", so the thread list stays empty, and ThreadSidebar never calls onSelectThread, so no thread can be opened."
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-15-HeadlessThreads",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "frontend-tools",
+   "label": "Frontend-tools",
+   "kind": "guide",
+   "group": "Basics​",
+   "child": false,
+   "docPath": "frontend-tools",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [],
+   "notes": [],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-16-FrontendTools",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "gen-ui-tool-based",
+   "label": "Components as Tools",
+   "kind": "guide",
+   "group": "Controlled",
+   "child": true,
+   "docPath": "generative-ui/tool-based",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [],
+   "notes": [],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-17-GenUiToolBased",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "gen-ui-tool-rendering",
+   "label": "Tool Call Rendering",
+   "kind": "guide",
+   "group": "Controlled",
+   "child": true,
+   "docPath": "generative-ui/tool-rendering",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [],
+   "notes": [],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-18-GenUiToolRendering",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "gen-ui-state-rendering",
+   "label": "State Rendering",
+   "kind": "guide",
+   "group": "Controlled",
+   "child": true,
+   "docPath": "generative-ui/state-rendering",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [
+    18
+   ],
+   "notes": [
+    "Note: DemoLayout is used but never shown"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-19-GenUiStateRendering",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "gen-ui-components",
+   "label": "Components and surfaces",
+   "kind": "guide",
+   "group": "Components and surfaces",
+   "child": true,
+   "docPath": "generative-ui/components",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    3,
+    4
+   ],
+   "notes": [
+    "Issue: the page has no Google ADK backend (only TanStack AI / OpenAI); the ADK agent answers in plain markdown and no component renders"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-20-GenUiComponents",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "gen-ui-surfaces",
+   "label": "Surfaces",
+   "kind": "guide",
+   "group": "Components and surfaces",
+   "child": true,
+   "docPath": "generative-ui/components/surfaces",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    3,
+    4
+   ],
+   "notes": [
+    "Issue: no Google ADK backend code; the agent can't see the products and no surface renders"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-21-GenUiSurfaces",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "gen-ui-catalogs",
+   "label": "Catalogs",
+   "kind": "guide",
+   "group": "Components and surfaces",
+   "child": true,
+   "docPath": "generative-ui/components/catalogs",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    3,
+    4
+   ],
+   "notes": [
+    "Issue: no Google ADK backend; the agent replies with a raw HTML code block instead of catalog components"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-22-GenUiCatalogs",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "gen-ui-standard-catalog",
+   "label": "Standard catalog",
+   "kind": "guide",
+   "group": "Components and surfaces",
+   "child": true,
+   "docPath": "generative-ui/components/standard-catalog",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    3,
+    4,
+    24
+   ],
+   "notes": [
+    "Issue: no Google ADK backend; the reply is plain markdown, no catalog card renders"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-23-GenUiStandardCatalog",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "gen-ui-state-actions",
+   "label": "State and actions",
+   "kind": "guide",
+   "group": "Components and surfaces",
+   "child": true,
+   "docPath": "generative-ui/components/state-and-actions",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    3,
+    4
+   ],
+   "notes": [
+    "Issue: no Google ADK backend; the product card is plain markdown, no state or actions"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-24-GenUiStateActions",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "gen-ui-theming",
+   "label": "Theming",
+   "kind": "guide",
+   "group": "Components and surfaces",
+   "child": true,
+   "docPath": "generative-ui/components/theming",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    3,
+    4
+   ],
+   "notes": [
+    "Issue: no Google ADK backend; the reply is a markdown \"card\" with a [blocked] button, no themed component"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-25-GenUiTheming",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "gen-ui-transports",
+   "label": "Transports",
+   "kind": "guide",
+   "group": "Components and surfaces",
+   "child": true,
+   "docPath": "generative-ui/components/transports",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [
+    4,
+    19
+   ],
+   "notes": [
+    "Note: agent-side instructions are only for the built-in agent / LangGraph, nothing for ADK"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-26-GenUiTransports",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "gen-ui-markdown-mode",
+   "label": "Markdown mode",
+   "kind": "guide",
+   "group": "Components and surfaces",
+   "child": true,
+   "docPath": "generative-ui/components/markdown-mode",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [
+    4,
+    19
+   ],
+   "notes": [
+    "Note: no ADK agent instructions, only built-in agent / LangGraph"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-27-GenUiMarkdownMode",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "gen-ui-from-a2ui",
+   "label": "Adopt from A2UI",
+   "kind": "guide",
+   "group": "Components and surfaces",
+   "child": true,
+   "docPath": "generative-ui/components/from-a2ui",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    3,
+    4
+   ],
+   "notes": [
+    "Issue: no Google ADK backend; the reply is text only, the Airport/Arrow components never render (their renderers are never shown)"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-28-GenUiFromA2ui",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "a2ui",
+   "label": "A2UI",
+   "kind": "guide",
+   "group": "A2UI",
+   "child": true,
+   "docPath": "generative-ui/a2ui",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    6
+   ],
+   "notes": [
+    "Issue: the page only shows fragments: myCatalog and myAgent are never defined, and there is no Google ADK agent code"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-29-A2ui",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "a2ui-dynamic-schema",
+   "label": "Dynamic Schema A2UI",
+   "kind": "guide",
+   "group": "A2UI",
+   "child": true,
+   "docPath": "generative-ui/a2ui/dynamic-schema",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    7
+   ],
+   "notes": [
+    "Issue: page.tsx imports ./chat and uses /api/copilotkit-declarative-gen-ui, neither is shown; it fails with Module not found: Can't resolve './chat'"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-30-A2uiDynamicSchema",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "a2ui-fixed-schema",
+   "label": "Fixed Schema A2UI",
+   "kind": "guide",
+   "group": "A2UI",
+   "child": true,
+   "docPath": "generative-ui/a2ui/fixed-schema",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    5,
+    8
+   ],
+   "notes": [
+    "Issue: the agent imports agents.shared_chat (never shown) and the page never shows the display_flight tool, agent or flight_schema.json; the card shows \"Unable to display Card: invalid component value\""
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-31-A2uiFixedSchema",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "gen-ui-json-render",
+   "label": "JSON Render",
+   "kind": "guide",
+   "group": "Declarative​",
+   "child": true,
+   "docPath": "generative-ui/json-render",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [],
+   "notes": [],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-32-GenUiJsonRender",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "gen-ui-hashbrown",
+   "label": "Hashbrown",
+   "kind": "guide",
+   "group": "Declarative​",
+   "child": true,
+   "docPath": "generative-ui/hashbrown",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    26
+   ],
+   "notes": [
+    "Issue: the page shows no ADK agent or runtime route; with the showcase agent wired in, the hashbrown renderer draws nothing."
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-33-GenUiHashbrown",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "gen-ui-mcp-apps",
+   "label": "MCP Apps",
+   "kind": "guide",
+   "group": "Open-ended",
+   "child": true,
+   "docPath": "generative-ui/mcp-apps",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    27
+   ],
+   "notes": [
+    "Issue: the MCP server URL https://mcp.excalidraw.com redirects to /mcp, tool discovery fails (\"unexpected redirect\") and the agent says the Excalidraw tool is not available."
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-34-GenUiMcpApps",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "gen-ui-open-gen-ui",
+   "label": "Open Generative UI",
+   "kind": "guide",
+   "group": "Open-ended",
+   "child": true,
+   "docPath": "generative-ui/open-generative-ui",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [],
+   "notes": [],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-35-GenUiOpenGenUi",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "shared-state",
+   "label": "Shared State",
+   "kind": "guide",
+   "group": "Shared state",
+   "child": true,
+   "docPath": "shared-state",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    1,
+    9
+   ],
+   "notes": [
+    "Issue: the page dies with the quickstart's \"Blocking Route\" randomUUID() error; also get_model, set_notes, _inject_preferences and _INSTRUCTION are never shown"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-36-SharedState",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "shared-state-rendering-in-app",
+   "label": "Render agent state in your app",
+   "kind": "guide",
+   "group": "Shared state",
+   "child": true,
+   "docPath": "shared-state/rendering-in-app",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [
+    13
+   ],
+   "notes": [
+    "Note: Canvas.tsx uses useEffect but has no \"use client\"; works once it is added."
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-37-SharedStateRenderingInApp",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "shared-state-streaming",
+   "label": "State Streaming",
+   "kind": "guide",
+   "group": "Shared state",
+   "child": true,
+   "docPath": "shared-state/streaming",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [
+    5
+   ],
+   "notes": [
+    "Note: the agent imports get_model / stop_on_terminal_text from agents.shared_chat, which is never shown"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-38-SharedStateStreaming",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "shared-state-agent-readonly",
+   "label": "Agent Read-Only Context",
+   "kind": "guide",
+   "group": "Shared state",
+   "child": true,
+   "docPath": "shared-state/agent-readonly",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    10
+   ],
+   "notes": [
+    "Issue: page.tsx imports ./demo-layout (and ./suggestions), never shown; it fails with Module not found: Can't resolve './demo-layout'"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-39-SharedStateAgentReadonly",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "hitl",
+   "label": "HITL Overview",
+   "kind": "guide",
+   "group": "Human-in-the-loop",
+   "child": true,
+   "docPath": "human-in-the-loop",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    5,
+    11
+   ],
+   "notes": [
+    "Issue: the frontend snippet is cut off (Expected '}', got '<eof>') and the backend imports agents.shared_chat, which is never shown"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-40-Hitl",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "use-interrupt",
+   "label": "Pausing the Agent for Input",
+   "kind": "guide",
+   "group": "Human-in-the-loop",
+   "child": true,
+   "docPath": "human-in-the-loop/useInterrupt",
+   "reachable": "sidebar",
+   "status": "N/A",
+   "findings": [
+    20
+   ],
+   "notes": [
+    "Note: the page says it is not available on this framework"
+   ],
+   "block": null,
+   "links": [],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "headless-hitl",
+   "label": "Headless Interrupts",
+   "kind": "guide",
+   "group": "Human-in-the-loop",
+   "child": true,
+   "docPath": "human-in-the-loop/headless",
+   "reachable": "sidebar",
+   "status": "N/A",
+   "findings": [
+    20
+   ],
+   "notes": [
+    "Note: the page says it is not available on this framework"
+   ],
+   "block": null,
+   "links": [],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "governed-actions",
+   "label": "Governed Action Approval UI",
+   "kind": "guide",
+   "group": "Human-in-the-loop",
+   "child": true,
+   "docPath": "human-in-the-loop/governed-actions",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [
+    21
+   ],
+   "notes": [
+    "Note: the page shows no agent; it only works on an agent with AGUIToolset (shown on Frontend Tools), and executeSideEffect is never defined."
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-42-GovernedActions",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "webmcp",
+   "label": "WebMCP",
+   "kind": "guide",
+   "group": "Interactivity​",
+   "child": false,
+   "docPath": "webmcp",
+   "reachable": "sidebar",
+   "status": "N/A",
+   "findings": [
+    22
+   ],
+   "notes": [
+    "Note: needs the Chrome document.modelContext flag, which the test browser can't enable; searchOrders() is never defined"
+   ],
+   "block": null,
+   "links": [],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "agent-app-context",
+   "label": "Agent App Context",
+   "kind": "guide",
+   "group": "Google ADK",
+   "child": true,
+   "docPath": "agent-app-context",
+   "reachable": "sidebar",
+   "status": "✅",
+   "findings": [
+    23
+   ],
+   "notes": [
+    "Note: agent.py imports add_adk_fastapi_endpoint but never mounts it; added the quickstart's app lines"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-44-AgentAppContext",
+     "loom": null,
+     "narration": null
+    }
+   ],
+   "review": {
+    "verdict": null,
+    "approvedAt": null,
+    "by": null
+   }
+  },
+  {
+   "id": "subagents",
+   "label": "Sub-agents",
+   "kind": "guide",
+   "group": "Agent capabilities​",
+   "child": false,
+   "docPath": "multi-agent/subagents",
+   "reachable": "sidebar",
+   "status": "❌",
+   "findings": [
+    1,
+    5,
+    12
+   ],
+   "notes": [
+    "Issue: the page dies with the quickstart's \"Blocking Route\" randomUUID() error; the backend imports agents.shared_chat (ModuleNotFoundError) and delegation-log types are never defined"
+   ],
+   "block": null,
+   "links": [
+    {
+     "text": null,
+     "clip": "GOOGLEADK-react-45-Subagents",
+     "loom": null,
+     "narration": null
     }
    ],
    "review": {

@@ -34,6 +34,8 @@ const ALL_AGENTS = {
     "a2ui-fixed-schema": new HttpAgent({ url: "http://localhost:8025/a2ui-fixed" }),
     // HARNESS (G5): rendering-in-app uses useAgent() with no agentId = "default"; quickstart agent on 8020.
     default: new HttpAgent({ url: "http://localhost:8020/" }),
+    // HARNESS (A): headless-threads useThreads({ agentId: "my-agent" }) id never registered by the doc; quickstart agent on 8020.
+    "my-agent": new HttpAgent({ url: "http://localhost:8020/" }),
     "declarative-gen-ui": new HttpAgent({ url: "http://localhost:8020/" }),
 };
 

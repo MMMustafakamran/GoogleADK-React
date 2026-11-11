@@ -20,11 +20,38 @@ import {
   runUseInterruptAction,
   runThreadsDrawerAction,
   runHeadlessThreadsAction,
+  runRouteErrorWithFinding,
+  runSurfaceWithFinding,
+  runHeadlessThreadsWithFinding,
+  runHashbrownWithFinding,
+  runMcpAppsWithFinding,
 } from './adk.actions';
 
 /** Keys are page ids from `config/pages.config.ts`. Doctor flags any orphans. */
 export const ACTION_MAP: Record<string, PageActionHandler> = {
-  // '<page-id>': runStandardWithFinding,  // level-1 pages: standard take, then doc evidence + Notepad
+  // Level-1 pages whose route never renders a chat (Blocking Route, Module not found, parse error, crash).
+  'headless-ui': runRouteErrorWithFinding,
+  'shared-state': runRouteErrorWithFinding,
+  subagents: runRouteErrorWithFinding,
+  a2ui: runRouteErrorWithFinding,
+  'a2ui-dynamic-schema': runRouteErrorWithFinding,
+  'shared-state-agent-readonly': runRouteErrorWithFinding,
+  hitl: runRouteErrorWithFinding,
+  // Level-1 generative UI pages: the reply must render a surface.
+  'gen-ui-components': runSurfaceWithFinding,
+  'gen-ui-surfaces': runSurfaceWithFinding,
+  'gen-ui-catalogs': runSurfaceWithFinding,
+  'gen-ui-standard-catalog': runSurfaceWithFinding,
+  'gen-ui-state-actions': runSurfaceWithFinding,
+  'gen-ui-theming': runSurfaceWithFinding,
+  'gen-ui-from-a2ui': runSurfaceWithFinding,
+  'a2ui-fixed-schema': runSurfaceWithFinding,
+  // Track A follow-up (FINDINGS.md #25-#27).
+  'headless-threads': runHeadlessThreadsWithFinding,
+  'gen-ui-hashbrown': runHashbrownWithFinding,
+  'gen-ui-mcp-apps': runMcpAppsWithFinding,
+  // Plain ✅ clip: open the chat with the first "Ask the assistant" button before typing.
+  'chat-controls': runChatControlsAction,
 };
 
 export async function executePageAction(
