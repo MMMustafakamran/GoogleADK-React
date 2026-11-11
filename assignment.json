@@ -188,7 +188,7 @@
     {
      "text": null,
      "clip": "ADK-react-01-Quickstart",
-     "loom": null,
+     "loom": "https://www.loom.com/share/211f4029153644998d43dd07cd580879",
      "narration": null
     }
    ],
@@ -218,7 +218,7 @@
     {
      "text": null,
      "clip": "ADK-react-02-CopilotChat",
-     "loom": null,
+     "loom": "https://www.loom.com/share/885b28e8367f4dc8870f6c451dd1e516",
      "narration": null
     }
    ],
@@ -248,7 +248,7 @@
     {
      "text": null,
      "clip": "ADK-react-03-CopilotSidebar",
-     "loom": null,
+     "loom": "https://www.loom.com/share/f39d017fa43b45dc90a2089f21038de1",
      "narration": null
     }
    ],
@@ -278,7 +278,7 @@
     {
      "text": null,
      "clip": "ADK-react-04-CopilotPopup",
-     "loom": null,
+     "loom": "https://www.loom.com/share/fc6e93d5ba1d4ea4af22640bab00aba0",
      "narration": null
     }
    ],
@@ -308,7 +308,7 @@
     {
      "text": null,
      "clip": "ADK-react-05-ChatControls",
-     "loom": null,
+     "loom": "https://www.loom.com/share/69cf3a3f360b4e0d91188d7bb9f38ca0",
      "narration": null
     }
    ],
@@ -334,7 +334,7 @@
     {
      "text": null,
      "clip": "ADK-react-06-CssCustomization",
-     "loom": null,
+     "loom": "https://www.loom.com/share/ab6d5c044ec548628e6d66b3e650530d",
      "narration": null
     }
    ],
@@ -360,7 +360,7 @@
     {
      "text": null,
      "clip": "ADK-react-07-Slots",
-     "loom": null,
+     "loom": "https://www.loom.com/share/b4ad213dd481483bbc5921b2bb93e3e0",
      "narration": null
     }
    ],
@@ -386,7 +386,7 @@
     {
      "text": null,
      "clip": "ADK-react-08-MarkdownRendering",
-     "loom": null,
+     "loom": "https://www.loom.com/share/cfbf107d37f5423eb09faec8f65a3226",
      "narration": null
     }
    ],
@@ -417,7 +417,7 @@
     {
      "text": null,
      "clip": "ADK-react-09-HeadlessUi",
-     "loom": null,
+     "loom": "https://www.loom.com/share/6aac17b5f6c043b5918400b9fe6647c1",
      "narration": null
     }
    ],
@@ -464,7 +464,7 @@
     {
      "text": null,
      "clip": "ADK-react-20-MultimodalAttachments",
-     "loom": null,
+     "loom": "https://www.loom.com/share/b2461c4f31b14044b953c4c1971205a8",
      "narration": null
     }
    ],
@@ -532,7 +532,7 @@
     {
      "text": null,
      "clip": "ADK-react-23-ThreadsDrawer",
-     "loom": null,
+     "loom": "https://www.loom.com/share/631563619a054e7bb67a25d8164a3fb8",
      "narration": null
     }
    ],
@@ -562,7 +562,7 @@
     {
      "text": null,
      "clip": "ADK-react-24-HeadlessThreads",
-     "loom": null,
+     "loom": "https://www.loom.com/share/f3a128e225c841cd81ffbc9238b08a1a",
      "narration": null
     }
    ],
@@ -588,7 +588,7 @@
     {
      "text": null,
      "clip": "ADK-react-25-FrontendTools",
-     "loom": null,
+     "loom": "https://www.loom.com/share/14daaaba3ad64c1db516f9427a6dc9cf",
      "narration": null
     }
    ],
@@ -614,7 +614,7 @@
     {
      "text": null,
      "clip": "ADK-react-39-GenUiToolBased",
-     "loom": null,
+     "loom": "https://www.loom.com/share/ea1c1f28538c40f384a99fb3546da78c",
      "narration": null
     }
    ],
@@ -640,7 +640,7 @@
     {
      "text": null,
      "clip": "ADK-react-40-GenUiToolRendering",
-     "loom": null,
+     "loom": "https://www.loom.com/share/fd141d2d9ed94113aa278730bff15417",
      "narration": null
     }
    ],
@@ -670,7 +670,7 @@
     {
      "text": null,
      "clip": "ADK-react-41-GenUiStateRendering",
-     "loom": null,
+     "loom": "https://www.loom.com/share/7d5c752629de4c39b78a930bc7ed4e30",
      "narration": null
     }
    ],
@@ -694,14 +694,14 @@
     4
    ],
    "notes": [
-    "Issue: the page has no Google ADK backend (only TanStack AI / OpenAI); the ADK agent answers in plain markdown and no component renders"
+    "Issue: the page has no Google ADK backend (only TanStack AI / OpenAI); with the ADK agent the reply is plain text and no component renders."
    ],
    "block": null,
    "links": [
     {
      "text": null,
      "clip": "ADK-react-10-GenUiComponents",
-     "loom": null,
+     "loom": "https://www.loom.com/share/94963ff02b1845409766e6b31b0e027e",
      "narration": null
     }
    ],
@@ -725,14 +725,14 @@
     4
    ],
    "notes": [
-    "Issue: no Google ADK backend code; the agent can't see the products and no surface renders"
+    "Issue: no Google ADK backend code; the agent can't see the products and no surface renders."
    ],
    "block": null,
    "links": [
     {
      "text": null,
      "clip": "ADK-react-11-GenUiSurfaces",
-     "loom": null,
+     "loom": "https://www.loom.com/share/4e5a9cfe530747b8915335e6e97cc00b",
      "narration": null
     }
    ],
@@ -756,14 +756,14 @@
     4
    ],
    "notes": [
-    "Issue: no Google ADK backend; the agent replies with a raw HTML code block instead of catalog components"
+    "Issue: no Google ADK backend; the agent answers on its own and the catalog's ProductCard never renders."
    ],
    "block": null,
    "links": [
     {
      "text": null,
      "clip": "ADK-react-12-GenUiCatalogs",
-     "loom": null,
+     "loom": "https://www.loom.com/share/e00cec9de7b643478c15c85f62f09c70",
      "narration": null
     }
    ],
@@ -788,14 +788,14 @@
     24
    ],
    "notes": [
-    "Issue: no Google ADK backend; the reply is plain markdown, no catalog card renders"
+    "Issue: no Google ADK backend; the agent answers in text and no catalog component renders."
    ],
    "block": null,
    "links": [
     {
      "text": null,
      "clip": "ADK-react-13-GenUiStandardCatalog",
-     "loom": null,
+     "loom": "https://www.loom.com/share/5f093e5b95ec4b44805ed1932f682427",
      "narration": null
     }
    ],
@@ -819,14 +819,14 @@
     4
    ],
    "notes": [
-    "Issue: no Google ADK backend; the product card is plain markdown, no state or actions"
+    "Issue: no Google ADK backend; the agent answers in text, with no catalog component, state or actions."
    ],
    "block": null,
    "links": [
     {
      "text": null,
      "clip": "ADK-react-14-GenUiStateActions",
-     "loom": null,
+     "loom": "https://www.loom.com/share/c4a60e3289ad496fb2007c566caa6582",
      "narration": null
     }
    ],
@@ -850,14 +850,14 @@
     4
    ],
    "notes": [
-    "Issue: no Google ADK backend; the reply is a markdown \"card\" with a [blocked] button, no themed component"
+    "Issue: no Google ADK backend; the agent answers in text and no themed component renders."
    ],
    "block": null,
    "links": [
     {
      "text": null,
      "clip": "ADK-react-15-GenUiTheming",
-     "loom": null,
+     "loom": "https://www.loom.com/share/71ce33f2730341198105f39ec4260552",
      "narration": null
     }
    ],
@@ -881,14 +881,14 @@
     19
    ],
    "notes": [
-    "Issue: no Google ADK agent code in this section; the agent answers with a plain markdown table and no generative UI is emitted or rendered."
+    "Issue: no Google ADK agent code in this section (agent-side steps cover only the built-in agent and LangGraph); the agent replies in text and no generative UI is streamed or rendered."
    ],
    "block": null,
    "links": [
     {
      "text": null,
      "clip": "ADK-react-16-GenUiTransports",
-     "loom": null,
+     "loom": "https://www.loom.com/share/8a0e4f4462b64021bb6357a9700519e1",
      "narration": null
     }
    ],
@@ -912,14 +912,14 @@
     19
    ],
    "notes": [
-    "Issue: no Google ADK agent code in this section; the agent answers with a plain markdown table and no generative UI is emitted or rendered."
+    "Issue: no Google ADK agent code in this section (agent-side steps cover only the built-in agent and LangGraph); the agent replies in text and no generative UI is rendered."
    ],
    "block": null,
    "links": [
     {
      "text": null,
      "clip": "ADK-react-17-GenUiMarkdownMode",
-     "loom": null,
+     "loom": "https://www.loom.com/share/5bd0c341889b4c3695b035d3225a402a",
      "narration": null
     }
    ],
@@ -943,14 +943,14 @@
     4
    ],
    "notes": [
-    "Issue: no Google ADK backend; the reply is text only, the Airport/Arrow components never render (their renderers are never shown)"
+    "Issue: no Google ADK backend; the agent answers in text and the Airport/Arrow components never render (their renderers are never shown)."
    ],
    "block": null,
    "links": [
     {
      "text": null,
      "clip": "ADK-react-18-GenUiFromA2ui",
-     "loom": null,
+     "loom": "https://www.loom.com/share/6fb6ff56e06b4365823a4f5b1a68eae9",
      "narration": null
     }
    ],
@@ -980,7 +980,7 @@
     {
      "text": null,
      "clip": "ADK-react-26-A2ui",
-     "loom": null,
+     "loom": "https://www.loom.com/share/6b2efe36fbdc42e4a9f2b33b9128d87e",
      "narration": null
     }
    ],
@@ -1010,7 +1010,7 @@
     {
      "text": null,
      "clip": "ADK-react-27-A2uiDynamicSchema",
-     "loom": null,
+     "loom": "https://www.loom.com/share/74718c80e10b4e2092a68546086fbf88",
      "narration": null
     }
    ],
@@ -1041,7 +1041,7 @@
     {
      "text": null,
      "clip": "ADK-react-28-A2uiFixedSchema",
-     "loom": null,
+     "loom": "https://www.loom.com/share/f53b3900a891492da9c4fa5cb321c516",
      "narration": null
     }
    ],
@@ -1067,7 +1067,7 @@
     {
      "text": null,
      "clip": "ADK-react-42-GenUiJsonRender",
-     "loom": null,
+     "loom": "https://www.loom.com/share/7e4ddf76253849798c94c1d068ac7d36",
      "narration": null
     }
    ],
@@ -1090,14 +1090,14 @@
     26
    ],
    "notes": [
-    "Issue: the page shows no ADK agent or runtime route; with the showcase agent wired in, the hashbrown renderer draws nothing."
+    "Issue: the page shows no ADK agent or runtime route; with the showcase agent wired in, the run finishes but nothing renders."
    ],
    "block": null,
    "links": [
     {
      "text": null,
      "clip": "ADK-react-43-GenUiHashbrown",
-     "loom": null,
+     "loom": "https://www.loom.com/share/8f5f4346d46b4257baaa9947fb004b49",
      "narration": null
     }
    ],
@@ -1127,7 +1127,7 @@
     {
      "text": null,
      "clip": "ADK-react-44-GenUiMcpApps",
-     "loom": null,
+     "loom": "https://www.loom.com/share/4fb25d59f0d948bd9a22df7e160c9f31",
      "narration": null
     }
    ],
@@ -1153,7 +1153,7 @@
     {
      "text": null,
      "clip": "ADK-react-45-GenUiOpenGenUi",
-     "loom": null,
+     "loom": "https://www.loom.com/share/858ac16d7cdc4a87960898822f7781ba",
      "narration": null
     }
    ],
@@ -1184,7 +1184,7 @@
     {
      "text": null,
      "clip": "ADK-react-29-SharedState",
-     "loom": null,
+     "loom": "https://www.loom.com/share/61c3d22b493744a28a292428396d0753",
      "narration": null
     }
    ],
@@ -1214,7 +1214,7 @@
     {
      "text": null,
      "clip": "ADK-react-30-SharedStateRenderingInApp",
-     "loom": null,
+     "loom": "https://www.loom.com/share/e5e1f5ab143742a089ade904585d98b0",
      "narration": null
     }
    ],
@@ -1244,7 +1244,7 @@
     {
      "text": null,
      "clip": "ADK-react-31-SharedStateStreaming",
-     "loom": null,
+     "loom": "https://www.loom.com/share/53a23967b53a4f08acebd1017dcfed90",
      "narration": null
     }
    ],
@@ -1274,7 +1274,7 @@
     {
      "text": null,
      "clip": "ADK-react-32-SharedStateAgentReadonly",
-     "loom": null,
+     "loom": "https://www.loom.com/share/9b12d0f5a5674f1ab6390187d4bf8715",
      "narration": null
     }
    ],
@@ -1305,7 +1305,7 @@
     {
      "text": null,
      "clip": "ADK-react-33-Hitl",
-     "loom": null,
+     "loom": "https://www.loom.com/share/e2bb617fe18c48ca8fcd32625c3204cb",
      "narration": null
     }
    ],
@@ -1381,7 +1381,7 @@
     {
      "text": null,
      "clip": "ADK-react-35-GovernedActions",
-     "loom": null,
+     "loom": "https://www.loom.com/share/f77e0f78854f4979bddf62f15a3e0e3c",
      "narration": null
     }
    ],
@@ -1434,7 +1434,7 @@
     {
      "text": null,
      "clip": "ADK-react-37-AgentAppContext",
-     "loom": null,
+     "loom": "https://www.loom.com/share/36d15fb4e9e34b1db34359742fe41960",
      "narration": null
     }
    ],
@@ -1466,7 +1466,7 @@
     {
      "text": null,
      "clip": "ADK-react-38-Subagents",
-     "loom": null,
+     "loom": "https://www.loom.com/share/e52f0c6ac7a74c2993c017c61ea49752",
      "narration": null
     }
    ],
