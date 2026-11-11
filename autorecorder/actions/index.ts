@@ -46,6 +46,8 @@ export const ACTION_MAP: Record<string, PageActionHandler> = {
   'gen-ui-theming': runSurfaceWithFinding,
   'gen-ui-from-a2ui': runSurfaceWithFinding,
   'a2ui-fixed-schema': runSurfaceWithFinding,
+  'gen-ui-transports': runSurfaceWithFinding,
+  'gen-ui-markdown-mode': runSurfaceWithFinding,
   // Track A follow-up (FINDINGS.md #25-#27).
   'headless-threads': runHeadlessThreadsWithFinding,
   'gen-ui-hashbrown': runHashbrownWithFinding,

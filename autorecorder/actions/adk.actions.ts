@@ -13,6 +13,19 @@ import { SELECTORS } from '../config/selectors.config';
  * pasted into Notepad in hurried casual words (AUTORECORDER.md section 2). Nothing drawn on the page.
  */
 export const FINDING_NOTES: Record<string, string> = {
+  "gen-ui-transports": [
+    "transports page, agent side steps are only for the built-in agent and langgraph python",
+    "for a langgraph python agent add CopilotKitMiddleware, nothing for google adk",
+    "no adk agent code in the whole section",
+    "asked to compare starter team and enterprise plans in a table",
+    "agent gives a plain markdown table, no generative ui streamed or rendered",
+  ].join('\n'),
+  "gen-ui-markdown-mode": [
+    "markdown mode page says any other agent needs one thing, put the context entries in its system prompt",
+    "but never shows how for google adk, only built-in agent and langgraph python",
+    "asked for the starter team enterprise plans in a table",
+    "just a plain markdown table, no generative ui rendered at all",
+  ].join('\n'),
   "headless-threads": [
     "page builds the thread list with useThreads agentId my-agent",
     "and opens one with CopilotChat threadId activeThreadId",
@@ -138,6 +151,12 @@ export const FINDING_NOTES: Record<string, string> = {
 
 /** Every `text` checked against the rendered doc page HTML (2026-11-11). */
 export const FINDING_EVIDENCE: Record<string, DocEvidence[]> = {
+  "gen-ui-transports": [
+    { text: "For a LangGraph Python agent, add CopilotKitMiddleware", caption: "Agent-side step only for built-in agent / LangGraph Python" },
+  ],
+  "gen-ui-markdown-mode": [
+    { text: "Any other agent needs one thing: put the run's context entries into its system prompt.", caption: "No ADK agent code; plain markdown table" },
+  ],
   "headless-threads": [
     { text: "useThreads({ agentId: \"my-agent\" })", caption: "Thread list stays empty" },
     { text: "<CopilotChat threadId={activeThreadId} />", caption: "No thread can be opened" },
