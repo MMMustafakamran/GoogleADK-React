@@ -1,6 +1,6 @@
 {
  "root": "google-adk",
- "savedAt": "2026-11-11",
+ "savedAt": "2026-11-12",
  "pages": {
   "/google-adk/build-with-agents": [],
   "/google-adk/prebuilt-components/sidebar": [
@@ -92,7 +92,8 @@
   "/google-adk/generative-ui/state-rendering": [],
   "/google-adk/generative-ui/components/surfaces": [
    "/google-adk/generative-ui/components",
-   "/google-adk/generative-ui/components/catalogs"
+   "/google-adk/generative-ui/components/catalogs",
+   "/google-adk/react-native"
   ],
   "/google-adk/generative-ui/components": [
    "/google-adk/generative-ui/components/catalogs",
@@ -102,14 +103,17 @@
    "/google-adk/generative-ui/components/surfaces",
    "/google-adk/generative-ui/components/theming",
    "/google-adk/generative-ui/components/transports",
-   "/google-adk/inspector"
+   "/google-adk/inspector",
+   "/google-adk/react-native"
   ],
   "/google-adk/generative-ui/components/catalogs": [
+   "/google-adk/generative-ui/components",
    "/google-adk/generative-ui/components/state-and-actions"
   ],
   "/google-adk/generative-ui/components/standard-catalog": [
    "/google-adk/generative-ui/components/catalogs",
-   "/google-adk/generative-ui/components/theming"
+   "/google-adk/generative-ui/components/theming",
+   "/google-adk/react-native"
   ],
   "/google-adk/generative-ui/components/from-a2ui": [
    "/google-adk/generative-ui/components/catalogs",
@@ -122,7 +126,8 @@
   ],
   "/google-adk/generative-ui/components/markdown-mode": [
    "/google-adk/generative-ui/components/state-and-actions",
-   "/google-adk/generative-ui/components/surfaces"
+   "/google-adk/generative-ui/components/surfaces",
+   "/google-adk/generative-ui/components/transports"
   ],
   "/google-adk/generative-ui/a2ui": [
    "/google-adk/generative-ui/a2ui/dynamic-schema",
@@ -135,8 +140,12 @@
   "/google-adk/generative-ui/hashbrown": [
    "/google-adk/generative-ui/json-render"
   ],
-  "/google-adk/generative-ui/components/state-and-actions": [],
-  "/google-adk/generative-ui/components/theming": [],
+  "/google-adk/generative-ui/components/state-and-actions": [
+   "/google-adk/react-native"
+  ],
+  "/google-adk/generative-ui/components/theming": [
+   "/google-adk/react-native"
+  ],
   "/google-adk/generative-ui/a2ui/fixed-schema": [
    "/google-adk/generative-ui/a2ui/dynamic-schema"
   ],

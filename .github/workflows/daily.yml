@@ -249,7 +249,7 @@ jobs:
       CPK_INTELLIGENCE_API_KEY: ${{ secrets.CPK_INTELLIGENCE_API_KEY }}
       # HARNESS: Gemini key/model pool (tools/gemini_pool.py on :8029). GEMINI_POOL_KEYS = comma-separated
       # Gemini keys (secret, may be empty while the free quota is gone); OpenAI is the last-resort fallback.
-      GEMINI_POOL_KEYS: ${{ secrets.GEMINI_POOL_KEYS }}
+      GEMINI_POOL_KEYS: ${{ secrets.GEMINI_POOL_KEYS || secrets.GEMINI_API_KEY }}
       GEMINI_POOL_OPENAI_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps:
       - uses: actions/checkout@v4
