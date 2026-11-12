@@ -142,6 +142,19 @@ export const FINDING_NOTES: Record<string, string> = {
     "neither file is on the page, not even in the code tab",
     "next fails, module not found cant resolve ./demo-layout",
   ].join('\n'),
+  "reasoning": [
+    "reasoning page says if ur model emits reasoning tokens the card shows up on its own",
+    "but it only names gpt models,theres no adk agent or gemini thinking setting anywhere on the page",
+    "so used the quickstart agent on gemini",
+    "asked it a step by step math question,got a normal answer",
+    "no thinking card no thought for x seconds,nothing",
+  ].join('\n'),
+  "reasoning-messages": [
+    "reasoning messages page says just connect ur agent, no extra config needed",
+    "page only names gpt models and shows no adk agent,no gemini thinking setting",
+    "used the quickstart agent on gemini,asked a step by step math question",
+    "plain answer came back,the reasoning card never shows",
+  ].join('\n'),
   "governed-actions": [
     "governed actions page only has frontend code,useInterrupt card and an approval tool",
     "no agent or backend step at all, so used the quickstart agent",
@@ -218,6 +231,12 @@ export const FINDING_EVIDENCE: Record<string, DocEvidence[]> = {
   "shared-state-agent-readonly": [
     { text: "import { ACTIVITIES, DemoLayout } from \"./demo-layout\";", caption: "./demo-layout never shown: Module not found" },
     { text: "import { useReadonlyStateAgentContextSuggestions } from \"./suggestions\";", caption: "./suggestions never shown" },
+  ],
+  "reasoning": [
+    { text: "if your model emits reasoning tokens, the card", caption: "No ADK agent / Gemini thinking config; no reasoning card on Gemini" },
+  ],
+  "reasoning-messages": [
+    { text: "The only requirement is connecting your agent to CopilotKit", caption: "No ADK agent / Gemini thinking config; no reasoning card on Gemini" },
   ],
   "governed-actions": [
     { text: "Inline approval with useInterrupt", caption: "Frontend only, no agent; no approval card on the quickstart agent" },

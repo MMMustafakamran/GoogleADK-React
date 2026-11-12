@@ -1,0 +1,9 @@
+{
+ "text": "Basically there's no ADK agent here, and nothing about turning on thinking for Gemini.",
+ "model": "s2.1-pro-free",
+ "refSha256": "2c9d0ecf4608feacc07c88e869cd4dec601481306a939b7be92fc1bff521a727",
+ "duration": 6.78,
+ "file": "135bf7c4b843473e6b255a36297b2911.mp3",
+ "clip": "ADK-react-19-ReasoningMessages",
+ "at": "notepad"
+}

@@ -57,6 +57,9 @@ export const ACTION_MAP: Record<string, PageActionHandler> = {
   'gen-ui-hashbrown': runHashbrownWithFinding,
   'gen-ui-mcp-apps': runMcpAppsWithFinding,
   'governed-actions': runGovernedWithFinding,
+  // Level-1 (FINDINGS.md #28): no reasoning card on Gemini.
+  reasoning: runStandardWithFinding,
+  'reasoning-messages': runStandardWithFinding,
   // ✅ HITL Overview (Code-tab files): pick a slot in the time picker.
   hitl: runHitlAction,
   // Plain ✅ clip: open the chat with the first "Ask the assistant" button before typing.

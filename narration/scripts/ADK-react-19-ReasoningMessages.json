@@ -1,0 +1,39 @@
+{
+ "clip": "ADK-react-19-ReasoningMessages",
+ "finding": "google-adk-react ReasoningMessages",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the reasoning messages page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. I asked a step by step math question."
+  },
+  {
+   "at": "+",
+   "text": "A plain answer came back, and the reasoning card never appeared."
+  },
+  {
+   "at": "evidence#1",
+   "text": "And umm, this line says you just connect your agent, no extra config."
+  },
+  {
+   "at": "notepad",
+   "text": "Basically there's no ADK agent here, and nothing about turning on thinking for Gemini."
+  },
+  {
+   "at": "+",
+   "text": "So the reasoning card just never shows up."
+  },
+  {
+   "at": "+",
+   "text": "Alright, that's the issue, kindly sort it out."
+  }
+ ]
+}

@@ -1,5 +1,5 @@
 # Findings — GoogleADK-React
-Open doc defects only, for https://docs.copilotkit.ai/google-adk (React). Numbers are stable IDs (code cites `FINDINGS.md #N`); gaps are removed findings. LLM replies via OpenAI fallback (Gemini free quota exhausted): the doc's agent code is unchanged, `tools/gemini_pool.py` on :8029 forwards the model calls.
+Open doc defects only, for https://docs.copilotkit.ai/google-adk (React). Numbers are stable IDs (code cites `FINDINGS.md #N`); gaps are removed findings. LLM replies via Gemini (`tools/gemini_pool.py` on :8029 forwards the model calls; OpenAI only as last-resort fallback): the doc's agent code is unchanged.
 Stack: `@copilotkit/react-core`/`react-ui`/`runtime` 1.86.0 (declared ^1.86.0), `@ag-ui/client` 1.0.2 (doc pin), `next` 16.4.6, `react` 19.3.0, `maplibre-gl` 5.24.0 (HARNESS, #4), `google-adk` 2.14.0, `ag-ui-adk` 0.12.0, `google-genai` 2.34.0, `fastapi` 0.162.4, `uvicorn` 0.54.0. Node 26.7.0, npm 12.0.2, Python 3.13.15 (backend venv), uv 0.12.5, Windows 11 Pro. Docs: https://docs.copilotkit.ai/google-adk (snapshot 2026-11-11)
 
 ## Dev blockers (seen with `npm run dev` and normal use of the page)
@@ -70,6 +70,11 @@ Stack: `@copilotkit/react-core`/`react-ui`/`runtime` 1.86.0 (declared ^1.86.0), 
 - **Doc:** the page shows only frontend code (a `useInterrupt` card and a `useHumanInTheLoop` approval tool); `executeSideEffect` is never defined, and `useInterrupt` is the hook #20 says is not available on ADK. No agent and no backend step.
 - **Result:** on the quickstart agent, "Send an email to bob@example.com saying hi." gets a text reply and no approval card, every run.
 - **Confirmed by harness:** on an agent with `AGUIToolset` (the Frontend Tools agent) and a prompt naming the tool, the "User approval required" card appears.
+
+### [Reasoning](https://docs.copilotkit.ai/google-adk/generative-ui/reasoning) / [Reasoning Messages](https://docs.copilotkit.ai/google-adk/custom-look-and-feel/reasoning-messages)
+**#28 No reasoning card appears on Google ADK: both pages show no ADK agent and no way to make Gemini emit reasoning.**
+- **Doc:** "Some models (`gpt-6-luna`, Anthropic's thinking variants) emit reasoning tokens" / "No configuration is needed; if your model emits reasoning tokens, the card appears automatically"; Reasoning Messages: "The only requirement is connecting your agent to CopilotKit; no extra props or configuration needed". Only frontend code; no ADK agent, no Gemini thinking setting (`include_thoughts`).
+- **Result:** on the quickstart ADK agent served by Gemini (pool log: `200 model=gemini-3.8-flash`), "Think step by step: what is 17 times 23?" gets a plain markdown answer; no "Thinking…" / "Thought for X seconds" card on either page (probes `reasoning`, `reasoning-messages`, 2026-11-12).
 
 ## Minor notes
 - **#4** [Components](https://docs.copilotkit.ai/google-adk/generative-ui/components) / [Standard catalog](https://docs.copilotkit.ai/google-adk/generative-ui/components/standard-catalog): the doc calls `maplibre-gl` optional, but importing `@copilotkit/react-core/v2/generative-ui` without it fails with `Module not found: Can't resolve 'maplibre-gl'`; `npm install maplibre-gl` fixes it.

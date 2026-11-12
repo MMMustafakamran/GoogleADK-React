@@ -1,0 +1,39 @@
+{
+ "clip": "ADK-react-22-Reasoning",
+ "finding": "google-adk-react Reasoning",
+ "level": 1,
+ "segments": [
+  {
+   "at": "doc",
+   "text": "Ok so, this is the reasoning page in the CopilotKit docs, for Google ADK with React. And I have implemented this page in my project."
+  },
+  {
+   "at": "ide",
+   "text": "This is my project, this is the exact code from the doc."
+  },
+  {
+   "at": "demo",
+   "text": "Moving on to the demo. So I asked it a step by step math question."
+  },
+  {
+   "at": "+",
+   "text": "It gave a normal answer, but umm, no thinking card showed up at all."
+  },
+  {
+   "at": "evidence#1",
+   "text": "Here the page says the card just appears if the model emits reasoning."
+  },
+  {
+   "at": "notepad",
+   "text": "So basically, the page only talks about GPT models, there's no ADK agent and no Gemini thinking setting."
+  },
+  {
+   "at": "+",
+   "text": "So on Gemini, uh, the reasoning card never shows."
+  },
+  {
+   "at": "+",
+   "text": "So yeah, please take a look and fix this."
+  }
+ ]
+}

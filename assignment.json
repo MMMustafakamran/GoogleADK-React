@@ -431,13 +431,22 @@
    "child": true,
    "docPath": "custom-look-and-feel/reasoning-messages",
    "reachable": "sidebar",
-   "status": "N/A",
-   "findings": [],
+   "status": "❌",
+   "findings": [
+    28
+   ],
    "notes": [
-    "Note: needs a model that emits reasoning; not tested while the Gemini quota is exhausted"
+    "Issue: the page shows no ADK agent and no way to make Gemini emit reasoning; on Gemini the agent answers in plain text and no reasoning card ever appears."
    ],
    "block": null,
-   "links": [],
+   "links": [
+    {
+     "text": null,
+     "clip": "ADK-react-19-ReasoningMessages",
+     "loom": null,
+     "narration": null
+    }
+   ],
    "review": {
     "verdict": null,
     "approvedAt": null,
@@ -481,7 +490,7 @@
    "status": "N/A",
    "findings": [],
    "notes": [
-    "Note: needs Gemini plus a transcription key; not tested yet"
+    "Note: needs a microphone and an OpenAI transcription key (OPENAI_TRANSCRIPTION_API_KEY); with Gemini the chat replies, and the doc's /transcribe route transcribed a sample file locally. Mic flow not recorded: CI has no transcription key mapped."
    ],
    "block": null,
    "links": [],
@@ -499,13 +508,22 @@
    "child": true,
    "docPath": "generative-ui/reasoning",
    "reachable": "sidebar",
-   "status": "N/A",
-   "findings": [],
+   "status": "❌",
+   "findings": [
+    28
+   ],
    "notes": [
-    "Note: needs a model that emits reasoning; not tested while the Gemini quota is exhausted"
+    "Issue: the page shows no ADK agent and no way to make Gemini emit reasoning; on Gemini the agent answers in plain text and no reasoning card ever appears."
    ],
    "block": null,
-   "links": [],
+   "links": [
+    {
+     "text": null,
+     "clip": "ADK-react-22-Reasoning",
+     "loom": null,
+     "narration": null
+    }
+   ],
    "review": {
     "verdict": null,
     "approvedAt": null,
