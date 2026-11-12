@@ -96,6 +96,9 @@ export const PROJECT: ProjectConfig = {
   backendStartCmd: './start-all.sh   (backends 8020 (page agents 8021-8029) via uv run --env-file .env uvicorn ...)',
 
   demoSuffix: '',
+  // HARNESS: the Gemini key pool fails over after a ~40s ReadTimeout on a slow key, so the
+  // first token can land after the default 30s; wait longer before calling it no reply.
+  timeouts: { replyStartMs: 75_000 },
 
   // The Copilot Runtime lives inside the Next app; there is no third server.
   runtimeWarmPath: '/api/copilotkit',
