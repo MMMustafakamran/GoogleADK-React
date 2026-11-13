@@ -17,7 +17,7 @@
   },
   {
    "at": "+",
-   "text": "The backend answers, but umm, nothing renders, no dashboard at all."
+   "text": "The dashboard does render, but umm, only because I added the missing files myself."
   },
   {
    "at": "evidence#1",
@@ -25,11 +25,11 @@
   },
   {
    "at": "notepad",
-   "text": "So basically, the agent says it's mounted in a registry file that's never shown, and the page imports chat, types and chart config, also not shown."
+   "text": "So basically, the agent is mounted in a registry file that's never shown, and the page imports chat, types and chart config, also not shown."
   },
   {
    "at": "+",
-   "text": "I filled those in, and still no dashboard shows up."
+   "text": "You can't build this page from the doc without guessing those files."
   },
   {
    "at": "+",

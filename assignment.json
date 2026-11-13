@@ -400,13 +400,12 @@
    "child": true,
    "docPath": "custom-look-and-feel/headless-ui",
    "reachable": "sidebar",
-   "status": "❌",
+   "status": "✅",
    "findings": [
-    1,
     17
    ],
    "notes": [
-    "Issue: following the quickstart setup, the page dies with a full-page \"Blocking Route\" error (unstable value randomUUID() in a Client Component)"
+    "Note: the snippets are fragments (visible, composer, imports never shown); works once filled in. The randomUUID() cacheComponents error shows only in the console."
    ],
    "block": null,
    "links": [
@@ -863,7 +862,7 @@
     4
    ],
    "notes": [
-    "Issue: no Google ADK backend; the agent answers in text and no themed component renders."
+    "Issue: no Google ADK backend; no themed component renders, the agent answers only with text or code."
    ],
    "block": null,
    "links": [
@@ -1103,7 +1102,7 @@
     26
    ],
    "notes": [
-    "Issue: the Code tab's agent is mounted in registry.py and the page imports ./chat, ./types and ./chart-config, none shown; with those filled in, no dashboard renders."
+    "Issue: the Code tab's agent is mounted in registry.py and the page imports ./chat, ./types and ./chart-config, none shown, so the page can't be built from the doc. With those taken from the showcase, the dashboard renders."
    ],
    "block": null,
    "links": [
@@ -1133,7 +1132,7 @@
     27
    ],
    "notes": [
-    "Issue: the MCP server URL https://mcp.excalidraw.com redirects to /mcp, tool discovery fails (\"unexpected redirect\") and the agent says the Excalidraw tool is not available."
+    "Issue: the MCP server URL https://mcp.excalidraw.com redirects to /mcp, tool discovery fails (\"unexpected redirect\") and no MCP app ever shows in the chat."
    ],
    "block": null,
    "links": [
@@ -1471,7 +1470,7 @@
     12
    ],
    "notes": [
-    "Issue: the Code tab's page.tsx imports ./subagent-activity-card, ./demo-layout, ./active-subagent and ./suggestions, none shown; it fails with Module not found. The agent also imports agents.shared_chat, never shown."
+    "Issue: the Code tab's page.tsx imports ./subagent-activity-card, ./demo-layout, ./active-subagent and ./suggestions, none shown; Next fails with Module not found. The agent also imports agents.shared_chat, never shown."
    ],
    "block": null,
    "links": [

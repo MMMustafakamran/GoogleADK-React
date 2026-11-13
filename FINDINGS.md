@@ -7,12 +7,12 @@ Stack: `@copilotkit/react-core`/`react-ui`/`runtime` 1.86.0 (declared ^1.86.0), 
 ### [Quickstart](https://docs.copilotkit.ai/google-adk/quickstart) — "Use an existing agent"
 **#1 The quickstart's `create-next-app@latest` setup turns on `cacheComponents`, and the doc's CopilotKit provider then trips it: some pages die with a full-page "Blocking Route" error.**
 - **Doc:** `npx create-next-app@latest` (scaffolds `cacheComponents: true` in `next.config.ts`), then the `<CopilotKit runtimeUrl="/api/copilotkit" ...>` provider in a Client Component. The page never mentions `cacheComponents`.
-- **Error:** `Error: Route "/<route>": Next.js encountered the unstable value require('node:crypto').randomUUID() in a Client Component. This value would be evaluated during the prerender, instead of recomputed on each visit.` Logged on every page (a few with `Date.now()` instead). On Headless UI and Shared State it is a full-page Blocking Route error and nothing renders (probes `headless-ui`, `shared-state`). Not worked around (owner decision): those pages stay ❌ with this error.
+- **Error:** `Error: Route "/<route>": Next.js encountered the unstable value require('node:crypto').randomUUID() in a Client Component. This value would be evaluated during the prerender, instead of recomputed on each visit.` Logged on every page (a few with `Date.now()` instead). On Shared State it is a full-page Blocking Route error and nothing renders (probe `shared-state`). Not worked around (owner decision): that page stays ❌ with this error. On Headless UI it is now console-only and the page works (probes 2026-11-13).
 
 ### [Components and surfaces](https://docs.copilotkit.ai/google-adk/generative-ui/components) (whole section)
 **#3 No Google ADK backend anywhere in the Components & Surfaces section: the ADK agent never renders a component.**
 - **Doc:** the section's setup is `npm install @copilotkit/react-core @copilotkit/runtime @tanstack/ai @tanstack/ai-openai` with a TanStack AI / OpenAI `BuiltInAgent` runtime; no ADK agent code or ADK step on Components, Surfaces, Catalogs, Standard catalog, State and actions, Theming or Adopt from A2UI.
-- **Result:** with the quickstart ADK agent behind the doc's frontend, every page answers in plain text/markdown and no catalog component renders. Transports and Markdown mode: the agent replies in text; no generative UI is streamed or rendered (their agent-side steps cover only the built-in agent and LangGraph, see #19). Components: markdown table for "Compare the Starter, Team, and Enterprise plans". Surfaces: "since I don't know which store or website you're currently browsing" (agent can't see the products). Catalogs: the agent answers on its own (the reply shape varies run to run), the catalog's `ProductCard` never renders. Standard catalog: markdown "welcome card". State and actions: markdown "Product Card: Trail Runner", no state/actions. Theming: markdown card with `Click Me! 🚀 [blocked]`. Adopt from A2UI: `[SFO] San Francisco ─── ✈️ ───> [JFK] New York` as text; the Airport/Arrow renderers are never shown.
+- **Result:** with the quickstart ADK agent behind the doc's frontend, every page answers in plain text/markdown and no catalog component renders. Transports and Markdown mode: the agent replies in text; no generative UI is streamed or rendered (their agent-side steps cover only the built-in agent and LangGraph, see #19). Components: markdown table for "Compare the Starter, Team, and Enterprise plans". Surfaces: "since I don't know which store or website you're currently browsing" (agent can't see the products). Catalogs: the agent answers on its own (the reply shape varies run to run), the catalog's `ProductCard` never renders. Standard catalog: markdown "welcome card". State and actions: markdown "Product Card: Trail Runner", no state/actions. Theming: only text or a code block, no themed component. Adopt from A2UI: `[SFO] San Francisco ─── ✈️ ───> [JFK] New York` as text; the Airport/Arrow renderers are never shown.
 
 ### Shared: `agents.shared_chat` (Fixed Schema A2UI, Sub-agents)
 **#5 Agent files import `agents.shared_chat`, which these pages never show or link.**
@@ -47,7 +47,7 @@ Stack: `@copilotkit/react-core`/`react-ui`/`runtime` 1.86.0 (declared ^1.86.0), 
 ### [Sub-agents](https://docs.copilotkit.ai/google-adk/multi-agent/subagents)
 **#12 The Code tab's `page.tsx` imports four files that no tab shows.**
 - **Doc:** Code-tab `page.tsx`: `./subagent-activity-card`, `./demo-layout`, `./active-subagent`, `./suggestions`; none is on the page. Code-tab `route.ts` needs `@/lib/header-forwarding`. Backend: #5.
-- **Error:** `./app/g6-subagents/page.tsx:14:1 Error: Module not found: Can't resolve './subagent-activity-card'` (also `'./demo-layout'`, `'./active-subagent'`, `'./suggestions'`); the route 500s.
+- **Error:** `Error: Module not found: Can't resolve './<file>'` for these imports (which one Next reports first varies, e.g. `'./active-subagent'` or `'./subagent-activity-card'`); the route 500s.
 
 ### [Headless Threads](https://docs.copilotkit.ai/google-adk/headless-threads)
 **#25 The thread list stays empty: the two snippets use different agents, and rows can't be opened.**
@@ -56,14 +56,15 @@ Stack: `@copilotkit/react-core`/`react-ui`/`runtime` 1.86.0 (declared ^1.86.0), 
 - **Confirmed by harness:** switching `useThreads` to `agentId: "default"` (temporary, reverted) fills the list with past threads.
 
 ### [Hashbrown](https://docs.copilotkit.ai/google-adk/generative-ui/hashbrown)
-**#26 No dashboard renders.**
-- **Doc:** the Code tab's `byoc_agents.py` shares one fused agent between hashbrown and json-render (its instruction emits both formats in one JSON object) and says it is mounted in `registry.py`, which is never shown. The Code tab's `page.tsx` imports `./chat`, `hashbrown-renderer.tsx` imports `./types`, the charts import `./chart-config`: none of these is shown either.
-- **Result:** with the missing files taken from the showcase and the agent mounted at the route's `/declarative-hashbrown` path (HARNESS), the backend answers 200 but no assistant output and no dashboard appear.
+**#26 The page can't be built from the doc: the agent mount and three frontend files are never shown.**
+- **Doc:** the Code tab's `byoc_agents.py` says the agent is mounted in `registry.py`, which is never shown. The Code tab's `page.tsx` imports `./chat`, `hashbrown-renderer.tsx` imports `./types`, the charts import `./chart-config`: none of these is shown either.
+- **Result:** as published the page fails on the missing imports and the agent has no route; filling them in needs guesswork.
+- **Confirmed by harness:** with the missing files taken from the showcase and the agent mounted at the route's `/declarative-hashbrown` path (HARNESS), the dashboard renders ("Q4 Sales Performance", TOTAL REVENUE metric, segment chart; probes 2026-11-13, 3/3).
 
 ### [MCP Apps](https://docs.copilotkit.ai/google-adk/generative-ui/mcp-apps)
 **#27 The MCP server URL redirects, so tool discovery fails.**
 - **Doc:** `url: process.env.MCP_SERVER_URL || "https://mcp.excalidraw.com",` (the page's own Intelligence snippet uses `/mcp`).
-- **Error:** `MCP tool discovery failed … [TypeError: fetch failed] { [cause]: Error: unexpected redirect }` (308 to `/mcp`); the agent replies that the Excalidraw drawing tool isn't available.
+- **Error:** `MCP tool discovery failed … [TypeError: fetch failed] { [cause]: Error: unexpected redirect }` (308 to `/mcp`); no MCP app ever renders in the chat (on 2026-11-13 the agent did not reply at all, 3/3 probes).
 
 ### [Governed Action Approval UI](https://docs.copilotkit.ai/google-adk/human-in-the-loop/governed-actions)
 **#21 No approval card appears: the page shows no agent, and the quickstart agent never gets the approval tool.**

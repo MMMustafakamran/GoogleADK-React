@@ -38,24 +38,15 @@ export const FINDING_NOTES: Record<string, string> = {
   "gen-ui-hashbrown": [
     "code tab has the agent and route but says its mounted in registry.py, never shown",
     "page also imports ./chat ./types and ./chart-config, not shown either",
-    "filled those in from the showcase and mounted the agent",
-    "asked for a q4 sales dashboard with a metric and pie chart",
-    "backend answers fine but nothing renders, no dashboard",
+    "cant build the page from the doc without guessing those files",
+    "took them from the showcase and mounted the agent myself,only then the dashboard renders",
   ].join('\n'),
   "gen-ui-mcp-apps": [
     "route uses url process.env.MCP_SERVER_URL or mcp.excalidraw.com",
     "wired it exactly like that",
+    "that url redirects to /mcp so tool discovery fails, unexpected redirect in the server log",
     "asked it to draw a simple flowchart",
-    "agent says the excalidraw tool is not available",
-    "so no mcp app ever shows up in the chat",
-  ].join('\n'),
-  "headless-ui": [
-    "followed the quickstart, npx create-next-app@latest then the copilotkit steps",
-    "todays create-next-app turns on cacheComponents in next.config",
-    "with that the CopilotKit provider on this page crashes the whole route",
-    "next says blocking route, unstable value randomUUID() in a Client Component",
-    "so the headless chat never even shows up, page is just the error",
-    "quickstart never says to turn cacheComponents off",
+    "no excalidraw app ever shows up in the chat",
   ].join('\n'),
   "shared-state": [
     "page uses the CopilotKit provider from the quickstart setup",
@@ -69,7 +60,7 @@ export const FINDING_NOTES: Record<string, string> = {
     "took page.tsx straight from the code tab",
     "it imports ./subagent-activity-card ./demo-layout ./active-subagent and ./suggestions",
     "none of those 4 files are shown anywhere on the page",
-    "so next fails, module not found cant resolve ./subagent-activity-card",
+    "so next fails with module not found on those imports",
     "backend also does from agents.shared_chat import get_model, never shown",
   ].join('\n'),
   "gen-ui-components": [
@@ -107,7 +98,7 @@ export const FINDING_NOTES: Record<string, string> = {
     "theming page sets --a2ui-color-accent and friends",
     "but theres no adk backend so nothing ever renders to theme",
     "asked for a card with a button",
-    "got a markdown card with a blocked button, no themed component",
+    "no themed component renders, only text or code",
   ].join('\n'),
   "gen-ui-from-a2ui": [
     "from a2ui page registers appUI with Airport and Arrow renderers",
@@ -177,13 +168,10 @@ export const FINDING_EVIDENCE: Record<string, DocEvidence[]> = {
     { text: "<CopilotChat threadId={activeThreadId} />", caption: "No thread can be opened" },
   ],
   "gen-ui-hashbrown": [
-    { text: "Where available, the Code tab also includes the imported metric-card.tsx, chart components, types.ts, suggestion setup, runtime route, and agent source.", caption: "registry.py, ./chat, ./types, ./chart-config never shown; no dashboard renders" },
+    { text: "Where available, the Code tab also includes the imported metric-card.tsx, chart components, types.ts, suggestion setup, runtime route, and agent source.", caption: "registry.py, ./chat, ./types, ./chart-config never shown" },
   ],
   "gen-ui-mcp-apps": [
-    { text: "url: process.env.MCP_SERVER_URL || \"https://mcp.excalidraw.com\",", caption: "Agent says the Excalidraw tool is not available" },
-  ],
-  "headless-ui": [
-    { text: "const { agent } = useAgent({ agentId: \"headless-simple\" });", caption: "Page code (visible on the rendered page); route crashes: Blocking Route randomUUID() with cacheComponents" },
+    { text: "url: process.env.MCP_SERVER_URL || \"https://mcp.excalidraw.com\",", caption: "URL redirects to /mcp; tool discovery fails, no MCP app" },
   ],
   "shared-state": [
     { text: "agentId: \"shared-state-read-write\",", caption: "No provider snippet on this page; route dies with Blocking Route randomUUID()" },

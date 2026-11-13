@@ -35,7 +35,6 @@ import {
 /** Keys are page ids from `config/pages.config.ts`. Doctor flags any orphans. */
 export const ACTION_MAP: Record<string, PageActionHandler> = {
   // Level-1 pages whose route never renders a chat (Blocking Route, Module not found, parse error, crash).
-  'headless-ui': runRouteErrorWithFinding,
   'shared-state': runRouteErrorWithFinding,
   subagents: runRouteErrorWithFinding,
   a2ui: runRouteErrorWithFinding,
